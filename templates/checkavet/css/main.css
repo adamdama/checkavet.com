@@ -1,0 +1,282 @@
+/* Check A Vet Joomla! Template CSS */
+
+/* CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Template CSS */
+
+body
+{	
+	font: 16px/23px Arial, Helvetica, sans-serif;
+	text-align:center;
+	overflow-x: hidden;
+}
+
+.bold
+{
+	font-weight: bold;
+}
+
+.scroller
+{
+	overflow: scroll;
+}
+
+.left-bg
+{
+	display: inline;
+	position: fixed;
+	bottom: 0;
+	margin-left: -302px;
+}
+
+.right-bg
+{
+	display: inline;
+	position: fixed;
+	bottom: 0;
+	margin-left: 980px;
+}
+
+
+#site-wrapper
+{
+	width: 980px;
+	margin: auto;
+	position: relative;
+	text-align: left;
+	display: inline-block;
+}
+
+#header
+{
+	width: 100%;
+	height: 211px;
+	background: url(../images/header.png);
+	cursor: pointer;
+}
+
+.menu
+{
+	width: 100%;
+	background: #80B0DB;
+	text-align: right;
+}
+
+.menu li
+{
+	display: inline;
+}
+
+.menu li a
+{
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+	margin-right: 10px;
+}
+
+#home-images
+{
+	width: 100%;
+	height: 306px;
+	vertical-align: bottom;
+	border-bottom: 4px solid #0061B6;
+}
+
+#home-images .image-container
+{
+	height: 100%;
+	position: relative;
+}
+
+#home-images .image-container img
+{
+	position: absolute;
+	bottom: 0;
+}
+
+#content
+{
+	padding: 15px 6px;
+}
+
+
+#results
+{
+	-moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -khtml-border-radius: 40px;
+    border-radius: 40px;
+	padding: 20px;
+	background: #80B0DB;
+	color: #FFF;
+}
+
+#results hr
+{
+	width: 100%;
+	border: 1px solid #FFF;
+}
+
+#results a
+{
+	color: #FFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#results td
+{
+	vertical-align: top;
+}
+
+#results .logo
+{
+	display: block;
+}
+
+#results .header
+{
+	width: 97%;
+	color: #0061B6;
+}
+
+#results .header h1
+{
+	font-weight: bold;
+	font-size: 27px;
+	margin-bottom: 5px;
+}
+
+#results .scroller
+{
+	height: 640px;
+	overflow-x: hidden;
+}
+
+#results .result
+{
+	width: 98%;
+	padding: 5px;
+}
+
+#results .column1
+{
+	display: inline-block;
+	width: 300px;
+	vertical-align: top;
+}
+
+#results .column2
+{
+	display: inline-block;
+	width: 450px;
+}
+#results table
+{
+	width: 100%;
+}
+
+#results .left
+{
+	width: 130px;
+	float: left;
+}
+
+#results .right
+{
+	float: right;
+	text-align: right;
+}
+
+#results .row
+{
+	display: block;
+}
+
+
+#footer
+{
+	width: 100%;
+	height: 30px;
+	margin-top: 10px;
+	border-top: 10px solid #0061B6;
+	background: #80B0DB;
+	color: #FFF;
+}
+
+#footer a
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFF;
+}
+
+#footer .left
+{
+	width: 30%;
+	float: left;
+	padding: 2px 15px;
+}
+
+#footer .right
+{
+	width: 60%;
+	float: right;
+	padding: 3px 10px;
+	text-align: right;
+}
+
+#footer .icon-link
+{
+	display: inline;
+	margin-left: 10px;
+}
+
+#footer .contact-link
+{	
+	margin-left: 10px;
+}

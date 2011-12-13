@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="1.7"
+	client="site"
+	method="upgrade">
+	<name>mod_leavefeedback</name>
+	<author>Adam Cox</author>
+	<creationDate>03/12/2011</creationDate>
+	<copyright>Copyright (C) 2011</copyright>
+	<license></license>
+	<authorEmail>adamdama@hotmail.com</authorEmail>
+	<authorUrl>www.adamjcox.co.uk</authorUrl>
+	<version>1.7.0</version>
+	<description>MOD_LEAVEFEEDBACK_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_leavefeedback">mod_leavefeedback.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_leavefeedback.php</filename>
+		<filename>mod_leavefeedback.xml</filename>
+	</files>
+	<languages folder="site">
+		<language tag="en-GB">language/en-GB.mod_leavefeedback.ini</language>
+		<language tag="en-GB">language/en-GB.mod_leavefeedback.sys.ini</language>
+	</languages>
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_LEAVEFEEDBACK" />
+	<config>
+		<fields name="params">
+		</fields>
+	</config>
+</extension>

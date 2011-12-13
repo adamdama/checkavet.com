@@ -1,0 +1,338 @@
+/* CSS Document */
+
+.rounded-corners
+{
+	-moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -khtml-border-radius: 40px;
+    border-radius: 40px;
+	padding: 20px;
+}
+
+.label
+{
+	font-size: 15px;
+	line-height: 30px;
+	font-weight: bold;
+	color: #0061B6;	
+}
+
+.blue-bg
+{
+	background: #0061B6;
+}
+
+.blue
+{
+	color: #0061B6;
+}
+
+
+
+.error-bubble
+{
+	float: right;
+	padding: 3px;
+	-moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+	color: #FFF;
+	background: #F00;
+	z-index: 10;
+}
+
+/* vetsearch */
+
+#vetsearch-module
+{
+	width: 590px;
+	height: 220px;
+	display: inline-block;
+	background: #80B0DB;
+	color: #FFF;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+#vetsearch-module label
+{
+	cursor: pointer;
+}
+
+#vetsearch-module p
+{
+	margin-top: 5px;
+}
+
+#vetsearch-module .logo
+{
+	display: inline-block;
+}
+
+#vetsearch-module .search-container
+{
+	width: 422px;
+	margin-left: 20px;
+	display: inline-block;
+	position: relative;
+}
+
+#vetsearch-module .search-label
+{
+	padding-left: 4px;
+}
+
+#vetsearch-module .search-box
+{
+	width: 420px;
+	height: 42px;
+	background: #FFF;
+	display: inline-block;
+	-moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    border-radius: 12px;
+	border: 3px solid #0061B6;
+	overflow: hidden;
+}
+
+#vetsearch-module .search-input
+{
+	width: 362px;
+	height: 40px;
+	padding-left: 10px;
+	border: none;
+	display: inline;
+	color: #999;
+	font-size: 22px;
+	-moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    border-radius: 12px;
+}
+
+#vetsearch-module .search-input:focus
+{
+	color: #80B0DB;
+}
+
+#vetsearch-module .search-submit
+{
+	width: 40;
+	height: 44px;
+	float:right;
+	margin-top: -1px;
+	border:none;
+	font-size: 18px;
+	font-weight: bold;
+	color: #FFF;
+	background: #0061B6;
+	cursor: pointer;
+}
+
+/* service search */
+
+#servicessearch-module
+{
+	width: 290px;
+	height: 220px;
+	display: inline-block;
+	background: #80B0DB;
+	color: #FFF;
+	font-size: 14px;
+	line-height: 20px;
+	position: relative;
+	float: right;
+}
+
+#servicessearch-module label
+{
+	cursor: pointer;
+}
+
+#servicessearch-module p
+{
+	margin-top: 5px;
+}
+
+#servicessearch-module .logo
+{
+	display: inline-block;
+}
+
+#servicessearch-module .search-container
+{
+	width: 292px;
+	display: inline-block;
+	position: relative;
+}
+
+#servicessearch-module .search-label
+{
+	padding-left: 4px;
+}
+
+#servicessearch-module .list-box
+{
+	width: 290px;
+	height: 32px;
+	background: #FFF;
+	-moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    border-radius: 12;
+	border: 3px solid #0061B6;
+	overflow: hidden;
+}
+
+#servicessearch-module .list-input
+{
+	width: 290px;
+	height: 32px;
+	padding-left: 10px;
+	border: none;
+	color: #999;
+	font-size: 22px;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+}
+
+#servicessearch-module .list-input:focus
+{
+	color: #80B0DB;
+}
+
+#servicessearch-module .search-box
+{
+	width: 290px;
+	height: 32px;
+	background: #FFF;
+	display: inline-block;
+	-moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    border-radius: 12px;
+	border: 3px solid #0061B6;
+	overflow: hidden;
+}
+
+#servicessearch-module .search-input
+{
+	width: 242px;
+	height: 30px;
+	padding-left: 10px;
+	border: none;
+	display: inline;
+	color: #999;
+	font-size: 22px;
+	-moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    border-radius: 12px;
+}
+
+#servicessearch-module .search-input:focus
+{
+	color: #80B0DB;
+}
+
+#servicessearch-module .search-submit
+{
+	width: 33px;
+	height: 34px;
+	float:right;
+	margin-top: -1px;
+	border:none;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+	background: #0061B6;
+	cursor: pointer;
+}
+
+/* leave feedback */
+#leavefeedback-module
+{
+	width: 928px;
+	padding: 20px 20px 0px 20px;
+	color: #999;
+	font-size: 17px;
+	line-height: 20px;
+	position: relative;
+}
+
+#leavefeedback-module label
+{
+	cursor: pointer;
+}
+
+#leavefeedback-module p
+{
+	margin-top: 10px;
+}
+
+#leavefeedback-module h1
+{
+	font-size: 46px;
+	line-height: 55px;
+	margin-left: -10px;
+}
+
+#leavefeedback-module .row
+{
+	display: block;
+}
+
+#leavefeedback-module .email-box
+{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 290px;
+	height: 30px;
+	background: #FFF;
+	display: inline-block;
+	-moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    border-radius: 12px;
+	border: 3px solid #0061B6;
+	overflow: hidden;
+}
+
+#leavefeedback-module .email-input
+{
+	width: 222px;
+	height: 32px;
+	padding-left: 10px;
+	border: none;
+	display: inline;
+	color: #999;
+	font-size: 16px;
+	-moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    border-radius: 12px;
+}
+
+#leavefeedback-module .email-input:focus
+{
+	color: #80B0DB;
+}
+
+#leavefeedback-module .email-submit
+{
+	width: 40;
+	height: 34px;
+	float:right;
+	margin-top: -1px;
+	border:none;
+	font-size: 18px;
+	font-weight: bold;
+	color: #FFF;
+	background: #0061B6;
+	cursor: pointer;
+}

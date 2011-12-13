@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="1.7"
+	client="site"
+	method="upgrade">
+	<name>mod_servicessearch</name>
+	<author>Adam Cox</author>
+	<creationDate>03/12/2011</creationDate>
+	<copyright>Copyright (C) 2011</copyright>
+	<license></license>
+	<authorEmail>adamdama@hotmail.com</authorEmail>
+	<authorUrl>www.adamjcox.co.uk</authorUrl>
+	<version>1.7.0</version>
+	<description>MOD_SERVICESSEARCH_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_servicessearch">mod_servicessearch.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_servicessearch.xml</filename>
+	</files>
+	<languages folder="site">
+		<language tag="en-GB">language/en-GB.mod_servicessearch.ini</language>
+		<language tag="en-GB">language/en-GB.mod_servicessearch.sys.ini</language>
+	</languages>
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_SERVICESSEARCH" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="searchLabel"
+					type="label"
+					label="MOD_SERVICESSEARCH_FIELD_SEARCH_LABEL_TEXT_LABEL"
+					description="MOD_SERVICESSEARCH_FIELD_SEARCH_LABEL_DESC" />
+				<field
+					name="listLabel"
+					type="label"
+					label="MOD_SERVICESSEARCH_FIELD_LIST_LABEL_TEXT_LABEL"
+					description="MOD_SERVICESSEARCH_FIELD_LIST_LABEL_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

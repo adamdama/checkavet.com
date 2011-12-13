@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
+<extension version="1.7" type="template" client="site">
+	<name>Check A Vet</name>
+	<creationDate>28/11/2011</creationDate>
+	<author>Adam Cox</author>
+	<authorEmail>adamdama@hotmail.com</authorEmail>
+	<authorUrl>http://www.adamjcox.co.uk</authorUrl>
+	<copyright>Copyright (C) 2011</copyright>
+	<version>1.7.0</version>
+	<description>TPL_CHECKAVET_XML_DESCRIPTION</description>
+
+	<files>
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<folder>language</folder>
+		<filename>error.php</filename>
+		<filename>index.html</filename>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+	</files>
+
+	<positions>
+		<position>menu</position>
+		<position>vetsearch</position>
+		<position>servicessearch</position>
+		<position>leavefeedback</position>	
+	</positions>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="contactEmail"  type="text" default=""
+						label="TPL_CHECKAVET_FIELD_CONTACT_EMAIL_LABEL"
+						description="TPL_CHECKAVET_FIELD_CONTACT_EMAIL_DESC"
+						filter="string" />
+				<field name="contactWord"  type="text" default=""
+						label="TPL_CHECKAVET_FIELD_CONTACT_WORD_LABEL"
+						description="TPL_CHECKAVET_FIELD_CONTACT_WORD_EMAIL_DESC"
+						filter="string" />
+				<field name="copyright"  type="text" default=""
+						label="TPL_CHECKAVET_FIELD_COPYRIGHT_LABEL"
+						description="TPL_CHECKAVET_FIELD_COPYRIGHT_DESC"
+						filter="string" />
+				<field name="facebookLink"  type="text" default=""
+						label="TPL_CHECKAVET_FIELD_FACEBOOK_LINK_LABEL"
+						description="TPL_CHECKAVET_FIELD_FACEBOOK_LINK_DESC"
+						filter="string" />
+				<field name="twitterLink"  type="text" default=""
+						label="TPL_CHECKAVET_FIELD_TWITTER_LINK_LABEL"
+						description="TPL_CHECKAVET_FIELD_TWITTER_LINK_DESC"
+						filter="string" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

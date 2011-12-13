@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.7" method="new">
+	<name>COM_CHECKAVET</name>
+	<author>Adam Cox</author>
+	<creationDate>30/11/2011</creationDate>
+	<copyright>(C) 2011</copyright>
+	<license></license>
+	<authorEmail>adamdama@hotmail.com</authorEmail>
+	<authorUrl>www.adamjcox.co.uk</authorUrl>
+	<version>1.7.0</version>
+	<description>COM_CHECKAVET_XML_DESCRIPTION</description>
+
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>checkavet.php</filename>
+		<folder>controllers</folder>
+		<folder>models</folder>
+		<folder>views</folder>
+	</files>
+	<languages folder="site">
+			<language tag="en-GB">language/en-GB.com_checkavet.ini
+			</language>
+	</languages>
+	<administration>
+		<menu img="class:checkavet">com_checkavet</menu>
+		<files folder="admin">
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>checkavet.php</filename>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB.com_checkavet.ini
+			</language>
+			<language tag="en-GB">language/en-GB.com_checkavet.sys.ini
+			</language>
+		</languages>
+	</administration>
+</extension>
