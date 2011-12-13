@@ -22,7 +22,7 @@ defined('_JEXEC') or die;
                 </div>
                 <div class="search-box">
                     <input type="text" id="mod-vetsearch-postcode" class="search-input required UKPostcode"   name="postcode" maxlength="8" onfocus="if(this.value=='EG: BN3 3DD') this.value='';" onblur="if(this.value=='') this.value='EG: BN3 3DD';" value="EG: BN3 3DD" />
-                    <div class="search-submit"><input type="submit" value="GO" class="search-submit" id="mod-vetsearch-submit" onclick="this.form.postcode.focus();" /></div>
+                    <div class="search-submit"><input type="submit" value="GO" class="search-submit" id="mod-vetsearch-submit" /></div>
                 </div> 
                 <input type="checkbox" id="mod-vetsearch-24hour" class="checkbox" name="emergency" />
                 <span class="label"><label for="mod-vetsearch-24hour">24 hour vets only</label></span>   

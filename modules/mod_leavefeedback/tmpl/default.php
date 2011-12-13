@@ -25,7 +25,7 @@ defined('_JEXEC') or die;
     <form id="leavefeedback-module-form" action="<?php echo JRoute::_('index.php');?>" method="post" novalidate="novalidate">
         <div class="email-box">
             <input type="text" id="mod-leavefeedback-email" class="email-input required email"   name="feedbackEmail" onfocus="if(this.value=='EG: example@example.com') this.value='';" onblur="if(this.value=='') this.value='EG: example@example.com';" value="EG: example@example.com" />
-            <div class="email-submit"><input type="submit" value="OK" class="email-submit" id="mod-leavefeedback-submit" onclick="this.form.postcode.focus();" /></div>
+            <div class="email-submit"><input type="submit" value="OK" class="email-submit" id="mod-leavefeedback-submit" /></div>
         </div>
         <input type="hidden" name="task" value="home" />
         <input type="hidden" name="option" value="com_checkavet" />

@@ -36,7 +36,7 @@ defined('_JEXEC') or die;
                 </div>
                 <div class="search-box">
                     <input type="text" id="mod-servicessearch-postcode" class="search-input required UKPostcode"   name="postcode" maxlength="8" onfocus="if(this.value=='EG: BN3 3DD') this.value='';" onblur="if(this.value=='') this.value='EG: BN3 3DD';" value="EG: BN3 3DD" />
-                    <div class="search-submit"><input type="submit" value="GO" class="search-submit" id="mod-servicessearch-submit" onclick="this.form.postcode.focus();" /></div>
+                    <div class="search-submit"><input type="submit" value="GO" class="search-submit" id="mod-servicessearch-submit" /></div>
                 </div>   
             </div>   
         </div> 

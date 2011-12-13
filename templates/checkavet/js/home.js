@@ -4,21 +4,33 @@ $.validator.addMethod("UKPostcode", function(value, element) {
 	
 $(document).ready(function(e) {
 	
-	var validator1 = $('#vetsearch-module-form').validate({
+	var examplePhrase1 = 'EG: BN3 3DD';
+	var examplePhrase2 = 'EG: example@example.com';
+	
+	var validator1 = $('#vetsearch-module-form').submit(function(e) {
+		if(document.getElementById('mod-vetsearch-postcode').value == examplePhrase1)
+			document.getElementById('mod-vetsearch-postcode').value = '';
+	}).validate({
 		errorPlacement: function(error, element) {
 			error.appendTo( element.parent().parent() );
 			$(error).addClass("error-bubble");
 		}
 	});
 	
-	var validator2 = $('#servicessearch-module-form').validate({
+	var validator2 = $('#servicessearch-module-form').submit(function(e) {
+		if(document.getElementById('mod-servicessearch-postcode').value == examplePhrase1)
+			document.getElementById('mod-servicessearch-postcode').value = '';
+	}).validate({
 		errorPlacement: function(error, element) {
 			error.appendTo( element.parent().parent() );
 			$(error).addClass("error-bubble");
 		}
 	});
 	
-	var validator3 = $('#leavefeedback-module-form').validate({
+	var validator3 = $('#leavefeedback-module-form').submit(function(e) {
+		if(document.getElementById('mod-leavefeedback-email').value == examplePhrase2)
+			document.getElementById('mod-leavefeedback-email').value = '';
+	}).validate({
 		errorPlacement: function(error, element) {
 			error.appendTo( element.parent().parent() );
 			$(error).addClass("error-bubble");
