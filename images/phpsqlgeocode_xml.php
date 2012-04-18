@@ -56,8 +56,8 @@ while ($row = @mysql_fetch_assoc($result)) {
     $address .= $row["address2"] == "" ? "" : $row['address2'].", ";
     $address .= $row["address3"] == "" ? "" : $row['address3'].", ";
     $address .= $row["county"] == "" ? "" : $row['county'].", ";
-    $address .= $row["postcode"] == "" ? "" : $row['postcode'].", ";
-	$address = substr($address, 0, -2);
+    $address .= $row["postcode"] == "" ? "" : $row['postcode'];
+	//$address = substr($address, 0, -2);
 	
     $id = $row["id"];
     //$request_url = $base_url . "&address=" . urlencode($address);
@@ -70,8 +70,7 @@ while ($row = @mysql_fetch_assoc($result)) {
     if (strcmp($status, "OK") == 0 || strcmp($status, "200") == 0) {
       // Successful geocode
       $geocode_pending = false;
-     // $lat = $xml->result->geometry->location->lat;
-     // $lng = $xml->result->geometry->location->lng; 
+
 	 $coords = $xml->Response->Placemark->Point->coordinates; 
 	 $coords = explode(",",$coords);
 	 $lat = $coords[0];
