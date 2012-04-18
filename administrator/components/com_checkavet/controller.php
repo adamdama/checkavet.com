@@ -23,7 +23,7 @@ class CheckavetController extends JController
 	 * @var		string	The default view.
 	 * @since	1.6
 	 */
-	protected $default_view = 'checkavet';
+	protected $default_view = 'vets';
 
 	/**
 	 * Method to display a view.
@@ -38,6 +38,25 @@ class CheckavetController extends JController
 	{
 		require_once JPATH_COMPONENT.'/helpers/checkavet.php';
 		
+		// Load the submenu.
+		//ContentHelper::addSubmenu(JRequest::getCmd('view', 'vets'));
+
+		$view		= JRequest::getCmd('view', 'vets');
+		$layout 	= JRequest::getCmd('layout', 'vets');
+		$id			= JRequest::getInt('id');
+
+		// Check for edit form.
+		if ($view == 'vet' && $layout == 'edit' && !$this->checkEditId('com_checkavet.edit.vet', $id)) {
+			// Somehow the person just went to the form - we don't allow that.
+			$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
+			$this->setMessage($this->getError(), 'error');
+			$this->setRedirect(JRoute::_('index.php?option=com_checkavet&view=vets', false));
+
+			return false;
+		}
+		
 		parent::display();
+
+		return $this;
 	}
 }

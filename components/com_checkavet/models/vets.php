@@ -95,13 +95,13 @@ class CheckavetModelVets extends JModel
 			$where = null;
 			
 			if($this->_emergency)
-				$where = $db->nameQuote('24hour')." = ".$db->quote('Y').' AND ';
+				$where = $db->nameQuote('24hour')." = ".$db->quote('1').' AND ';
 						
 			$query = $db->getQuery(true);
 			$query->clear();
 			$query->select('*');
 			$query->from($db->nameQuote('#__vets').' AS '.$db->nameQuote('v'));
-			$query->where($where.$db->nameQuote('enabled').' = '.$db->quote('true'));
+			$query->where($where.$db->nameQuote('state').' = 1');
 			$db->setQuery($query);
 			
 			$vets = $db->loadAssocList();

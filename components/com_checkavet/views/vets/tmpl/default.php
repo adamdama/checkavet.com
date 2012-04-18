@@ -90,7 +90,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 										<td class="right"><?php echo $vet['phone']; ?></td>
 									</tr>
 									<tr>
-										<td>Accredited:</td>
+										<td>RCVS Accredited:</td>
 										<td class="right"><?php echo $vet['accredited']; ?></td>
 									</tr>
 									<tr>

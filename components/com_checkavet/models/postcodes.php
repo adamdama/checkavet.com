@@ -36,7 +36,7 @@ class CheckavetModelPostcodes extends JModel
 		
 		$query = $db->getQuery(true);
 		$query->clear();
-		$query->select($db->nameQuote('p.id').', '.$db->nameQuote('p.postcode').' AS '.$db->nameQuote('postcode').', '.$db->nameQuote('p.latitude').' AS '.$db->nameQuote('lat').', '.$db->nameQuote('p.longitude').' AS '.$db->nameQuote('long'));
+		$query->select($db->nameQuote('p.id').', '.$db->nameQuote('p.postcode').' AS '.$db->nameQuote('postcode').', '.$db->nameQuote('p.latitude').' AS '.$db->nameQuote('lat').', '.$db->nameQuote('p.longitude').' AS '.$db->nameQuote('lng'));
 		$query->from('#__uk_postcodes AS p');	
 		$db->setQuery($query);
 		

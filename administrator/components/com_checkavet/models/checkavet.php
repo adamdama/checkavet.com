@@ -2,7 +2,7 @@
 /**
  * @version		$Id: searches.php 22338 2011-11-04 17:24:53Z github_bot $
  * @package		Joomla.Administrator
- * @subpackage	com_search
+ * @subpackage	com_checkavet
  * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
@@ -30,12 +30,6 @@ class CheckavetModelCheckavet extends JModelList
 	 */
 	public function __construct($config = array())
 	{
-		if (empty($config['filter_fields'])) {
-			$config['filter_fields'] = array(
-				'search_term', 'a.search_term',
-				'hits', 'a.hits',
-			);
-		}
 
 		parent::__construct($config);
 	}
@@ -60,7 +54,7 @@ class CheckavetModelCheckavet extends JModelList
 		$this->setState('filter.results', $showResults);
 
 		// Load the parameters.
-		$params = JComponentHelper::getParams('com_search');
+		$params = JComponentHelper::getParams('com_checkavet');
 		$this->setState('params', $params);
 
 		// List state information.
@@ -125,38 +119,6 @@ class CheckavetModelCheckavet extends JModelList
 
 		//echo nl2br(str_replace('#__','jos_',$query));
 		return $query;
-	}
-
-	/**
-	 * Override the parnet getItems to inject optional data.
-	 *
-	 * @return	mixed	An array of objects on success, false on failure.
-	 */
-	public function getItems()
-	{
-		$items = parent::getItems();
-
-		// Determine if number of results for search item should be calculated
-		// by default it is `off` as it is highly query intensive
-		if ($this->getState('filter.results')) {
-			JPluginHelper::importPlugin('search');
-			$app = JFactory::getApplication();
-
-			if (!class_exists('JSite')) {
-				// This fools the routers in the search plugins into thinking it's in the frontend
-				require_once JPATH_COMPONENT.'/helpers/site.php';
-			}
-
-			foreach ($items as &$item) {
-				$results = $app->triggerEvent('onContentSearch', array($item->search_term));
-				$item->returns = 0;
-				foreach ($results as $result) {
-					$item->returns += count($result);
-				}
-			}
-		}
-
-		return $items;
 	}
 
 	/**

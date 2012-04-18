@@ -16,6 +16,8 @@ defined('_JEXEC') or die;
  */
 class CheckavetHelper
 {
+	public static $extension = 'com_content';
+	
 	const POSTCODE_AREA_REGEXP = "/[A-Z]{1,2}[0-9R][0-9A-Z]?/";
 	
 	const VALID_POSTCODE_REGEXP = "/^(([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) [0-9][A-Za-z]{2}))$/";
@@ -97,19 +99,27 @@ class CheckavetHelper
 		
 		$postcodeArea = self::getPostcodeArea($postcode);		
 		$homeLat = $postcodes[$postcodeArea]['lat'];
-		$homeLong = $postcodes[$postcodeArea]['long'];
+		$homeLng = $postcodes[$postcodeArea]['lng'];
 		
 		foreach($data as $key => $value)
 		{
 			$pa = self::getPostcodeArea($key);
 			$lat = $postcodes[$pa]['lat'];
-			$long = $postcodes[$pa]['long'];
+			$long = $postcodes[$pa]['lng'];
 			
 			$data[$key]['postcodeArea'] = $pa;
-			$data[$key]['distance'] = self::calculateDistance($homeLat, $homeLong, $lat, $long); 
+			$data[$key]['distance'] = self::calculateDistance($homeLat, $homeLng, $lat, $long); 
+						
+			foreach($value as $pa => $vet)
+			{
+				$data[$key][$pa]['distance'] = self::calculateDistance($homeLat, $homeLng, $vet['lat'], $vet['lng']);
+			}
+			
+			usort($data[$key], "CheckavetHelper::usortDistance");
 		}
 		
 		usort($data, "CheckavetHelper::usortDistance");
+		print_r($data);
 				
 		return $data;
 	}
@@ -124,9 +134,9 @@ class CheckavetHelper
 		return $a['distance'] > $b['distance'] ? 1 : -1;
 	}
 	
-	public static function calculateDistance($lat1, $long1, $lat2, $long2)
+	public static function calculateDistance($l1, $o1, $l2, $o2)
 	{
-		#$earth = 6371; #km change accordingly
+		/*#$earth = 6371; #km change accordingly
 		$earth = 3960; #miles
 		
 		#Point 1 cords
@@ -148,7 +158,20 @@ class CheckavetHelper
 		
 		$c=2*asin(min(1,sqrt($a)));
 		
-		$d=round($earth*$c);
+		$d=round($earth*$c);*/
+		
+		
+		$l1 = deg2rad ($l1);
+
+		$sinl1 = sin ($l1);
+	
+		$l2 = deg2rad ($l2);
+	
+		$o1 = deg2rad ($o1);
+	
+		$o2 = deg2rad ($o2);
+	
+		return (7926 - 26 * $sinl1) * asin (min (1, 0.707106781186548 * sqrt ((1 - (sin ($l2) * $sinl1) - cos ($l1) * cos ($l2) * cos ($o2 - $o1)))));
 		
 		return $d;
 	}
@@ -159,5 +182,31 @@ class CheckavetHelper
 			return true;		
 		
 		return false;
+	}
+
+	/**
+	 * Configure the Linkbar.
+	 *
+	 * @param	string	$vName	The name of the active view.
+	 *
+	 * @return	void
+	 * @since	1.6
+	 */
+	public static function addSubmenu($vName)
+	{
+		JSubMenuHelper::addEntry(
+			JText::_('JGLOBAL_ARTICLES'),
+			'index.php?option=com_content&view=articles',
+			$vName == 'articles'
+		);
+		JSubMenuHelper::addEntry(
+			JText::_('COM_CONTENT_SUBMENU_CATEGORIES'),
+			'index.php?option=com_categories&extension=com_content',
+			$vName == 'categories');
+		JSubMenuHelper::addEntry(
+			JText::_('COM_CONTENT_SUBMENU_FEATURED'),
+			'index.php?option=com_content&view=featured',
+			$vName == 'featured'
+		);
 	}
 }
