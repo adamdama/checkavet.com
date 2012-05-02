@@ -36,7 +36,7 @@ $saveOrder	= $listOrder == 'v.ordering';
 			</select>
 
 			<select name="filter_county" class="inputbox" onchange="this.form.submit()">
-				<option value="*"><?php echo JText::_('COM_CHECKAVET_OPTION_COUNTY');?></option>
+				<option value="" selected="selected"><?php echo JText::_('COM_CHECKAVET_OPTION_COUNTY');?></option>
 				<?php echo JHtml::_('select.options', $this->get('optionCounties'), 'value', 'text', $this->state->get('filter.county'));?>
 			</select>
 		</div>
@@ -56,22 +56,22 @@ $saveOrder	= $listOrder == 'v.ordering';
 					<?php endif; ?>
 				</th>
 				<th>
-					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_NAME', 'v.name', $listDirn, $listOrder); ?>
+					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_NAME_LABEL', 'v.name', $listDirn, $listOrder); ?>
 				</th>
 				<th width="10%">
-					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_COUNTY', 'v.county', $listDirn, $listOrder); ?>
+					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_COUNTY_LABEL', 'v.county', $listDirn, $listOrder); ?>
 				</th>
 				<th width="10%">
-					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_EMAIL', 'v.email', $listDirn, $listOrder); ?>
+					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_EMAIL_LABEL', 'v.email', $listDirn, $listOrder); ?>
 				</th>
 				<th width="5%">
-					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_PHONE', 'v.phone', $listDirn, $listOrder); ?>
+					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_PHONE_LABEL', 'v.phone', $listDirn, $listOrder); ?>
 				</th>
 				<th width="5%">
 					<?php echo JHtml::_('grid.sort', 'JFEATURED', 'v.featured', $listDirn, $listOrder, NULL, 'desc'); ?>
 				</th>
 				<th width="5%">
-					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_ENABLED', 'v.state', $listDirn, $listOrder); ?>
+					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_STATUS_LABEL', 'v.state', $listDirn, $listOrder); ?>
 				</th>
 				<th width="5%">
 					<?php echo JHtml::_('grid.sort', 'JGLOBAL_HITS', 'v.hits', $listDirn, $listOrder); ?>

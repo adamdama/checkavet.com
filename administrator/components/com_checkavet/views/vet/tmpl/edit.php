@@ -33,7 +33,7 @@ JHtml::_('behavior.keepalive');
 <form action="<?php echo JRoute::_('index.php?option=com_checkavet&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate">
 	<div class="width-60 fltlft">
 		<fieldset class="adminform">
-			<legend><?php echo empty($this->item->id) ? JText::_('COM_CONTENT_NEW_ARTICLE') : JText::sprintf('COM_CONTENT_EDIT_ARTICLE', $this->item->id); ?></legend>
+			<legend><?php echo empty($this->item->id) ? JText::_('COM_CHECKAVET_NEW_VET') : JText::sprintf('COM_CHECKAVET_EDIT_VET', $this->item->id); ?></legend>
 			<ul class="adminformlist">
 				<li><?php echo $this->form->getLabel('id'); ?>
 				<?php echo $this->form->getInput('id'); ?></li> 
@@ -47,8 +47,11 @@ JHtml::_('behavior.keepalive');
 				<li><?php echo $this->form->getLabel('address2'); ?>
 				<?php echo $this->form->getInput('address2'); ?></li>
 
-				<li><?php echo $this->form->getLabel('address3'); ?>
-				<?php echo $this->form->getInput('address3'); ?></li>
+                <li><?php echo $this->form->getLabel('address3'); ?>
+                <?php echo $this->form->getInput('address3'); ?></li>
+
+                <li><?php echo $this->form->getLabel('county'); ?>
+                <?php echo $this->form->getInput('county'); ?></li>
 
 				<li><?php echo $this->form->getLabel('website'); ?>
 				<?php echo $this->form->getInput('website'); ?></li>
@@ -106,7 +109,7 @@ JHtml::_('behavior.keepalive');
 	<div class="width-40 fltrt">
 		<?php echo JHtml::_('sliders.start','content-sliders-'.$this->item->id, array('useCookie'=>1)); ?>
 
-			<?php echo JHtml::_('sliders.panel',JText::_('COM_CONTENT_FIELDSET_PUBLISHING'), 'publishing-details'); ?>
+			<?php echo JHtml::_('sliders.panel',JText::_('COM_CHECKAVET_FIELDSET_PUBLISHING'), 'publishing-details'); ?>
 			<fieldset class="panelform">
 				<ul class="adminformlist">
 					<li><?php echo $this->form->getLabel('created_by'); ?>
@@ -173,7 +176,7 @@ JHtml::_('behavior.keepalive');
 		<div class="width-100 fltlft">
 			<?php echo JHtml::_('sliders.start','permissions-sliders-'.$this->item->id, array('useCookie'=>1)); ?>
 
-				<?php echo JHtml::_('sliders.panel',JText::_('COM_CONTENT_FIELDSET_RULES'), 'access-rules'); ?>
+				<?php echo JHtml::_('sliders.panel',JText::_('COM_CHECKAVET_FIELDSET_RULES'), 'access-rules'); ?>
 				<fieldset class="panelform">
 					<?php echo $this->form->getLabel('rules'); ?>
 					<?php echo $this->form->getInput('rules'); ?>

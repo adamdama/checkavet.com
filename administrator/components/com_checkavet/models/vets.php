@@ -166,13 +166,9 @@ class CheckavetModelVets extends JModelList
 
 		// Filter by county
 		$county = $this->getState('filter.county');
-		$county = $county == '*' ? false : $county;
+		$county = $county === '' ? false : $county;
 		if ($county) {
 			$query->where('v.county = ' . $db->Quote($county));
-		}
-		elseif($county === '')
-		{
-			$query->where("v.county = ''");
 		}
 
 		// Filter by a single or group of categories.

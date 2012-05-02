@@ -121,9 +121,9 @@ class JTableVets extends JTable
 
 			if ($tagPos == 0) {
 				$this->introtext	= $array['vettext'];
-				$this->fulltext         = '';
+				$this->vettext         = '';
 			} else {
-				list($this->introtext, $this->fulltext) = preg_split($pattern, $array['vettext'], 2);
+				list($this->introtext, $this->vettext) = preg_split($pattern, $array['vettext'], 2);
 			}
 		}
 
@@ -158,28 +158,14 @@ class JTableVets extends JTable
 	 */
 	public function check()
 	{
-		if (trim($this->title) == '') {
-			$this->setError(JText::_('COM_CONTENT_WARNING_PROVIDE_VALID_NAME'));
+		if (trim($this->name) == '') {
+			$this->setError(JText::_('COM_CHECKAVET_WARNING_PROVIDE_VALID_NAME'));
 			return false;
 		}
-
-		if (trim($this->alias) == '') {
-			$this->alias = $this->title;
-		}
-
 		$this->alias = JApplication::stringURLSafe($this->alias);
 
 		if (trim(str_replace('-', '', $this->alias)) == '') {
 			$this->alias = JFactory::getDate()->format('Y-m-d-H-i-s');
-		}
-
-		if (trim(str_replace('&nbsp;', '', $this->fulltext)) == '') {
-			$this->fulltext = '';
-		}
-
-		if (trim($this->introtext) == '' && trim($this->fulltext) == '') {
-			$this->setError(JText::_('JGLOBAL_VET_MUST_HAVE_TEXT'));
-			return false;
 		}
 
 		// Check the publish down date is not earlier than publish up.

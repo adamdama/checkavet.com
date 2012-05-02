@@ -33,7 +33,7 @@ class CheckavetViewVet extends JView
 			$eName		= JRequest::getVar('e_name');
 			$eName		= preg_replace( '#[^A-Z0-9\-\_\[\]]#i', '', $eName );
 			$document	= JFactory::getDocument();
-			$document->setTitle(JText::_('COM_CONTENT_PAGEBREAK_DOC_TITLE'));
+			$document->setTitle(JText::_('COM_CHECKAVET_PAGEBREAK_DOC_TITLE'));
 			$this->assignRef('eName', $eName);
 			parent::display($tpl);
 			return;
@@ -68,7 +68,7 @@ class CheckavetViewVet extends JView
 		$isNew		= ($this->item->id == 0);
 		$checkedOut	= !($this->item->checked_out == 0 || $this->item->checked_out == $userId);
 		//$canDo		= CheckavetHelper::getActions($this->state->get('filter.category_id'), $this->item->id);
-		JToolBarHelper::title(JText::_('COM_CONTENT_PAGE_'.($checkedOut ? 'VIEW_VET' : ($isNew ? 'ADD_VET' : 'EDIT_VET'))), 'vet-add.png');
+		JToolBarHelper::title(JText::_('COM_CHECKAVET_PAGE_'.($checkedOut ? 'VIEW_VET' : ($isNew ? 'ADD_VET' : 'EDIT_VET'))), 'vet-add.png');
 
 		// Built the actions for new and existing records.
 
@@ -103,6 +103,6 @@ class CheckavetViewVet extends JView
 		}
 
 		JToolBarHelper::divider();
-		//JToolBarHelper::help('JHELP_CONTENT_VET_MANAGER_EDIT');
+		//JToolBarHelper::help('JHELP_CHECKAVET_VET_MANAGER_EDIT');
 	}
 }

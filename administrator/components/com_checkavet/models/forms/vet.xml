@@ -13,46 +13,46 @@
 			required="true" />
 
 		<field name="address1" type="text" label="COM_CHECKAVET_FIELD_ADDRESS1_LABEL"
-			description="COM_CHECKAVET_FIELD_ADDRESS1_LABEL" class="inputbox" size="45" />
+			description="COM_CHECKAVET_FIELD_ADDRESS1_DESC" class="inputbox" size="45" />
 
 		<field name="address2" type="text" label="COM_CHECKAVET_FIELD_ADDRESS2_LABEL"
-			description="COM_CHECKAVET_FIELD_ADDRESS2_LABEL" class="inputbox" size="45" />
+			description="COM_CHECKAVET_FIELD_ADDRESS2_DESC" class="inputbox" size="45" />
 
 		<field name="address3" type="text" label="COM_CHECKAVET_FIELD_ADDRESS3_LABEL"
-			description="COM_CHECKAVET_FIELD_ADDRESS3_LABEL" class="inputbox" size="45" />
+			description="COM_CHECKAVET_FIELD_ADDRESS3_DESC" class="inputbox" size="45" />
 
 		<field name="postcode" type="text" label="COM_CHECKAVET_FIELD_POSTCODE_LABEL"
-			description="COM_CHECKAVET_FIELD_POSTCODE_LABEL" class="inputbox" size="45" />
+			description="COM_CHECKAVET_FIELD_POSTCODE_DESC" class="inputbox" size="45" />
 
 		<field name="county" type="text" label="COM_CHECKAVET_FIELD_COUNTY_LABEL"
-			description="COM_CHECKAVET_FIELD_COUNTY_LABEL" class="inputbox" size="45" />
+			description="COM_CHECKAVET_FIELD_COUNTY_DESC" class="inputbox" size="45" />
 
 		<field name="email" type="text" label="COM_CHECKAVET_FIELD_WEBSITE_LABEL"
-			description="COM_CHECKAVET_FIELD_WEBSITE_LABEL" class="inputbox" size="45" />
+			description="COM_CHECKAVET_FIELD_WEBSITE_DESC" class="inputbox" size="45" />
 
-		<field name="website" type="text" label="COM_CHECKAVET_FIELD_WEBSITE_LABEL"
-			description="COM_CHECKAVET_FIELD_WEBSITE_LABEL" class="inputbox" size="45" />
+		<field name="website" type="text" label="COM_CHECKAVET_FIELD_EMAIL_LABEL"
+			description="COM_CHECKAVET_FIELD_EMAIL_DESC" class="inputbox" size="45" />
 
 		<field name="phone" type="text" label="COM_CHECKAVET_FIELD_PHONE_LABEL"
-			description="COM_CHECKAVET_FIELD_PHONE_LABEL" class="inputbox" size="45" />
+			description="COM_CHECKAVET_FIELD_PHONE_DESC" class="inputbox" size="45" />
 
 		<field name="fax" type="text" label="COM_CHECKAVET_FIELD_FAX_LABEL"
-			description="COM_CHECKAVET_FIELD_FAX_LABEL" class="inputbox" size="45" />
+			description="COM_CHECKAVET_FIELD_FAX_DESC" class="inputbox" size="45" />
 
 		<field name="accredited" type="radio" label="COM_CHECKAVET_FIELD_ACCREDITED_LABEL"
-			description="COM_CHECKAVET_FIELD_ACCREDITED_LABEL" class="inputbox" size="45">
+			description="COM_CHECKAVET_FIELD_ACCREDITED_DESC" class="inputbox" size="45">
 			<option value="1">JYES</option>
 			<option value="0">JNO</option>
 		</field>
 
 		<field name="24hour" type="radio" label="COM_CHECKAVET_FIELD_24HOUR_LABEL"
-			description="COM_CHECKAVET_FIELD_24HOUR_LABEL" class="inputbox" size="45">
+			description="COM_CHECKAVET_FIELD_24HOUR_DESC" class="inputbox" size="45">
 			<option value="1">JYES</option>
 			<option value="0">JNO</option>
 		</field>
 
 		<field name="logo" type="text" label="COM_CHECKAVET_FIELD_LOGO_LABEL"
-			description="COM_CHECKAVET_FIELD_LOGO_LABEL" class="inputbox" size="45" />
+			description="COM_CHECKAVET_FIELD_LOGO_DESC" class="inputbox" size="45" />
 
 		<field name="show_logo" type="list"
 			label="COM_CHECKAVET_FIELD_SHOW_LOGO_LABEL"
@@ -67,8 +67,8 @@
 			label="COM_CHECKAVET_FIELD_VETTEXT_LABEL" description="COM_CHECKAVET_FIELD_VETTEXT_DESC"
 			filter="ContentHelper::filterText" buttons="true" />
 
-		<field name="state" type="list" label="JSTATUS"
-			description="JFIELD_PUBLISHED_DESC" class="inputbox"
+		<field name="state" type="list" label="COM_CHECKAVET_FIELD_STATUS_LABEL"
+			description="COM_CHECKAVET_FIELD_STATUS_DESC" class="inputbox"
 			filter="intval" size="1" default="1"
 		>
 			<option value="1">
