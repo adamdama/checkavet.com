@@ -1,9 +1,8 @@
 <?php
 /**
- * @version		$Id: config.php 20196 2011-01-09 02:40:25Z ian $
  * @package		Joomla.Administrator
  * @subpackage	com_users
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -29,7 +28,7 @@ class UsersControllerConfig extends JController
 	public function import()
 	{
 		// Check for request forgeries.
-		JRequest::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
+		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 
 		// Get the configuration values from the Request.
 		$string = JRequest::getVar('configString', '', 'post', 'string', JREQUEST_ALLOWHTML);
@@ -74,7 +73,7 @@ class UsersControllerConfig extends JController
 	public function export()
 	{
 		// Check for request forgeries.
-		JRequest::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
+		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 
 		// Get the component configuration values.
 		$app	= JFactory::getApplication();
@@ -105,7 +104,7 @@ class UsersControllerConfig extends JController
 	public function save()
 	{
 		// Check for request forgeries.
-		JRequest::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
+		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 
 		// Save the configuration.
 		$model	= $this->getModel('Config');

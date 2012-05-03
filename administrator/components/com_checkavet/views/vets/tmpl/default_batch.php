@@ -13,13 +13,9 @@ defined('_JEXEC') or die;
 $published = $this->state->get('filter.published');
 ?>
 <fieldset class="batch">
-	<legend><?php echo JText::_('COM_CONTENT_BATCH_OPTIONS');?></legend>
-	<p><?php echo JText::_('COM_CONTENT_BATCH_TIP'); ?></p>
+	<legend><?php echo JText::_('COM_CHECKAVET_BATCH_OPTIONS');?></legend>
+	<p><?php echo JText::_('COM_CHECKAVET_BATCH_TIP'); ?></p>
 	<?php echo JHtml::_('batch.access');?>
-
-	<?php if ($published >= 0) : ?>
-		<?php echo JHtml::_('batch.item', 'com_content', $published);?>
-	<?php endif; ?>
 
 	<button type="submit" onclick="Joomla.submitbutton('article.batch');">
 		<?php echo JText::_('JGLOBAL_BATCH_PROCESS'); ?>
