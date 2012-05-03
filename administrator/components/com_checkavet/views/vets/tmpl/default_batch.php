@@ -17,10 +17,10 @@ $published = $this->state->get('filter.published');
 	<p><?php echo JText::_('COM_CHECKAVET_BATCH_TIP'); ?></p>
 	<?php echo JHtml::_('batch.access');?>
 
-	<button type="submit" onclick="Joomla.submitbutton('article.batch');">
+	<button type="submit" onclick="Joomla.submitbutton('vet.batch');">
 		<?php echo JText::_('JGLOBAL_BATCH_PROCESS'); ?>
 	</button>
-	<button type="button" onclick="document.id('batch-access').value='';document.id('batch-language-id').value=''">
+	<button type="button" onclick="document.id('batch-access').value=''">
 		<?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?>
 	</button>
 </fieldset>

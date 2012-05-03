@@ -13,7 +13,7 @@ jimport('joomla.application.component.view');
 /**
  * View to edit an vet.
  *
- * @package		Joomlv.Administrator
+ * @package		Joomla.Administrator
  * @subpackage	com_checkavet
  * @since		1.6
  */

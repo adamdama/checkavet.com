@@ -30,51 +30,6 @@ class CheckavetModelVet extends JModelAdmin
 	protected $text_prefix = 'COM_CHECKAVET';
 
 	/**
-	 * Method to test whether a record can be deleted.
-	 *
-	 * @param	object	$record	A record object.
-	 *
-	 * @return	boolean	True if allowed to delete the record. Defaults to the permission set in the component.
-	 * @since	1.6
-	 */
-	protected function canDelete($record)
-	{
-		/*if (!empty($record->id)) {
-			if ($record->state != -2) {
-				return ;
-			}
-			$user = JFactory::getUser();
-			return $user->authorise('core.delete', 'com_checkavet.vet.'.(int) $record->id);
-		}*/
-	}
-
-	/**
-	 * Method to test whether a record can have its state edited.
-	 *
-	 * @param	object	$record	A record object.
-	 *
-	 * @return	boolean	True if allowed to change the state of the record. Defaults to the permission set in the component.
-	 * @since	1.6
-	 */
-	protected function canEditState($record)
-	{
-		/*$user = JFactory::getUser();
-
-		// Check for existing vet.
-		if (!empty($record->id)) {
-			return $user->authorise('core.edit.state', 'com_checkavet.vet.'.(int) $record->id);
-		}
-		// New vet, so check against the category.
-		elseif (!empty($record->catid)) {
-			return $user->authorise('core.edit.state', 'com_checkavet.category.'.(int) $record->catid);
-		}
-		// Default to component settings if neither vet nor category known.
-		else {
-			return parent::canEditState($record);
-		}*/
-	}
-
-	/**
 	 * Prepare and sanitise the table data prior to saving.
 	 *
 	 * @param	JTable	A JTable object.

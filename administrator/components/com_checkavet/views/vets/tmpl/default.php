@@ -1,7 +1,7 @@
 <?php
 /**
  * @version		$Id: default.php 21837 2011-07-12 18:12:35Z dextercowley $
- * @package		Joomlv.Administrator
+ * @package		Joomla.Administrator
  * @subpackage	com_checkavet
  * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
@@ -47,7 +47,7 @@ $saveOrder	= $listOrder == 'v.ordering';
 		<thead>
 			<tr>
 				<th width="1%">
-					<input type="checkbox" name="checkall-toggle" value="" name="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomlv.checkAll(this)" />
+					<input type="checkbox" name="checkall-toggle" value="" name="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 				</th>
 				<th width="10%">
 					<?php echo JHtml::_('grid.sort',  'JGRID_HEADING_ORDERING', 'v.ordering', $listDirn, $listOrder); ?>

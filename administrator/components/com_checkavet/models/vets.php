@@ -1,7 +1,7 @@
 <?php
 /**
  * @version		$Id: articles.php 22355 2011-11-07 05:11:58Z github_bot $
- * @package		Joomlv.Administrator
+ * @package		Joomla.Administrator
  * @subpackage	com_content
  * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
@@ -15,7 +15,7 @@ jimport('joomla.application.component.modellist');
 /**
  * Methods supporting a list of article records.
  *
- * @package		Joomlv.Administrator
+ * @package		Joomla.Administrator
  * @subpackage	com_content
  */
 class CheckavetModelVets extends JModelList

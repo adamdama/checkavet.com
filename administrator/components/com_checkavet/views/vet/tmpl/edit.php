@@ -1,7 +1,7 @@
 <?php
 /**
  * @version		$Id: edit.php 22370 2011-11-09 16:18:06Z github_bot $
- * @package		Joomlv.Administrator
+ * @package		Joomla.Administrator
  * @subpackage	com_checkavet
  * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
@@ -20,10 +20,10 @@ JHtml::_('behavior.keepalive');
 ?>
 
 <script type="text/javascript">
-	Joomlv.submitbutton = function(task) {
+	Joomla.submitbutton = function(task) {
 		if (task == 'article.cancel' || document.formvalidator.isValid(document.id('item-form'))) {
 			<?php //echo $this->form->getField('articletext')->save(); ?>
-			Joomlv.submitform(task, document.getElementById('item-form'));
+			Joomla.submitform(task, document.getElementById('item-form'));
 		} else {
 			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
 		}
@@ -49,6 +49,9 @@ JHtml::_('behavior.keepalive');
 
                 <li><?php echo $this->form->getLabel('address3'); ?>
                 <?php echo $this->form->getInput('address3'); ?></li>
+
+                <li><?php echo $this->form->getLabel('postcode'); ?>
+                <?php echo $this->form->getInput('postcode'); ?></li>
 
                 <li><?php echo $this->form->getLabel('county'); ?>
                 <?php echo $this->form->getInput('county'); ?></li>

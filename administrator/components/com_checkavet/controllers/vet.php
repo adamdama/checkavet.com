@@ -1,7 +1,7 @@
 <?php
 /**
  * @version		$Id: article.php 21766 2011-07-08 12:20:23Z eddieajau $
- * @package		Joomlv.Administrator
+ * @package		Joomla.Administrator
  * @subpackage	com_checkavet
  * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
@@ -13,7 +13,7 @@ defined('_JEXEC') or die;
 jimport('joomla.application.component.controllerform');
 
 /**
- * @package		Joomlv.Administrator
+ * @package		Joomla.Administrator
  * @subpackage	com_checkavet
  * @since		1.6
  */
