@@ -68,7 +68,7 @@ $saveOrder	= $listOrder == 'v.ordering';
 					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_PHONE_LABEL', 'v.phone', $listDirn, $listOrder); ?>
 				</th>
 				<th width="5%">
-					<?php echo JHtml::_('grid.sort', 'JFEATURED', 'v.featured', $listDirn, $listOrder, NULL, 'desc'); ?>
+					<?php echo JHtml::_('grid.sort', 'JFEATURED', 'v.featured', $listDirn, $listOrder); ?>
 				</th>
 				<th width="5%">
 					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_STATUS_LABEL', 'v.state', $listDirn, $listOrder); ?>

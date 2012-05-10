@@ -206,15 +206,13 @@ class CheckavetModelVet extends JModelAdmin
 	{
 		// Sanitize the ids.
 		$pks = (array) $pks;
-		/*JArrayHelper::toInteger($pks);
+		JArrayHelper::toInteger($pks);
 
 		if (empty($pks)) {
 			$this->setError(JText::_('COM_CHECKAVET_NO_ITEM_SELECTED'));
 			return false;
 		}
-
-		$table = $this->getTable('Featured', 'CheckavetTable');
-
+        
 		try {
 			$db = $this->getDbo();
 
@@ -227,57 +225,12 @@ class CheckavetModelVet extends JModelAdmin
 				throw new Exception($db->getErrorMsg());
 			}
 
-			if ((int)$value == 0) {
-				// Adjust the mapping table.
-				// Clear the existing features settings.
-				$db->setQuery(
-					'DELETE FROM #__vets_frontpage' .
-					' WHERE content_id IN ('.implode(',', $pks).')'
-				);
-				if (!$db->query()) {
-					throw new Exception($db->getErrorMsg());
-				}
-			} else {
-				// first, we find out which of our new featured vets are already featured.
-				$query = $db->getQuery(true);
-				$query->select('f.content_id');
-				$query->from('#__vets_frontpage AS f');
-				$query->where('content_id IN ('.implode(',', $pks).')');
-				//echo $query;
-				$db->setQuery($query);
-
-				if (!is_array($old_featured = $db->loadResultArray())) {
-					throw new Exception($db->getErrorMsg());
-				}
-
-				// we diff the arrays to get a list of the vets that are newly featured
-				$new_featured = array_diff($pks, $old_featured);
-
-				// Featuring.
-				$tuples = array();
-				foreach ($new_featured as $pk) {
-					$tuples[] = '('.$pk.', 0)';
-				}
-				if (count($tuples)) {
-					$db->setQuery(
-						'INSERT INTO #__vets_frontpage (`content_id`, `ordering`)' .
-						' VALUES '.implode(',', $tuples)
-					);
-					if (!$db->query()) {
-						$this->setError($db->getErrorMsg());
-						return false;
-					}
-				}
-			}
-
 		} catch (Exception $e) {
 			$this->setError($e->getMessage());
 			return false;
 		}
-
-		$table->reorder();
-
-		$this->cleanCache();*/
+        
+		$this->cleanCache();
 
 		return true;
 	}
