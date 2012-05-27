@@ -183,6 +183,28 @@ class CheckavetModelVet extends JModelAdmin
 			//$data['title']	= $title;
 			//$data['alias']	= $alias;
 		}
+		
+		$item = $this->getItem(JRequest::getVar('id'));		
+		$getCoords = false;
+		
+		if($data['postcode'] != $item->postcode)
+		{
+			$getCoords = true;
+		}
+	
+		if($getCoords)
+		{
+			$geocode = CheckavetHelper::geocodePostCode($data['postcode']);
+			
+			if(!$geocode)
+			{
+				$this->setError("Unable to geocode Post Code. Please ensure it has been entered correctly.");
+				return false;
+			}
+
+			$data['lat'] = $geocode[0];
+			$data['lng'] = $geocode[1];
+		}
 
 		if (parent::save($data)) {
 			//if (isset($data['featured'])) {

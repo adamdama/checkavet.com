@@ -167,13 +167,11 @@ class CheckavetHelper
         $delay    = 0;
 
         $base_url = "http://maps.google.com/maps/geo?output=xml&sensor=false";
-        
-        // Iterate through the rows, geocoding each address
-        
+                
         $geocode_pending = true;
         
         $request_url = "http://maps.google.com/maps/geo?output=xml&sensor=false" . "&q=" . urlencode($postcode);
-        
+        		
         while ($geocode_pending) {
             
             $xml = simplexml_load_file($request_url) or die("url not loading");
@@ -199,7 +197,6 @@ class CheckavetHelper
                 // failure to geocode
                 $geocode_pending = false;
                 $geocode = false;
-                
             }
             usleep($delay);
         }
@@ -217,9 +214,7 @@ class CheckavetHelper
      */
     public static function addSubmenu($vName)
     {
-        JSubMenuHelper::addEntry(JText::_('JGLOBAL_ARTICLES'), 'index.php?option=com_content&view=articles', $vName == 'articles');
-        JSubMenuHelper::addEntry(JText::_('COM_CONTENT_SUBMENU_CATEGORIES'), 'index.php?option=com_categories&extension=com_content', $vName == 'categories');
-        JSubMenuHelper::addEntry(JText::_('COM_CONTENT_SUBMENU_FEATURED'), 'index.php?option=com_content&view=featured', $vName == 'featured');
+        JSubMenuHelper::addEntry(JText::_('COM_CHECKAVET_VETS'), 'index.php?option=com_checkavet&view=vets', $vName == 'vets');
     }
 }
 

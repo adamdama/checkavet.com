@@ -39,7 +39,7 @@ class CheckavetController extends JController
 		require_once JPATH_COMPONENT.'/helpers/checkavet.php';
 		
 		// Load the submenu.
-		//ContentHelper::addSubmenu(JRequest::getCmd('view', 'vets'));
+		CheckavetHelper::addSubmenu(JRequest::getCmd('view', 'vets'));
 
 		$view		= JRequest::getCmd('view', 'vets');
 		$layout 	= JRequest::getCmd('layout', 'vets');
