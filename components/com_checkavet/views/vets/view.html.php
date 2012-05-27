@@ -21,6 +21,10 @@ class CheckavetViewVets extends JView
 {
 	var $_limit = 10;
 	
+	var $vets;
+	
+	var $featured;
+	
 	/**
 	 * Display the view
 	 */
@@ -52,6 +56,19 @@ class CheckavetViewVets extends JView
 			}
 		}		
 		$this->vets = $tmp;	
+		
+		//separate featured vets
+		$this->featured = array();
+		for($i = 0; $i < count($this->vets); $i++)
+		{
+			$vet = $this->vets[$i];
+			if($vet['featured'] == 1)
+			{
+				$move = array_splice($this->vets, $i, 1);
+				array_push($this->featured, $move[0]);
+				$i--;
+			}
+		}
 		
 		return parent::display($tpl);
 	}

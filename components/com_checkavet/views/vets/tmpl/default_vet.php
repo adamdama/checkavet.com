@@ -13,6 +13,7 @@ defined('_JEXEC') or die;
 // Include the component HTML helpers.
 require_once(JPATH_COMPONENT.'/helpers/html.php');
 
+
 $vet = $this->vet;
 $vet = CheckavetHelperHtml::clean_blanks($vet);
 

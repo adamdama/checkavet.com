@@ -9,9 +9,6 @@
 
 // No direct access.
 defined('_JEXEC') or die;
-
-// reorder vets so that fewatured come up first
-
 ?>
 <div id="content">
 	<div id="results">
@@ -23,12 +20,21 @@ defined('_JEXEC') or die;
             </h1>
             <h2>
             	<?php
-					echo count($this->vets)." results";
+					echo (count($this->vets)+count($this->featured))." results";
 				?>
             </h2>
             <hr />
         </div>
-    	<div class="scroller">        
+    	<div class="scroller">  
+    		<?php
+				if($this->featured){
+					foreach($this->featured as $vet)
+					{
+					    $this->vet = $vet;
+                        echo $this->loadTemplate('vet');
+					}
+				}
+			?>      
         	<?php
 				if($this->vets){
 					foreach($this->vets as $vet)
