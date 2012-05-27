@@ -105,9 +105,9 @@ class CheckavetHelper
             return $data;
 
         $homeLat      = $homePos[0];
-        echo $homeLat.", ";
+        //echo $homeLat.", ";
         $homeLng      = $homePos[1];
-        echo $homeLng;
+        //echo $homeLng;
         
         foreach ($data as $key => $value) {
             $pa   = self::getPostcodeArea($key);
@@ -186,8 +186,6 @@ class CheckavetHelper
                 
                 $coords = $xml->Response->Placemark->Point->coordinates;
                 $coords = explode(",", $coords);
-                
-                print_r($coords);
                 
                 $geocode = array(
                     $coords[1],

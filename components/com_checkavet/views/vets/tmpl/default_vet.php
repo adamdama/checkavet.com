@@ -22,10 +22,12 @@ $imagesrc = file_exists(JPATH_BASE.DS.'images'.DS.'checkavet'.DS.'logos'.DS.$vet
 <div class="result<?php echo $vet['featured'] == 1 ? " featured" : ""; ?>">
     <div class="column1">
         <img src="<?php echo $imagesrc; ?>" alt="<?php echo $vet['name']; ?>" class="logo" />
-        <?php /*
-        $website = trim($vet['website']);
-        if($website != "&nbsp;") 
-            echo '<a href="'.$website.'" target="_blank">'.$website.'</a>';*/
+        <?php 
+        if($vet['featured'] == 1) :
+            $website = trim($vet['website']);
+            if($website != "&nbsp;") 
+                echo '<a href="'.$website.'" target="_blank">'.$website.'</a>';
+        endif;
         ?>
     </div>
     <div class="column2">
@@ -72,5 +74,5 @@ $imagesrc = file_exists(JPATH_BASE.DS.'images'.DS.'checkavet'.DS.'logos'.DS.$vet
             </tr>
         </table>
     </div>
-    <hr />
 </div>
+<hr />

@@ -180,8 +180,13 @@ body
 
 #results .header
 {
-	width: 97%;
-	color: #0061B6;
+    width: 97%;
+    color: #0061B6;
+}
+
+#results .header hr
+{
+    width: 100%;
 }
 
 #results .header h1
@@ -203,6 +208,14 @@ body
 	padding: 5px;
 }
 
+#results .result.featured
+{
+    width: 98%;
+    padding: 5px;
+    background: #135CAE;
+}
+
+
 #results .column1
 {
 	display: inline-block;
@@ -215,9 +228,15 @@ body
 	display: inline-block;
 	width: 450px;
 }
+
+#results hr
+{
+    width: 98%;
+}
+
 #results table
 {
-	width: 100%;
+    width: 100%;
 }
 
 #results .left
