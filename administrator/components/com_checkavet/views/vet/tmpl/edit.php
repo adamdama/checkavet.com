@@ -173,7 +173,7 @@ JHtml::_('behavior.keepalive');
 
 		<?php echo JHtml::_('sliders.end'); ?>
 	</div>
-
+    <?php /*
 	<div class="clr"></div>
 	<?php // if ($this->canDo->get('core.admin')): ?>
 		<div class="width-100 fltlft">
@@ -188,6 +188,7 @@ JHtml::_('behavior.keepalive');
 			<?php echo JHtml::_('sliders.end'); ?>
 		</div>
 	<?php // endif; ?>
+     */ ?>
 	<div>
 		<input type="hidden" name="task" value="" />
 		<input type="hidden" name="return" value="<?php echo JRequest::getCmd('return');?>" />
