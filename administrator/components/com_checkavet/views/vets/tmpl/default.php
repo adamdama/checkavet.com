@@ -143,7 +143,7 @@ $saveOrder	= $listOrder == 'v.ordering';
 					<?php echo $this->escape($item->phone); ?>
 				</td>
 				<td class="center">
-					<?php //echo JHtml::_('contentadministrator.featured', $item->featured, $i, $canChange); ?>
+					<?php echo JHtml::_('checkavetadministrator.featured', $item->featured, $i, $canChange); ?>
 				</td>
 				<td class="center">
 					<?php echo JHtml::_('jgrid.published', $item->state, $i, 'vets.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
