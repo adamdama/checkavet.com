@@ -215,7 +215,7 @@ class CheckavetHelper
     public static function addSubmenu($vName)
     {
         JSubMenuHelper::addEntry(JText::_('COM_CHECKAVET_VETS_TITLE'), 'index.php?option=com_checkavet&view=vets', $vName == 'vets');
-        JSubMenuHelper::addEntry(JText::_('COM_CHECKAVET_PET_SERVICES_TITLE'), 'index.php?option=com_checkavet&view=services', $vName == 'pet services');
+        JSubMenuHelper::addEntry(JText::_('COM_CHECKAVET_PETSERVICES_TITLE'), 'index.php?option=com_checkavet&view=petservices', $vName == 'pet services');
     }
 }
 

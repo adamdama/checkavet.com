@@ -11,9 +11,9 @@ class JConfig {
 	public $debug_lang = '0';
 	public $dbtype = 'mysqli';
 	public $host = 'localhost';
-	public $user = 'checkavet';
-	public $password = 'password';
-	public $db = 'checkavet';
+	public $user = 'jmla_checkavet';
+	public $password = '56@D1iSf:{0\'8+q';
+	public $db = 'jmla_checkavet';
 	public $dbprefix = 'jmla_';
 	public $live_site = '';
 	public $secret = 'svF5toqUXzRJwHNg';

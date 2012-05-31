@@ -23,7 +23,12 @@
 			</language>
 	</languages>
 	<administration>
-		<menu img="class:checkavet">com_checkavet</menu>
+		<menu img="administrator/components/com_checkavet/assets/icons/checkavet.png">com_checkavet</menu>
+		<submenu>
+		<menu view="vets" img="administrator/components/com_checkavet/assets/icons/vets.png">Vets</menu>
+		<menu view="petservices" img="administrator/components/com_checkavet/assets/icons/petservices.png">Pet Services</menu>
+		<menu view="ratings" img="administrator/components/com_checkavet/assets/icons/ratings.png">Ratings</menu>
+		</submenu>
 		<files folder="admin">
 			<filename>config.xml</filename>
 			<filename>controller.php</filename>
@@ -34,10 +39,8 @@
 			<folder>views</folder>
 		</files>
 		<languages folder="admin">
-			<language tag="en-GB">language/en-GB.com_checkavet.ini
-			</language>
-			<language tag="en-GB">language/en-GB.com_checkavet.sys.ini
-			</language>
+			<language tag="en-GB">language/en-GB.com_checkavet.ini</language>
+			<language tag="en-GB">language/en-GB.com_checkavet.sys.ini</language>
 		</languages>
 	</administration>
 </extension>
