@@ -177,9 +177,9 @@ class CheckavetModelVets extends JModelList
 		}
 
 		// Filter by town
-		$county = $this->getState('filter.town');
-		$county = $county === '' ? false : $town;
-		if ($county) {
+		$town = $this->getState('filter.town');
+		$town = $town === '' ? false : $town;
+		if ($town) {
 			$query->where('v.town = ' . $db->Quote($town));
 		}
 
