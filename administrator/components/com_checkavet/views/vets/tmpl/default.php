@@ -39,6 +39,11 @@ $saveOrder	= $listOrder == 'v.ordering';
 				<option value="" selected="selected"><?php echo JText::_('COM_CHECKAVET_OPTION_COUNTY');?></option>
 				<?php echo JHtml::_('select.options', $this->get('optionCounties'), 'value', 'text', $this->state->get('filter.county'));?>
 			</select>
+
+			<select name="filter_town" class="inputbox" onchange="this.form.submit()">
+				<option value="" selected="selected"><?php echo JText::_('COM_CHECKAVET_OPTION_TOWN');?></option>
+				<?php echo JHtml::_('select.options', $this->get('optionTowns'), 'value', 'text', $this->state->get('filter.town'));?>
+			</select>
 		</div>
 	</fieldset>
 	<div class="clr"> </div>
@@ -60,6 +65,9 @@ $saveOrder	= $listOrder == 'v.ordering';
 				</th>
 				<th width="10%">
 					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_COUNTY_LABEL', 'v.county', $listDirn, $listOrder); ?>
+				</th>
+				<th width="10%">
+					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_TOWN_LABEL', 'v.town', $listDirn, $listOrder); ?>
 				</th>
 				<th width="10%">
 					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_EMAIL_LABEL', 'v.email', $listDirn, $listOrder); ?>
@@ -135,6 +143,9 @@ $saveOrder	= $listOrder == 'v.ordering';
 				</td>
 				<td class="center">
 					<?php echo $this->escape($item->county); ?>
+				</td>
+				<td class="center">
+					<?php echo $this->escape($item->town); ?>
 				</td>
 				<td class="center">
 					<?php echo $this->escape($item->email); ?>

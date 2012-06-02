@@ -34,6 +34,7 @@ class CheckavetModelVets extends JModelList
 				'id', 'v.id',
 				'name', 'v.name',
 				'county', 'v.county',
+				'town', 'v.town',
 				'checked_out', 'v.checked_out',
 				'checked_out_time', 'v.checked_out_time',
 				'accredited', 'v.accredited',
@@ -84,6 +85,9 @@ class CheckavetModelVets extends JModelList
 		$county = $this->getUserStateFromRequest($this->context.'.filter.county', 'filter_county', '');
 		$this->setState('filter.county', $county);
 
+		$town = $this->getUserStateFromRequest($this->context.'.filter.town', 'filter_town', '');
+		$this->setState('filter.town', $town);
+
 		// List state information.
 		parent::populateState('v.id', 'desc');
 	}
@@ -107,6 +111,7 @@ class CheckavetModelVets extends JModelList
 		$id	.= ':'.$this->getState('filter.access');
 		$id	.= ':'.$this->getState('filter.state');
 		//$id	.= ':'.$this->getState('filter.county');
+		//$id	.= ':'.$this->getState('filter.town');
 
 		return parent::getStoreId($id);
 	}
@@ -128,7 +133,7 @@ class CheckavetModelVets extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'v.id, v.name, v.county, v.phone, v.email, v.website, v.checked_out, v.checked_out_time' .
+				'v.id, v.name, v.county, v.town, v.phone, v.email, v.website, v.checked_out, v.checked_out_time' .
 				', v.state, v.access, v.created, v.ordering, v.featured, v.hits' .
 				', v.publish_up, v.publish_down'
 			)
@@ -169,6 +174,13 @@ class CheckavetModelVets extends JModelList
 		$county = $county === '' ? false : $county;
 		if ($county) {
 			$query->where('v.county = ' . $db->Quote($county));
+		}
+
+		// Filter by town
+		$county = $this->getState('filter.town');
+		$county = $county === '' ? false : $town;
+		if ($county) {
+			$query->where('v.town = ' . $db->Quote($town));
 		}
 
 		// Filter by a single or group of categories.
@@ -233,17 +245,32 @@ class CheckavetModelVets extends JModelList
 		sort($results);
 		//put in assoc for values in the option tags
 		$assoc = array();
-		foreach($results as $result) $assoc[$result] = $result;
+		foreach($results as $result)
+			$assoc[$result] = $result;
 		
 		return $assoc;
-		
-		// Construct the query
-		//$query->select('u.id AS value, u.name AS text');
-		//$query->from('#__users AS u');
-		//$query->join('INNER', '#__vets AS c ON c.created_by = u.id');
-		//$query->group('u.id');
-		//$query->order('u.name');
+	}
 
+	/**
+	 * Build a list of towns
+	 *
+	 * @return	JDatabaseQuery
+	 * @since	1.6
+	 */	 
+	public function getOptionTowns() {
+		$db		= $this->getDbo();
+		// Select the required fields from the table.
+		//$query = "SELECT DISTINCT `county` FROM `#__vets` WHERE `county` <> ''";
+		$query = "SELECT DISTINCT `town` FROM `#__vets`";
+		$db->setQuery($query);
+		$results = $db->loadResultArray();
+		sort($results);
+		//put in assoc for values in the option tags
+		$assoc = array();
+		foreach($results as $result)
+			$assoc[$result] = $result;
+		
+		return $assoc;
 	}
 
 	/**
