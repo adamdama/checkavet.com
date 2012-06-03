@@ -33,7 +33,6 @@
 
 		<field name="town" type="text" label="COM_CHECKAVET_FIELD_TOWN_LABEL"
 			description="COM_CHECKAVET_FIELD_TOWN_DESC" class="inputbox" size="45" />
-
 		<field name="email" type="text" label="COM_CHECKAVET_FIELD_WEBSITE_LABEL"
 			description="COM_CHECKAVET_FIELD_WEBSITE_DESC" class="inputbox" size="45" />
 
@@ -92,6 +91,7 @@
 			name="buttonspacer"
 			description="JGLOBAL_ACTION_PERMISSIONS_DESCRIPTION"
 			type="spacer" />
+			
 		<field name="created" type="calendar" label="COM_CHECKAVET_FIELD_CREATED_LABEL"
 			description="COM_CHECKAVET_FIELD_CREATED_DESC" class="inputbox" size="22"
 			format="%Y-%m-%d %H:%M:%S" filter="user_utc" />

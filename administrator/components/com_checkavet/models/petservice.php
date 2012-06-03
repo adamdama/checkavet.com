@@ -177,11 +177,16 @@ class CheckavetModelPetservice extends JModelAdmin
 	 */
 	public function save($data)
 	{
-		// Alter the title for save as copy
+		// Alter the name for save as copy
 		if (JRequest::getVar('task') == 'save2copy') {
-			//list($title,$alias) = $this->generateNewTitle($data['catid'], $data['alias'], $data['title']);
-			//$data['title']	= $title;
-			//$data['alias']	= $alias;
+			list($name,$alias) = $this->generateNewTitle(0, $data['alias'], $data['name']);
+			$data['name']	= $name;
+			$data['alias']	= $alias;
+		}
+		
+		if($data['alias'] == "")
+		{
+			$data['alias'] = str_replace(' ', '_', strtolower($data['name']));
 		}
 		
 		$item = $this->getItem(JRequest::getVar('id'));		

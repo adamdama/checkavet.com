@@ -12,6 +12,10 @@
 			description="COM_CHECKAVET_FIELD_NAME_DESC" class="inputbox" size="30"
 			required="true" />
 
+		<field name="alias" type="text" label="COM_CHECKAVET_FIELD_ALIAS_LABEL"
+			description="COM_CHECKAVET_FIELD_ALIAS_DESC" class="inputbox" size="30"
+			required="false" />
+
 		<field name="address1" type="text" label="COM_CHECKAVET_FIELD_ADDRESS1_LABEL"
 			description="COM_CHECKAVET_FIELD_ADDRESS1_DESC" class="inputbox" size="45" />
 
@@ -29,6 +33,9 @@
 
 		<field name="town" type="text" label="COM_CHECKAVET_FIELD_TOWN_LABEL"
 			description="COM_CHECKAVET_FIELD_TOWN_DESC" class="inputbox" size="45" />
+
+		<field name="region" type="text" label="COM_CHECKAVET_FIELD_REGION_LABEL"
+			description="COM_CHECKAVET_FIELD_REGION_DESC" class="inputbox" size="45" />
 
 		<field name="email" type="text" label="COM_CHECKAVET_FIELD_WEBSITE_LABEL"
 			description="COM_CHECKAVET_FIELD_WEBSITE_DESC" class="inputbox" size="45" />
@@ -48,17 +55,17 @@
 		<field name="industry" type="text" label="COM_CHECKAVET_FIELD_INDUSTRY_LABEL"
 			description="COM_CHECKAVET_FIELD_INDUSTRY_DESC" class="inputbox" size="45" />
 
-		<field name="accredited" type="radio" label="COM_CHECKAVET_FIELD_ACCREDITED_LABEL"
-			description="COM_CHECKAVET_FIELD_ACCREDITED_DESC" class="inputbox" size="45">
-			<option value="1">JYES</option>
-			<option value="0">JNO</option>
-		</field>
+		<field name="contact_title" type="text" label="COM_CHECKAVET_FIELD_CONTACT_TITLE_LABEL"
+			description="COM_CHECKAVET_FIELD_PCONTACT_TITLE_DESC" class="inputbox" size="45" />
 
-		<field name="24hour" type="radio" label="COM_CHECKAVET_FIELD_24HOUR_LABEL"
-			description="COM_CHECKAVET_FIELD_24HOUR_DESC" class="inputbox" size="45">
-			<option value="1">JYES</option>
-			<option value="0">JNO</option>
-		</field>
+		<field name="contact_forename" type="text" label="COM_CHECKAVET_FIELD_CONTACT_FORENAME_LABEL"
+			description="COM_CHECKAVET_FIELD_CONTACT_FORENAME_DESC" class="inputbox" size="45" />
+
+		<field name="contact_surname" type="text" label="COM_CHECKAVET_FIELD_CONTACT_SURNAME_LABEL"
+			description="COM_CHECKAVET_FIELD_CONTACT_SURNAME_DESC" class="inputbox" size="45" />
+
+		<field name="contact_position" type="text" label="COM_CHECKAVET_FIELD_CONTACT_POSTION_LABEL"
+			description="COM_CHECKAVET_FIELD_CONTACT_POSTION_DESC" class="inputbox" size="45" />
 
 		<field name="logo" type="text" label="COM_CHECKAVET_FIELD_LOGO_LABEL"
 			description="COM_CHECKAVET_FIELD_LOGO_DESC" class="inputbox" size="45" />
@@ -94,6 +101,7 @@
 			name="buttonspacer"
 			description="JGLOBAL_ACTION_PERMISSIONS_DESCRIPTION"
 			type="spacer" />
+			
 		<field name="created" type="calendar" label="COM_CHECKAVET_FIELD_CREATED_LABEL"
 			description="COM_CHECKAVET_FIELD_CREATED_DESC" class="inputbox" size="22"
 			format="%Y-%m-%d %H:%M:%S" filter="user_utc" />

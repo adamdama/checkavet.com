@@ -53,14 +53,14 @@ JHtml::_('behavior.keepalive');
                 <li><?php echo $this->form->getLabel('address3'); ?>
                 <?php echo $this->form->getInput('address3'); ?></li>
 
-                <li><?php echo $this->form->getLabel('postcode'); ?>
-                <?php echo $this->form->getInput('postcode'); ?></li>
+                <li><?php echo $this->form->getLabel('town'); ?>
+                <?php echo $this->form->getInput('town'); ?></li>
 
                 <li><?php echo $this->form->getLabel('county'); ?>
                 <?php echo $this->form->getInput('county'); ?></li>
 
-                <li><?php echo $this->form->getLabel('town'); ?>
-                <?php echo $this->form->getInput('town'); ?></li>
+                <li><?php echo $this->form->getLabel('postcode'); ?>
+                <?php echo $this->form->getInput('postcode'); ?></li>
 
 				<li><?php echo $this->form->getLabel('website'); ?>
 				<?php echo $this->form->getInput('website'); ?></li>

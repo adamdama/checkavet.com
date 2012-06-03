@@ -53,17 +53,38 @@ JHtml::_('behavior.keepalive');
                 <li><?php echo $this->form->getLabel('address3'); ?>
                 <?php echo $this->form->getInput('address3'); ?></li>
 
-                <li><?php echo $this->form->getLabel('postcode'); ?>
-                <?php echo $this->form->getInput('postcode'); ?></li>
+                <li><?php echo $this->form->getLabel('town'); ?>
+                <?php echo $this->form->getInput('town'); ?></li>
 
                 <li><?php echo $this->form->getLabel('county'); ?>
                 <?php echo $this->form->getInput('county'); ?></li>
 
-                <li><?php echo $this->form->getLabel('town'); ?>
-                <?php echo $this->form->getInput('town'); ?></li>
+                <li><?php echo $this->form->getLabel('postcode'); ?>
+                <?php echo $this->form->getInput('postcode'); ?></li>
+
+                <li><?php echo $this->form->getLabel('region'); ?>
+                <?php echo $this->form->getInput('region'); ?></li>
+
+                <li><?php echo $this->form->getLabel('premises'); ?>
+                <?php echo $this->form->getInput('premises'); ?></li>
+
+                <li><?php echo $this->form->getLabel('industry'); ?>
+                <?php echo $this->form->getInput('industry'); ?></li>
 
 				<li><?php echo $this->form->getLabel('website'); ?>
 				<?php echo $this->form->getInput('website'); ?></li>
+
+				<li><?php echo $this->form->getLabel('contact_title'); ?>
+				<?php echo $this->form->getInput('contact_title'); ?></li>
+
+				<li><?php echo $this->form->getLabel('contact_forename'); ?>
+				<?php echo $this->form->getInput('contact_forename'); ?></li>
+
+				<li><?php echo $this->form->getLabel('contact_surname'); ?>
+				<?php echo $this->form->getInput('contact_surname'); ?></li>
+
+				<li><?php echo $this->form->getLabel('contact_position'); ?>
+				<?php echo $this->form->getInput('contact_position'); ?></li>
 
 				<li><?php echo $this->form->getLabel('email'); ?>
 				<?php echo $this->form->getInput('email'); ?></li>
@@ -73,12 +94,6 @@ JHtml::_('behavior.keepalive');
 
 				<li><?php echo $this->form->getLabel('fax'); ?>
 				<?php echo $this->form->getInput('fax'); ?></li>
-
-				<li><?php echo $this->form->getLabel('accredited'); ?>
-				<?php echo $this->form->getInput('accredited'); ?></li>
-
-				<li><?php echo $this->form->getLabel('24hour'); ?>
-				<?php echo $this->form->getInput('24hour'); ?></li>
 
 				<li><?php echo $this->form->getLabel('state'); ?>
 				<?php echo $this->form->getInput('state'); ?></li>
