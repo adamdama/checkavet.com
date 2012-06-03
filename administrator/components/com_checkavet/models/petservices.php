@@ -35,6 +35,7 @@ class CheckavetModelPetservices extends JModelList
 				'name', 'v.name',
 				'county', 'v.county',
 				'town', 'v.town',
+				'industry', 'v.industry',
 				'checked_out', 'v.checked_out',
 				'checked_out_time', 'v.checked_out_time',
 				'accredited', 'v.accredited',
@@ -87,6 +88,9 @@ class CheckavetModelPetservices extends JModelList
 
 		$town = $this->getUserStateFromRequest($this->context.'.filter.town', 'filter_town', '');
 		$this->setState('filter.town', $town);
+		
+		$industry = $this->getUserStateFromRequest($this->context.'.filter.industry', 'filter_industry', '');
+		$this->setState('filter.industry', $industry);
 
 		// List state information.
 		parent::populateState('v.id', 'desc');
@@ -133,7 +137,7 @@ class CheckavetModelPetservices extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'v.id, v.name, v.county, v.town, v.phone, v.email, v.website, v.checked_out, v.checked_out_time' .
+				'v.id, v.name, v.county, v.town, v.industry, v.phone, v.email, v.website, v.checked_out, v.checked_out_time' .
 				', v.state, v.access, v.created, v.ordering, v.featured, v.hits' .
 				', v.publish_up, v.publish_down'
 			)
@@ -181,6 +185,13 @@ class CheckavetModelPetservices extends JModelList
 		$town = $town === '' ? false : $town;
 		if ($town) {
 			$query->where('v.town = ' . $db->Quote($town));
+		}
+
+		// Filter by town
+		$industry = $this->getState('filter.industry');
+		$industry = $industry === '' ? false : $industry;
+		if ($industry) {
+			$query->where('v.industry = ' . $db->Quote($industry));
 		}
 
 		// Filter by a single or group of categories.
@@ -238,7 +249,6 @@ class CheckavetModelPetservices extends JModelList
 	public function getOptionCounties() {
 		$db		= $this->getDbo();
 		// Select the required fields from the table.
-		//$query = "SELECT DISTINCT `county` FROM `#__petservices` WHERE `county` <> ''";
 		$query = "SELECT DISTINCT `county` FROM `#__petservices`";
 		$db->setQuery($query);
 		$results = $db->loadResultArray();
@@ -260,8 +270,28 @@ class CheckavetModelPetservices extends JModelList
 	public function getOptionTowns() {
 		$db		= $this->getDbo();
 		// Select the required fields from the table.
-		//$query = "SELECT DISTINCT `county` FROM `#__petservices` WHERE `county` <> ''";
 		$query = "SELECT DISTINCT `town` FROM `#__petservices`";
+		$db->setQuery($query);
+		$results = $db->loadResultArray();
+		sort($results);
+		//put in assoc for values in the option tags
+		$assoc = array();
+		foreach($results as $result)
+			$assoc[$result] = $result;
+		
+		return $assoc;
+	}
+
+	/**
+	 * Build a list of industries
+	 *
+	 * @return	JDatabaseQuery
+	 * @since	1.6
+	 */	 
+	public function getOptionIndustries() {
+		$db		= $this->getDbo();
+		// Select the required fields from the table.
+		$query = "SELECT DISTINCT `industry` FROM `#__petservices`";
 		$db->setQuery($query);
 		$results = $db->loadResultArray();
 		sort($results);

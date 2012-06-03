@@ -12,6 +12,10 @@
 			description="COM_CHECKAVET_FIELD_NAME_DESC" class="inputbox" size="30"
 			required="true" />
 
+		<field name="alias" type="text" label="COM_CHECKAVET_FIELD_ALIAS_LABEL"
+			description="COM_CHECKAVET_FIELD_ALIAS_DESC" class="inputbox" size="30"
+			required="false" />
+
 		<field name="address1" type="text" label="COM_CHECKAVET_FIELD_ADDRESS1_LABEL"
 			description="COM_CHECKAVET_FIELD_ADDRESS1_DESC" class="inputbox" size="45" />
 

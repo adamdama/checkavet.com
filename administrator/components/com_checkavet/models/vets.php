@@ -133,7 +133,7 @@ class CheckavetModelVets extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'v.id, v.name, v.county, v.town, v.phone, v.email, v.website, v.checked_out, v.checked_out_time' .
+				'v.id, v.name, v.county, v.town, v.industry, v.premises, v.phone, v.email, v.website, v.checked_out, v.checked_out_time' .
 				', v.state, v.access, v.created, v.ordering, v.featured, v.hits' .
 				', v.publish_up, v.publish_down'
 			)
@@ -238,7 +238,6 @@ class CheckavetModelVets extends JModelList
 	public function getOptionCounties() {
 		$db		= $this->getDbo();
 		// Select the required fields from the table.
-		//$query = "SELECT DISTINCT `county` FROM `#__vets` WHERE `county` <> ''";
 		$query = "SELECT DISTINCT `county` FROM `#__vets`";
 		$db->setQuery($query);
 		$results = $db->loadResultArray();
@@ -260,7 +259,6 @@ class CheckavetModelVets extends JModelList
 	public function getOptionTowns() {
 		$db		= $this->getDbo();
 		// Select the required fields from the table.
-		//$query = "SELECT DISTINCT `county` FROM `#__vets` WHERE `county` <> ''";
 		$query = "SELECT DISTINCT `town` FROM `#__vets`";
 		$db->setQuery($query);
 		$results = $db->loadResultArray();

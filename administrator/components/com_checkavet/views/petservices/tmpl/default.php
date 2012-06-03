@@ -35,6 +35,11 @@ $saveOrder	= $listOrder == 'v.ordering';
 				<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.state'), true);?>
 			</select>
 
+			<select name="filter_industry" class="inputbox" onchange="this.form.submit()">
+				<option value="" selected="selected"><?php echo JText::_('COM_CHECKAVET_OPTION_INDUSTRY');?></option>
+				<?php echo JHtml::_('select.options', $this->get('optionIndustries'), 'value', 'text', $this->state->get('filter.industry'));?>
+			</select>
+
 			<select name="filter_county" class="inputbox" onchange="this.form.submit()">
 				<option value="" selected="selected"><?php echo JText::_('COM_CHECKAVET_OPTION_COUNTY');?></option>
 				<?php echo JHtml::_('select.options', $this->get('optionCounties'), 'value', 'text', $this->state->get('filter.county'));?>
@@ -68,6 +73,12 @@ $saveOrder	= $listOrder == 'v.ordering';
 				</th>
 				<th width="10%">
 					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_TOWN_LABEL', 'v.town', $listDirn, $listOrder); ?>
+				</th>
+				<th width="10%">
+					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_INDUSTRY_LABEL', 'v.industry', $listDirn, $listOrder); ?>
+				</th>
+				<th width="10%">
+					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_PREMISES_LABEL', 'v.premises', $listDirn, $listOrder); ?>
 				</th>
 				<th width="10%">
 					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_EMAIL_LABEL', 'v.email', $listDirn, $listOrder); ?>
@@ -143,6 +154,12 @@ $saveOrder	= $listOrder == 'v.ordering';
 				</td>
 				<td class="center">
 					<?php echo $this->escape($item->county); ?>
+				</td>
+				<td class="center">
+					<?php echo $this->escape($item->town); ?>
+				</td>
+				<td class="center">
+					<?php echo $this->escape($item->industry); ?>
 				</td>
 				<td class="center">
 					<?php echo $this->escape($item->town); ?>
