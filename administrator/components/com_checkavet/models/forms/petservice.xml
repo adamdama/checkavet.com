@@ -64,8 +64,8 @@
 		<field name="contact_surname" type="text" label="COM_CHECKAVET_FIELD_CONTACT_SURNAME_LABEL"
 			description="COM_CHECKAVET_FIELD_CONTACT_SURNAME_DESC" class="inputbox" size="45" />
 
-		<field name="contact_position" type="text" label="COM_CHECKAVET_FIELD_CONTACT_POSTION_LABEL"
-			description="COM_CHECKAVET_FIELD_CONTACT_POSTION_DESC" class="inputbox" size="45" />
+		<field name="contact_position" type="text" label="COM_CHECKAVET_FIELD_CONTACT_POSITION_LABEL"
+			description="COM_CHECKAVET_FIELD_CONTACT_POSITION_DESC" class="inputbox" size="45" />
 
 		<field name="logo" type="text" label="COM_CHECKAVET_FIELD_LOGO_LABEL"
 			description="COM_CHECKAVET_FIELD_LOGO_DESC" class="inputbox" size="45" />
