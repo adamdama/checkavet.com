@@ -43,11 +43,11 @@ class JTablePetservices extends JTable
 	 *
 	 * @since   11.1
 	 */
-	protected function _getAssetName()
+	/*protected function _getAssetName()
 	{
 		$k = $this->_tbl_key;
 		return 'com_checkavet.petservice.'.(int) $this->$k;
-	}
+	}*/
 
 	/**
 	 * Method to return the title to use for the asset table.
@@ -56,10 +56,10 @@ class JTablePetservices extends JTable
 	 *
 	 * @since   11.1
 	 */
-	protected function _getAssetTitle()
+	/*protected function _getAssetTitle()
 	{
 		return $this->title;
-	}
+	}*/
 
 	/**
 	 * Method to get the parent asset id for the record
@@ -71,7 +71,7 @@ class JTablePetservices extends JTable
 	 *
 	 * @since   11.1
 	 */
-	protected function _getAssetParentId($table = null, $id = null)
+	/*protected function _getAssetParentId($table = null, $id = null)
 	{
 		// Initialise variables.
 		$assetId = null;
@@ -98,7 +98,7 @@ class JTablePetservices extends JTable
 		} else {
 			return parent::_getAssetParentId($table, $id);
 		}
-	}
+	}*/
 
 	/**
 	 * Overloaded bind function
@@ -112,7 +112,7 @@ class JTablePetservices extends JTable
 	 * @see     JTable:bind
 	 * @since   11.1
 	 */
-	public function bind($array, $ignore = '')
+	/*public function bind($array, $ignore = '')
 	{
 		// Search for the {readmore} tag and split the text up accordingly.
 		if (isset($array['petservicetext'])) {
@@ -146,7 +146,7 @@ class JTablePetservices extends JTable
 		}
 
 		return parent::bind($array, $ignore);
-	}
+	}*/
 
 	/**
 	 * Overloaded check function
@@ -156,7 +156,7 @@ class JTablePetservices extends JTable
 	 * @see     JTable::check
 	 * @since   11.1
 	 */
-	public function check()
+	/*public function check()
 	{
 		if (trim($this->name) == '') {
 			$this->setError(JText::_('COM_CHECKAVET_WARNING_PROVIDE_VALID_NAME'));
@@ -195,7 +195,7 @@ class JTablePetservices extends JTable
 		}
 
 		return true;
-	}
+	}*/
 
 	/**
 	 * Overrides JTable::store to set modified data and user id.
@@ -206,7 +206,7 @@ class JTablePetservices extends JTable
 	 *
 	 * @since   11.1
 	 */
-	public function store($updateNulls = false)
+	/*public function store($updateNulls = false)
 	{
 		$date	= JFactory::getDate();
 		$user	= JFactory::getUser();
@@ -233,7 +233,7 @@ class JTablePetservices extends JTable
 			return false;
 		}
 		return parent::store($updateNulls);
-	}
+	}*/
 
 	/**
 	 * Method to set the publishing state for a row or list of rows in the database
@@ -323,7 +323,7 @@ class JTablePetservices extends JTable
 	 *
 	 * @since   11.1
 	 */
-	function toXML($mapKeysToText=false)
+	/*function toXML($mapKeysToText=false)
 	{
 		$db = JFactory::getDbo();
 
@@ -344,5 +344,5 @@ class JTablePetservices extends JTable
 		}
 
 		return parent::toXML($mapKeysToText);
-	}
+	}*/
 }
