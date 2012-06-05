@@ -44,13 +44,24 @@ class CheckavetController extends JController
 		$view		= JRequest::getCmd('view', 'vets');
 		$layout 	= JRequest::getCmd('layout', 'vets');
 		$id			= JRequest::getInt('id');
-
+		
+		
 		// Check for edit form.
 		if ($view == 'vet' && $layout == 'edit' && !$this->checkEditId('com_checkavet.edit.vet', $id)) {
 			// Somehow the person just went to the form - we don't allow that.
 			$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
 			$this->setMessage($this->getError(), 'error');
 			$this->setRedirect(JRoute::_('index.php?option=com_checkavet&view=vets', false));
+
+			return false;
+		}
+				
+		// Check for edit form.
+		if ($view == 'petservice' && $layout == 'edit' && !$this->checkEditId('com_checkavet.edit.petservice', $id)) {
+			// Somehow the person just went to the form - we don't allow that.
+			$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
+			$this->setMessage($this->getError(), 'error');
+			$this->setRedirect(JRoute::_('index.php?option=com_checkavet&view=petservices', false));
 
 			return false;
 		}
