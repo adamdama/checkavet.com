@@ -55,7 +55,7 @@ $imagesrc = file_exists(JPATH_BASE.DS.'images'.DS.'checkavet'.DS.'logos'.DS.$vet
             <?php } ?>
 			<?php if($petservice['town'] != "&nbsp;") { ?>
 			<tr>
-				<td></td>
+				<td>Town:</td>
 				<td class="right"><?php echo $petservice['town']; ?></td>
 			</tr>
 			<?php } ?>
