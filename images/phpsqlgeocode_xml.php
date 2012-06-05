@@ -2,9 +2,9 @@
 <!-- saved from url=(0090)http://gmaps-samples.googlecode.com/svn/trunk/articles-phpsqlgeocode/phpsqlgeocode_xml.php -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;"><script type="text/javascript">window.onload = function(){window.location.reload();};</script>
 <?php
-$username="checkavet";
-$password="password";
-$database="checkavet";
+$username="jmla_checkavet";
+$password="56@D1iSf:{0'8+q";
+$database="jmla_checkavet";
 
 define("MAPS_HOST", "maps.google.com");
 define("KEY", "AIzaSyBK2oBWwjz7a9TJQwjpZcFlSNxm_Cvq-P8");
@@ -22,7 +22,7 @@ if (!$db_selected) {
 }
 
 // Select all the rows in the markers table
-$query = "SELECT * FROM jmla_vets WHERE 1";
+$query = "SELECT * FROM jmla_petservices WHERE 1";
 $result = mysql_query($query);
 if (!$result) {
   die("Invalid query: " . mysql_error());
@@ -55,6 +55,7 @@ while ($row = @mysql_fetch_assoc($result)) {
     $address .= $row["address1"] == "" ? "" : $row['address1'].", ";
     $address .= $row["address2"] == "" ? "" : $row['address2'].", ";
     $address .= $row["address3"] == "" ? "" : $row['address3'].", ";
+    $address .= $row["town"] == "" ? "" : $row['town'].", ";
     $address .= $row["county"] == "" ? "" : $row['county'].", ";
     $address .= $row["postcode"] == "" ? "" : $row['postcode'];
 	//$address = substr($address, 0, -2);
@@ -76,7 +77,7 @@ while ($row = @mysql_fetch_assoc($result)) {
 	 $lat = $coords[0];
 	 $lng = $coords[1];
 
-      $query = sprintf("UPDATE jmla_vets " .
+      $query = sprintf("UPDATE jmla_petservices " .
              " SET lat = '%s', lng = '%s' " .
              " WHERE id = '%s' LIMIT 1;",
              mysql_real_escape_string($lat),
@@ -95,7 +96,7 @@ while ($row = @mysql_fetch_assoc($result)) {
       // sent geocodes too fast
 	  echo "oql retrying {$row['id']}<br />";
      // $geocode_pending = false;
-		 $fail++; 
+		// $fail++; 
       $delay += 10000;
     } else {
       // failure to geocode

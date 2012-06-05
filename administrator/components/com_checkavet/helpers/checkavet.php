@@ -96,10 +96,10 @@ class CheckavetHelper
     
     public static function sortByDistance($postcode, $data)
     {
-        require_once(JPATH_COMPONENT . DS . 'models' . DS . 'postcodes.php');
+        require_once(JPATH_COMPONENT_ADMINISTRATOR . DS . 'models' . DS . 'postcodes.php');
         $model     = new CheckavetModelPostcodes();
         $postcodes = $model->getPostcodes();
-        
+		        
         $homePos = self::geocodePostCode($postcode);
         if(!$homePos)
             return $data;

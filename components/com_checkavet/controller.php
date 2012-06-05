@@ -53,7 +53,7 @@ class CheckavetController extends JController
    		parent::display();
 	}
 	
-	function services()
+	function petservices()
 	{	
 		$post = JRequest::get();		
 		unset($post['task']);
@@ -61,7 +61,7 @@ class CheckavetController extends JController
 		
 		$postcode = $post['postcode'];
 		
-		JRequest::setVar('view', 'services');
+		JRequest::setVar('view', 'petservices');
    		parent::display();
 	}
 }

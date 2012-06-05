@@ -17,7 +17,7 @@ jimport('joomla.application.component.view');
  * @subpackage	com_checkavet
  * @since		1.5
  */
-class CheckavetViewServices extends JView
+class CheckavetViewPetservices extends JView
 {
 	var $_limit = 10;
 	
@@ -32,37 +32,37 @@ class CheckavetViewServices extends JView
 		$uri	= JFactory::getURI();	
 		$params = $app->getParams();
 		
-		$this->services = null;		
+		$this->petservices = null;		
 		$this->postcode = $this->get('Postcode');	
-		$this->service = $this->get('Service');	
+		$this->petservice = $this->get('Petservice');	
 		
 		// Get some data from the model
-		$services = $this->get('Services');
-		if($services == null || count($services) == 0)
+		$petservices = $this->get('Petservices');
+		if($petservices == null || count($petservices) == 0)
 			return parent::display($tpl);
 		
-		$services = $this->limitServicesList($services);
+		$petservices = $this->limitPetservicesList($petservices);
 		
 		$tmp = array();
-		foreach($services as $key => $value)
+		foreach($petservices as $key => $value)
 		{
-			foreach($value as $service)
+			foreach($value as $petservice)
 			{
-				if(is_array($service))
-					array_push($tmp, $service);
+				if(is_array($petservice))
+					array_push($tmp, $petservice);
 			}
 		}		
-		$this->services = $tmp;	
+		$this->petservices = $tmp;	
 		
 		return parent::display($tpl);
 	}
 	
-	function limitServicesList($services)
+	function limitPetservicesList($petservices)
 	{
 		$tmp = array();
 		$count = 0;
 		
-		foreach($services as $postcodeArea)
+		foreach($petservices as $postcodeArea)
 		{
 			array_push($tmp, $postcodeArea);
 			$count += count($tmp);

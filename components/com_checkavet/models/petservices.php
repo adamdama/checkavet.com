@@ -19,7 +19,7 @@ jimport('joomla.application.component.model');
  * @subpackage	com_search
  * @since 1.5
  */
-class CheckavetModelServices extends JModel
+class CheckavetModelPetservices extends JModel
 {
 	/**
 	 * 
@@ -66,7 +66,7 @@ class CheckavetModelServices extends JModel
 		$this->_postcode = $postcode;
 		$this->_type = $servicetype;
 		
-		$this->getServices();
+		$this->getPetservices();
 	}
 	
 	
@@ -76,7 +76,7 @@ class CheckavetModelServices extends JModel
 	}
 	
 	
-	function getService()
+	function getPetservice()
 	{
 		return $this->_type;
 	}
@@ -87,7 +87,7 @@ class CheckavetModelServices extends JModel
 	 * @access public
 	 * @return array
 	 */
-	function getServices()
+	function getPetservices()
 	{		
 		// Lets load the content if it doesn't already exist
 		if (empty($this->_services))
@@ -102,7 +102,7 @@ class CheckavetModelServices extends JModel
 			$query->clear();
 			$query->select('*');
 			$query->from($db->nameQuote('#__petservices').' AS '.$db->nameQuote('s'));
-			$query->where($db->nameQuote('enabled').' = '.$db->quote('true').' AND '.$db->nameQuote('industry').' = '.$db->quote($this->_type));
+			$query->where($db->nameQuote('state').' = 1 AND '.$db->nameQuote('industry').' = '.$db->quote($this->_type));
 			$db->setQuery($query);
 			
 			$services = $db->loadAssocList();
@@ -127,7 +127,7 @@ class CheckavetModelServices extends JModel
 		$query->clear();
 		$query->select($db->nameQuote('s.industry').' AS '.$db->nameQuote('servicetype'));
 		$query->from($db->nameQuote('#__petservices').' AS '.$db->nameQuote('s'));
-		$query->where($db->nameQuote('enabled').' = '.$db->quote('true'));
+		$query->where($db->nameQuote('state').' = 1');
 		$db->setQuery($query);
 		
 		$tmp = array();

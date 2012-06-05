@@ -20,8 +20,8 @@ class modServicessearchHelper
 	
 	public static function getServiceTypes()
 	{
-		require_once(JPATH_COMPONENT.DS.'models'.DS.'services.php');
-		$model = new CheckavetModelServices();
+		require_once(JPATH_COMPONENT.DS.'models'.DS.'petservices.php');
+		$model = new CheckavetModelPetservices();
 		$serviceTypes = $model->getServiceTypes();
 		
 		return $serviceTypes;
