@@ -53,6 +53,12 @@ $imagesrc = file_exists(JPATH_BASE.DS.'images'.DS.'checkavet'.DS.'logos'.DS.$vet
                 <td class="right"><?php echo $vet['address3']; ?></td>
             </tr>
             <?php } ?>
+			<?php if($petservice['town'] != "&nbsp;") { ?>
+			<tr>
+				<td></td>
+				<td class="right"><?php echo $petservice['town']; ?></td>
+			</tr>
+			<?php } ?>
             <tr>
                 <td>County:</td>
                 <td class="right"><?php echo $vet['county']; ?></td>
