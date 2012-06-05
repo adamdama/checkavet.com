@@ -73,7 +73,6 @@ class CheckavetViewRatings extends JView
 			JToolBarHelper::divider();
 			JToolBarHelper::publish('ratings.publish', 'JTOOLBAR_PUBLISH', true);
 			JToolBarHelper::unpublish('ratings.unpublish', 'JTOOLBAR_UNPUBLISH', true);
-			JToolBarHelper::custom('ratings.featured', 'featured.png', 'featured_f2.png', 'JFEATURED', true);
 			JToolBarHelper::divider();
 			//JToolBarHelper::archiveList('ratings.archive');
 			JToolBarHelper::checkin('ratings.checkin');

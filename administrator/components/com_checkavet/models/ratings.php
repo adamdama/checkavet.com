@@ -32,9 +32,6 @@ class CheckavetModelRatings extends JModelList
 		if (empty($config['filter_fields'])) {
 			$config['filter_fields'] = array(
 				'id', 'v.id',
-				'name', 'v.name',
-				'county', 'v.county',
-				'town', 'v.town',
 				'checked_out', 'v.checked_out',
 				'checked_out_time', 'v.checked_out_time',
 				'accredited', 'v.accredited',
@@ -44,7 +41,6 @@ class CheckavetModelRatings extends JModelList
 				'created_by', 'v.created_by',
 				'ordering', 'v.ordering',
 				'featured', 'v.featured',
-				'language', 'v.language',
 				'hits', 'v.hits',
 				'publish_up', 'v.publish_up',
 				'publish_down', 'v.publish_down',
@@ -82,12 +78,6 @@ class CheckavetModelRatings extends JModelList
 		$state = $this->getUserStateFromRequest($this->context.'.filter.state', 'filter_state', '');
 		$this->setState('filter.state', $state);
 
-		$county = $this->getUserStateFromRequest($this->context.'.filter.county', 'filter_county', '');
-		$this->setState('filter.county', $county);
-
-		$town = $this->getUserStateFromRequest($this->context.'.filter.town', 'filter_town', '');
-		$this->setState('filter.town', $town);
-
 		// List state information.
 		parent::populateState('v.id', 'desc');
 	}
@@ -110,8 +100,6 @@ class CheckavetModelRatings extends JModelList
 		$id	.= ':'.$this->getState('filter.search');
 		$id	.= ':'.$this->getState('filter.access');
 		$id	.= ':'.$this->getState('filter.state');
-		//$id	.= ':'.$this->getState('filter.county');
-		//$id	.= ':'.$this->getState('filter.town');
 
 		return parent::getStoreId($id);
 	}
@@ -133,9 +121,8 @@ class CheckavetModelRatings extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'v.id, v.name, v.county, v.town, v.phone, v.email, v.website, v.checked_out, v.checked_out_time' .
-				', v.state, v.access, v.created, v.ordering, v.featured, v.hits' .
-				', v.publish_up, v.publish_down'
+				'v.id, v.checked_out, v.checked_out_time' .
+				', v.state, v.access, v.created'
 			)
 		);
 		$query->from('#__checkavet_ratings AS v');
@@ -167,20 +154,6 @@ class CheckavetModelRatings extends JModelList
 		}
 		elseif ($state === '') {
 			$query->where('(v.state = 0 OR v.state = 1)');
-		}
-
-		// Filter by county
-		$county = $this->getState('filter.county');
-		$county = $county === '' ? false : $county;
-		if ($county) {
-			$query->where('v.county = ' . $db->Quote($county));
-		}
-
-		// Filter by town
-		$town = $this->getState('filter.town');
-		$town = $town === '' ? false : $town;
-		if ($town) {
-			$query->where('v.town = ' . $db->Quote($town));
 		}
 
 		// Filter by a single or group of categories.
@@ -227,27 +200,6 @@ class CheckavetModelRatings extends JModelList
 
 		// echo nl2br(str_replace('#__','jos_',$query));
 		return $query;
-	}
-
-	/**
-	 * Build a list of counties
-	 *
-	 * @return	JDatabaseQuery
-	 * @since	1.6
-	 */	 
-	public function getOptionCounties() {
-		$db		= $this->getDbo();
-		// Select the required fields from the table.
-		$query = "SELECT DISTINCT `county` FROM `#__checkavet_ratings`";
-		$db->setQuery($query);
-		$results = $db->loadResultArray();
-		sort($results);
-		//put in assoc for values in the option tags
-		$assoc = array();
-		foreach($results as $result)
-			$assoc[$result] = $result;
-		
-		return $assoc;
 	}
 
 	/**

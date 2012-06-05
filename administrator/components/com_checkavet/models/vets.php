@@ -44,7 +44,6 @@ class CheckavetModelVets extends JModelList
 				'created_by', 'v.created_by',
 				'ordering', 'v.ordering',
 				'featured', 'v.featured',
-				'language', 'v.language',
 				'hits', 'v.hits',
 				'publish_up', 'v.publish_up',
 				'publish_down', 'v.publish_down',
