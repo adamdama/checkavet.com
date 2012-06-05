@@ -100,7 +100,7 @@ class CheckavetModelVets extends JModel
 			$query = $db->getQuery(true);
 			$query->clear();
 			$query->select('*');
-			$query->from($db->nameQuote('#__vets').' AS '.$db->nameQuote('v'));
+			$query->from($db->nameQuote('#__checkavet_vets').' AS '.$db->nameQuote('v'));
 			$query->where($where.$db->nameQuote('state').' = 1');
 			$db->setQuery($query);
 			

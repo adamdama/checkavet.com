@@ -31,7 +31,7 @@ class JTablePetservices extends JTable
 	 */
 	function __construct(&$db)
 	{
-		parent::__construct('#__petservices', 'id', $db);
+		parent::__construct('#__checkavet_petservices', 'id', $db);
 	}
 
 	/**

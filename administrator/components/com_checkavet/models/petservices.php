@@ -142,7 +142,7 @@ class CheckavetModelPetservices extends JModelList
 				', v.publish_up, v.publish_down'
 			)
 		);
-		$query->from('#__petservices AS v');
+		$query->from('#__checkavet_petservices AS v');
 
 		// Join over the users for the checked out user.
 		$query->select('uc.name AS editor');
@@ -249,7 +249,7 @@ class CheckavetModelPetservices extends JModelList
 	public function getOptionCounties() {
 		$db		= $this->getDbo();
 		// Select the required fields from the table.
-		$query = "SELECT DISTINCT `county` FROM `#__petservices`";
+		$query = "SELECT DISTINCT `county` FROM `#__checkavet_petservices`";
 		$db->setQuery($query);
 		$results = $db->loadResultArray();
 		sort($results);
@@ -270,7 +270,7 @@ class CheckavetModelPetservices extends JModelList
 	public function getOptionTowns() {
 		$db		= $this->getDbo();
 		// Select the required fields from the table.
-		$query = "SELECT DISTINCT `town` FROM `#__petservices`";
+		$query = "SELECT DISTINCT `town` FROM `#__checkavet_petservices`";
 		$db->setQuery($query);
 		$results = $db->loadResultArray();
 		sort($results);
@@ -291,7 +291,7 @@ class CheckavetModelPetservices extends JModelList
 	public function getOptionIndustries() {
 		$db		= $this->getDbo();
 		// Select the required fields from the table.
-		$query = "SELECT DISTINCT `industry` FROM `#__petservices`";
+		$query = "SELECT DISTINCT `industry` FROM `#__checkavet_petservices`";
 		$db->setQuery($query);
 		$results = $db->loadResultArray();
 		sort($results);

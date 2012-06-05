@@ -101,7 +101,7 @@ class CheckavetModelPetservices extends JModel
 			$query = $db->getQuery(true);
 			$query->clear();
 			$query->select('*');
-			$query->from($db->nameQuote('#__petservices').' AS '.$db->nameQuote('s'));
+			$query->from($db->nameQuote('#__checkavet_petservices').' AS '.$db->nameQuote('s'));
 			$query->where($db->nameQuote('state').' = 1 AND '.$db->nameQuote('industry').' = '.$db->quote($this->_type));
 			$db->setQuery($query);
 			
@@ -126,7 +126,7 @@ class CheckavetModelPetservices extends JModel
 		$query = $db->getQuery(true);
 		$query->clear();
 		$query->select($db->nameQuote('s.industry').' AS '.$db->nameQuote('servicetype'));
-		$query->from($db->nameQuote('#__petservices').' AS '.$db->nameQuote('s'));
+		$query->from($db->nameQuote('#__checkavet_petservices').' AS '.$db->nameQuote('s'));
 		$query->where($db->nameQuote('state').' = 1');
 		$db->setQuery($query);
 		

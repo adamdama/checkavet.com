@@ -138,7 +138,7 @@ class CheckavetModelVets extends JModelList
 				', v.publish_up, v.publish_down'
 			)
 		);
-		$query->from('#__vets AS v');
+		$query->from('#__checkavet_vets AS v');
 
 		// Join over the users for the checked out user.
 		$query->select('uc.name AS editor');
@@ -238,7 +238,7 @@ class CheckavetModelVets extends JModelList
 	public function getOptionCounties() {
 		$db		= $this->getDbo();
 		// Select the required fields from the table.
-		$query = "SELECT DISTINCT `county` FROM `#__vets`";
+		$query = "SELECT DISTINCT `county` FROM `#__checkavet_vets`";
 		$db->setQuery($query);
 		$results = $db->loadResultArray();
 		sort($results);
@@ -259,7 +259,7 @@ class CheckavetModelVets extends JModelList
 	public function getOptionTowns() {
 		$db		= $this->getDbo();
 		// Select the required fields from the table.
-		$query = "SELECT DISTINCT `town` FROM `#__vets`";
+		$query = "SELECT DISTINCT `town` FROM `#__checkavet_vets`";
 		$db->setQuery($query);
 		$results = $db->loadResultArray();
 		sort($results);

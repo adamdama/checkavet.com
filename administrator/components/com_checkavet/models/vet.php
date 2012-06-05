@@ -244,7 +244,7 @@ class CheckavetModelVet extends JModelAdmin
 			$db = $this->getDbo();
 
 			$db->setQuery(
-				'UPDATE #__vets AS v' .
+				'UPDATE #__checkavet_vets AS v' .
 				' SET v.featured = '.(int) $value.
 				' WHERE v.id IN ('.implode(',', $pks).')'
 			);
