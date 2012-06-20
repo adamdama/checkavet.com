@@ -38,76 +38,15 @@ JHtml::_('behavior.keepalive');
 				<li><?php echo $this->form->getLabel('id'); ?>
 				<?php echo $this->form->getInput('id'); ?></li> 
                 
-				<li><?php echo $this->form->getLabel('name'); ?>
-				<?php echo $this->form->getInput('name'); ?></li>
-                
-				<li><?php echo $this->form->getLabel('alias'); ?>
-				<?php echo $this->form->getInput('alias'); ?></li>
-
-				<li><?php echo $this->form->getLabel('address1'); ?>
-				<?php echo $this->form->getInput('address1'); ?></li>
-
-				<li><?php echo $this->form->getLabel('address2'); ?>
-				<?php echo $this->form->getInput('address2'); ?></li>
-
-                <li><?php echo $this->form->getLabel('address3'); ?>
-                <?php echo $this->form->getInput('address3'); ?></li>
-
-                <li><?php echo $this->form->getLabel('town'); ?>
-                <?php echo $this->form->getInput('town'); ?></li>
-
-                <li><?php echo $this->form->getLabel('county'); ?>
-                <?php echo $this->form->getInput('county'); ?></li>
-
-                <li><?php echo $this->form->getLabel('postcode'); ?>
-                <?php echo $this->form->getInput('postcode'); ?></li>
-
-				<li><?php echo $this->form->getLabel('website'); ?>
-				<?php echo $this->form->getInput('website'); ?></li>
-
-				<li><?php echo $this->form->getLabel('email'); ?>
-				<?php echo $this->form->getInput('email'); ?></li>
-
-				<li><?php echo $this->form->getLabel('phone'); ?>
-				<?php echo $this->form->getInput('phone'); ?></li>
-
-				<li><?php echo $this->form->getLabel('fax'); ?>
-				<?php echo $this->form->getInput('fax'); ?></li>
-
-				<li><?php echo $this->form->getLabel('accredited'); ?>
-				<?php echo $this->form->getInput('accredited'); ?></li>
-
-				<li><?php echo $this->form->getLabel('24hour'); ?>
-				<?php echo $this->form->getInput('24hour'); ?></li>
+				<li><?php echo $this->form->getLabel('rating'); ?>
+				<?php echo $this->form->getInput('rating'); ?></li>
 
 				<li><?php echo $this->form->getLabel('state'); ?>
 				<?php echo $this->form->getInput('state'); ?></li>
 
 				<li><?php echo $this->form->getLabel('access'); ?>
 				<?php echo $this->form->getInput('access'); ?></li>
-
-				<?php // if ($this->canDo->get('core.admin')): ?>
-					<li><span class="faux-label"><?php echo JText::_('JGLOBAL_ACTION_PERMISSIONS_LABEL'); ?></span>
-						<div class="button2-left"><div class="blank">
-							<button type="button" onclick="document.location.href='#access-rules';">
-								<?php echo JText::_('JGLOBAL_PERMISSIONS_ANCHOR'); ?>
-							</button>
-						</div></div>
-					</li>
-				<?php // endif; ?>
-
-				<li><?php echo $this->form->getLabel('featured'); ?>
-				<?php echo $this->form->getInput('featured'); ?></li> 
-
-				<li><?php echo $this->form->getLabel('show_logo'); ?>
-				<?php echo $this->form->getInput('show_logo'); ?></li> 
-
-				<li><?php echo $this->form->getLabel('logo'); ?>
-				<?php echo $this->form->getInput('logo'); ?></li>
 			</ul>
-                
-			<div class="clr"></div>
-			<img src="<?php echo $this->get('logo'); ?>" alt="<?php echo $this->get('logo'); ?>" />
 			<div class="clr"></div>
 			<?php echo $this->form->getLabel('ratingtext'); ?>
 			<div class="clr"></div>
@@ -143,16 +82,6 @@ JHtml::_('behavior.keepalive');
 						<li><?php echo $this->form->getLabel('modified'); ?>
 						<?php echo $this->form->getInput('modified'); ?></li>
 					<?php endif; ?>
-
-					<?php if ($this->item->version) : ?>
-						<li><?php echo $this->form->getLabel('version'); ?>
-						<?php echo $this->form->getInput('version'); ?></li>
-					<?php endif; ?>
-
-					<?php if ($this->item->hits) : ?>
-						<li><?php echo $this->form->getLabel('hits'); ?>
-						<?php echo $this->form->getInput('hits'); ?></li>
-					<?php endif; ?>
 				</ul>
 			</fieldset>
 
@@ -171,11 +100,6 @@ JHtml::_('behavior.keepalive');
 					</ul>
 				</fieldset>
 			<?php endforeach; ?>
-            
-			<?php echo JHtml::_('sliders.panel',JText::_('JGLOBAL_FIELDSET_METADATA_OPTIONS'), 'meta-options'); ?>
-			<fieldset class="panelform">
-				<?php echo $this->loadTemplate('metadata'); ?>
-			</fieldset>
 
 		<?php echo JHtml::_('sliders.end'); ?>
 	</div>

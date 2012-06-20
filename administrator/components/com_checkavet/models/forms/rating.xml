@@ -8,18 +8,13 @@
 			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
 			readonly="true"  />
 
-		<field name="name" type="text" label="COM_CHECKAVET_FIELD_NAME_LABEL"
-			description="COM_CHECKAVET_FIELD_NAME_DESC" class="inputbox" size="30"
-			readonly="true" />
-
-		<field name="alias" type="text" label="COM_CHECKAVET_FIELD_ALIAS_LABEL"
-			description="COM_CHECKAVET_FIELD_ALIAS_DESC" class="inputbox" size="30"
-			readonly="true" />
-
 		<field name="ratingtext" type="editor" class="inputbox"
 			label="COM_CHECKAVET_FIELD_RATINGTEXT_LABEL" description="COM_CHECKAVET_FIELD_RATINGTEXT_DESC"
-			filter="ContentHelper::filterText" buttons="true"
+			filter="ContentHelper::filterText" buttons="false"
 			readonly="true" />
+			
+		<field name="rating"  type="text" class="inputbox" label="COM_CHECKAVET_FIELD_RATING_LABEL"
+			description ="COM_CHECKAVET_FIELD_RATING_DESC" size="10" default="0"  />
 
 		<field name="state" type="list" label="COM_CHECKAVET_FIELD_STATUS_LABEL"
 			description="COM_CHECKAVET_FIELD_STATUS_DESC" class="inputbox"
@@ -34,11 +29,6 @@
 			<option value="-2">
 				JTRASHED</option>
 		</field>
-		
-		<field
-			name="buttonspacer"
-			description="JGLOBAL_ACTION_PERMISSIONS_DESCRIPTION"
-			type="spacer" />
 			
 		<field name="created" type="calendar" label="COM_CHECKAVET_FIELD_CREATED_LABEL"
 			description="COM_CHECKAVET_FIELD_CREATED_DESC" class="inputbox" size="22"
