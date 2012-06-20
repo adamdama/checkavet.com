@@ -34,16 +34,6 @@ $saveOrder	= $listOrder == 'v.ordering';
 				<option value=""><?php echo JText::_('COM_CHECKAVET_OPTION_STATE');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.state'), true);?>
 			</select>
-
-			<select name="filter_county" class="inputbox" onchange="this.form.submit()">
-				<option value="" selected="selected"><?php echo JText::_('COM_CHECKAVET_OPTION_COUNTY');?></option>
-				<?php echo JHtml::_('select.options', $this->get('optionCounties'), 'value', 'text', $this->state->get('filter.county'));?>
-			</select>
-
-			<select name="filter_town" class="inputbox" onchange="this.form.submit()">
-				<option value="" selected="selected"><?php echo JText::_('COM_CHECKAVET_OPTION_TOWN');?></option>
-				<?php echo JHtml::_('select.options', $this->get('optionTowns'), 'value', 'text', $this->state->get('filter.town'));?>
-			</select>
 		</div>
 	</fieldset>
 	<div class="clr"> </div>
@@ -55,36 +45,15 @@ $saveOrder	= $listOrder == 'v.ordering';
 					<input type="checkbox" name="checkall-toggle" value="" name="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 				</th>
 				<th width="10%">
-					<?php echo JHtml::_('grid.sort',  'JGRID_HEADING_ORDERING', 'v.ordering', $listDirn, $listOrder); ?>
-					<?php if ($saveOrder) :?>
-						<?php echo JHtml::_('grid.order',  $this->items, 'filesave.png', 'ratings.saveorder'); ?>
-					<?php endif; ?>
+					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_RATING_LABEL', 'v.rating', $listDirn, $listOrder); ?>
 				</th>
 				<th>
-					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_NAME_LABEL', 'v.name', $listDirn, $listOrder); ?>
+					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_HEADING_SERVICE', 'v.obj_id', $listDirn, $listOrder); ?>
+				</th>
+				<th>
+					<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
 				</th>
 				<th width="10%">
-					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_COUNTY_LABEL', 'v.county', $listDirn, $listOrder); ?>
-				</th>
-				<th width="10%">
-					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_TOWN_LABEL', 'v.town', $listDirn, $listOrder); ?>
-				</th>
-				<th width="10%">
-					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_EMAIL_LABEL', 'v.email', $listDirn, $listOrder); ?>
-				</th>
-				<th width="5%">
-					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_PHONE_LABEL', 'v.phone', $listDirn, $listOrder); ?>
-				</th>
-				<th width="5%">
-					<?php echo JHtml::_('grid.sort', 'JFEATURED', 'v.featured', $listDirn, $listOrder); ?>
-				</th>
-				<th width="5%">
-					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_STATUS_LABEL', 'v.state', $listDirn, $listOrder); ?>
-				</th>
-				<th width="5%">
-					<?php echo JHtml::_('grid.sort', 'JGLOBAL_HITS', 'v.hits', $listDirn, $listOrder); ?>
-				</th>
-				<th width="5%">
 					<?php echo JHtml::_('grid.sort', 'JDATE', 'v.created', $listDirn, $listOrder); ?>
 				</th>
 				<th width="1%" class="nowrap">
@@ -116,57 +85,35 @@ $saveOrder	= $listOrder == 'v.ordering';
 						<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'ratings.', $canCheckin); ?>
 					<?php endif; ?>
 				</td>
-				<td class="order">
-					<?php if ($canChange) : ?>
-						<?php if ($saveOrder) :?>
-							<?php if ($listDirn == 'asc') : ?>
-								<span><?php echo $this->pagination->orderUpIcon($i, true, 'ratings.orderup', 'JLIB_HTML_MOVE_UP', $ordering); ?></span>
-								<span><?php echo $this->pagination->orderDownIcon($i, $this->pagination->total, true, 'ratings.orderdown', 'JLIB_HTML_MOVE_DOWN', $ordering); ?></span>
-							<?php elseif ($listDirn == 'desc') : ?>
-								<span><?php echo $this->pagination->orderUpIcon($i, true, 'ratings.orderdown', 'JLIB_HTML_MOVE_UP', $ordering); ?></span>
-								<span><?php echo $this->pagination->orderDownIcon($i, $this->pagination->total, true, 'ratings.orderup', 'JLIB_HTML_MOVE_DOWN', $ordering); ?></span>
-							<?php endif; ?>
-						<?php endif; ?>
-						<?php $disabled = $saveOrder ?  '' : 'disabled="disabled"'; ?>
-						<input type="text" name="order[]" size="5" value="<?php echo $item->ordering;?>" <?php echo $disabled ?> class="text-area-order" />
-					<?php else : ?>
-						<?php echo $item->ordering; ?>
-					<?php endif; ?>
-				</td>
 				<td>
 					<?php if ($canEdit || $canEditOwn) : ?>
 						<a href="<?php echo JRoute::_('index.php?option=com_checkavet&task=rating.edit&id='.$item->id);?>">
-							<?php echo $this->escape($item->name); ?></a>
+							<?php echo $this->escape($item->rating); ?></a>
 					<?php else : ?>
-						<?php echo $this->escape($item->name); ?>
+						<?php echo $this->escape($item->rating); ?>
+					<?php endif; ?>					
+				</td>
+				<td>
+					<?php if ($canEdit || $canEditOwn) : ?>
+						<a href="<?php echo JRoute::_('index.php?option=com_checkavet&task='.$item->service_type.'.edit&id='.$item->obj_id);?>">
+							<?php echo $this->escape($item->service_name); ?></a>
+					<?php else : ?>
+						<?php echo $this->escape($item->service_name); ?>
 					<?php endif; ?>					
 				</td>
 				<td class="center">
-					<?php echo $this->escape($item->county); ?>
-				</td>
-				<td class="center">
-					<?php echo $this->escape($item->town); ?>
-				</td>
-				<td class="center">
-					<?php echo $this->escape($item->email); ?>
-				</td>
-				<td class="center">
-					<?php echo $this->escape($item->phone); ?>
-				</td>
-				<td class="center">
-					<?php echo JHtml::_('checkavetadministrator.featured', $item->featured, $i, $canChange); ?>
-				</td>
-				<td class="center">
-					<?php echo JHtml::_('jgrid.published', $item->state, $i, 'ratings.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
-				</td>
-				<td class="center">
-					<?php echo (int) $item->hits; ?>
+					<?php echo $this->escape($item->creator_name); ?>
 				</td>
 				<td class="center nowrap">
 					<?php echo JHtml::_('date',$item->created, JText::_('DATE_FORMAT_LC4')); ?>
 				</td>
 				<td class="center">
-					<?php echo (int) $item->id; ?>
+					<?php if ($canEdit || $canEditOwn) : ?>
+						<a href="<?php echo JRoute::_('index.php?option=com_checkavet&task=rating.edit&id='.$item->id);?>">
+							<?php echo $this->escape($item->id); ?></a>
+					<?php else : ?>
+						<?php echo $this->escape($item->id); ?>
+					<?php endif; ?>					
 				</td>
 			</tr>
 			<?php endforeach; ?>

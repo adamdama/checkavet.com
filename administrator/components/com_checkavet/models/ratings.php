@@ -32,18 +32,15 @@ class CheckavetModelRatings extends JModelList
 		if (empty($config['filter_fields'])) {
 			$config['filter_fields'] = array(
 				'id', 'v.id',
+				'rating', 'v.rating',
+				'obj_id', 'v.obj_id',
+				'table', 'v.obj_table',
 				'checked_out', 'v.checked_out',
 				'checked_out_time', 'v.checked_out_time',
-				'accredited', 'v.accredited',
 				'state', 'v.state',
 				'access', 'v.access', 'access_level',
 				'created', 'v.created',
 				'created_by', 'v.created_by',
-				'ordering', 'v.ordering',
-				'featured', 'v.featured',
-				'hits', 'v.hits',
-				'publish_up', 'v.publish_up',
-				'publish_down', 'v.publish_down',
 			);
 		}
 

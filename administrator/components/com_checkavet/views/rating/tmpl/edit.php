@@ -69,12 +69,6 @@ JHtml::_('behavior.keepalive');
 					<li><?php echo $this->form->getLabel('created'); ?>
 					<?php echo $this->form->getInput('created'); ?></li>
 
-					<li><?php echo $this->form->getLabel('publish_up'); ?>
-					<?php echo $this->form->getInput('publish_up'); ?></li>
-
-					<li><?php echo $this->form->getLabel('publish_down'); ?>
-					<?php echo $this->form->getInput('publish_down'); ?></li>
-
 					<?php if ($this->item->modified_by) : ?>
 						<li><?php echo $this->form->getLabel('modified_by'); ?>
 						<?php echo $this->form->getInput('modified_by'); ?></li>
@@ -84,23 +78,6 @@ JHtml::_('behavior.keepalive');
 					<?php endif; ?>
 				</ul>
 			</fieldset>
-
-			<?php $fieldSets = $this->form->getFieldsets('attribs'); ?>
-			<?php foreach ($fieldSets as $name => $fieldSet) : ?>
-				<?php echo JHtml::_('sliders.panel',JText::_($fieldSet->label), $name.'-options'); ?>
-				<?php if (isset($fieldSet->description) && trim($fieldSet->description)) : ?>
-					<p class="tip"><?php echo $this->escape(JText::_($fieldSet->description));?></p>
-				<?php endif; ?>
-				<fieldset class="panelform">
-					<ul class="adminformlist">
-					<?php foreach ($this->form->getFieldset($name) as $field) : ?>
-						<li><?php echo $field->label; ?>
-						<?php echo $field->input; ?></li>
-					<?php endforeach; ?>
-					</ul>
-				</fieldset>
-			<?php endforeach; ?>
-
 		<?php echo JHtml::_('sliders.end'); ?>
 	</div>
     <?php /*

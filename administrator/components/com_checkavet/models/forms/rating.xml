@@ -59,11 +59,6 @@
 		<field name="access" type="accesslevel" label="JFIELD_ACCESS_LABEL"
 			description="JFIELD_ACCESS_DESC" class="inputbox" size="1" />
 
-		<field name="rules" type="rules" label="JFIELD_RULES_LABEL"
-			translate_label="false" class="inputbox" filter="rules"
-			component="com_checkavet" section="rating" validate="rules"
-		/>
-
 	</fieldset>
 
 </form>
