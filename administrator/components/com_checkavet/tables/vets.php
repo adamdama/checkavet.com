@@ -208,7 +208,7 @@ class JTableVets extends JTable
 	 *
 	 * @since   11.1
 	 */
-	/*public function store($updateNulls = false)
+	public function store($updateNulls = false)
 	{
 		$date	= JFactory::getDate();
 		$user	= JFactory::getUser();
@@ -229,13 +229,13 @@ class JTableVets extends JTable
 			}
 		}
 		// Verify that the alias is unique
-		$table = JTable::getInstance('Content', 'JTable');
-		if ($table->load(array('alias'=>$this->alias, 'catid'=>$this->catid)) && ($table->id != $this->id || $this->id==0)) {
+		$table = JTable::getInstance('Vets', 'JTable');
+		if ($table->load(array('alias'=>$this->alias, 'id'=>$this->id)) && ($table->id != $this->id || $this->id==0)) {
 			$this->setError(JText::_('JLIB_DATABASE_ERROR_VET_UNIQUE_ALIAS'));
 			return false;
 		}
 		return parent::store($updateNulls);
-	}*/
+	}
 
 	/**
 	 * Method to set the publishing state for a row or list of rows in the database
