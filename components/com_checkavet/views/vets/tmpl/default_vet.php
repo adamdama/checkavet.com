@@ -29,6 +29,8 @@ $imagesrc = file_exists(JPATH_BASE.DS.'images'.DS.'checkavet'.DS.'logos'.DS.$vet
             if($website != "&nbsp;") 
                 echo '<a href="'.$website.'" target="_blank">'.$website.'</a>';
         endif;
+		
+		echo $vet['rating'];
         ?>
     </div>
     <div class="column2">
@@ -53,10 +55,10 @@ $imagesrc = file_exists(JPATH_BASE.DS.'images'.DS.'checkavet'.DS.'logos'.DS.$vet
                 <td class="right"><?php echo $vet['address3']; ?></td>
             </tr>
             <?php } ?>
-			<?php if($petservice['town'] != "&nbsp;") { ?>
+			<?php if($vet['town'] != "&nbsp;") { ?>
 			<tr>
 				<td>Town:</td>
-				<td class="right"><?php echo $petservice['town']; ?></td>
+				<td class="right"><?php echo $vet['town']; ?></td>
 			</tr>
 			<?php } ?>
             <tr>

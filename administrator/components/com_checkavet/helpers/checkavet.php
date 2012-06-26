@@ -204,52 +204,71 @@ class CheckavetHelper
         return $geocode;
     }
 
-	public static function createRater()
-	{
+	public static function createRater($id, $table, $max)
+	{		
 		$db = JFactory::getDbo();
 		
-		$rating = intval(@$row->rating);
-		$rating_count = intval(@$row->rating_count);
-
-		$view = JRequest::getString('view', '');
+		$query = $db->getQuery(true);
+		$query->select('obj_id, rating');
+		$query->from('#__checkavet_ratings');
+		$query->where('obj_table = '.$db->quote($table).' AND state = 1');
+		$db->setQuery($query);
+			
+		$results = $db->loadObjectList();
+		
+		$total = 0;	
+		$rating_count = count($results);
+		
+		if($rating_count > 0)
+		{			
+			foreach($results as $result)
+				$total += $result->rating;
+			
+			$rating_avg = round($total / $rating_count);
+			$rating = $rating_avg * $max;
+		}
+		else
+		{
+			$rating_avg = 0;
+			$rating = 0;
+		}
+		
 		$img = '';
 
 		// look for images in template if available
-		$starImageOn = JHtml::_('image', 'system/rating_star.png', NULL, NULL, true);
-		$starImageOff = JHtml::_('image', 'system/rating_star_blank.png', NULL, NULL, true);
+		$starImageOn = JHtml::_('image', 'checkavet/images/rating_star.png', NULL, NULL, true);
+		$starImageOff = JHtml::_('image', 'checkavet/images/rating_star_blank.png', NULL, NULL, true);
 
 		for ($i=0; $i < $rating; $i++) {
 			$img .= $starImageOn;
 		}
-		for ($i=$rating; $i < 5; $i++) {
+		for ($i=$rating; $i < $max; $i++) {
 			$img .= $starImageOff;
 		}
-		$html .= '<span class="content_rating">';
-		$html .= JText::sprintf( 'PLG_VOTE_USER_RATING', $img, $rating_count );
-		$html .= "</span>\n<br />\n";
-
-		if ( $view == 'article' && $row->state == 1)
+		//$html .= '<span class="content_rating">';
+		//$html .= JText::sprintf( 'PLG_VOTE_USER_RATING', $img, $rating_count );
+		//$html .= "</span>\n<br />\n";
+		
+		$uri = JFactory::getURI();
+		
+		$html = '';
+		$html .= '<form method="post" action="' . $uri->toString() . '">';
+		$html .= '<div class="checkavet_rating">';
+		$html .= '<div class="checkavet_rating_stars">';
+		$html .= $img;
+		$html .= '</div>';
+		
+		for($i = 1; $i <= $max; $i++)
 		{
-			$uri = JFactory::getURI();
-			$uri->setQuery($uri->getQuery().'&hitcount=0');
-
-			$html .= '<form method="post" action="' . $uri->toString() . '">';
-			$html .= '<div class="content_vote">';
-			$html .= JText::_( 'PLG_VOTE_POOR' );
-			$html .= '<input type="radio" title="'.JText::sprintf('PLG_VOTE_VOTE', '1').'" name="user_rating" value="1" />';
-			$html .= '<input type="radio" title="'.JText::sprintf('PLG_VOTE_VOTE', '2').'" name="user_rating" value="2" />';
-			$html .= '<input type="radio" title="'.JText::sprintf('PLG_VOTE_VOTE', '3').'" name="user_rating" value="3" />';
-			$html .= '<input type="radio" title="'.JText::sprintf('PLG_VOTE_VOTE', '4').'" name="user_rating" value="4" />';
-			$html .= '<input type="radio" title="'.JText::sprintf('PLG_VOTE_VOTE', '5').'" name="user_rating" value="5" checked="checked" />';
-			$html .= JText::_( 'PLG_VOTE_BEST' );
-			$html .= '&#160;<input class="button" type="submit" name="submit_vote" value="'. JText::_( 'PLG_VOTE_RATE' ) .'" />';
-			$html .= '<input type="hidden" name="task" value="article.vote" />';
-			$html .= '<input type="hidden" name="hitcount" value="0" />';
-			$html .= '<input type="hidden" name="url" value="'.  $uri->toString() .'" />';
-			$html .= JHtml::_('form.token');
-			$html .= '</div>';
-			$html .= '</form>';
+			$html .= '<input type="radio" name="user_rating" value="'.$i.'" />';
 		}
+		
+		$html .= '&#160;<input class="button" type="submit" name="submit_vote" value="'. JText::_( 'PLG_VOTE_RATE' ) .'" />';
+		$html .= '<input type="hidden" name="task" value="'.$table.'.vote" />';
+		$html .= '<input type="hidden" name="url" value="'.  $uri->toString() .'" />';
+		$html .= JHtml::_('form.token');
+		$html .= '</div>';
+		$html .= '</form>';
 		
 		return $html;
 	}
