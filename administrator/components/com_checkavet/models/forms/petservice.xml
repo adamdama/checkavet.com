@@ -37,11 +37,11 @@
 		<field name="region" type="text" label="COM_CHECKAVET_FIELD_REGION_LABEL"
 			description="COM_CHECKAVET_FIELD_REGION_DESC" class="inputbox" size="45" />
 
-		<field name="email" type="text" label="COM_CHECKAVET_FIELD_WEBSITE_LABEL"
-			description="COM_CHECKAVET_FIELD_WEBSITE_DESC" class="inputbox" size="45" />
-
-		<field name="website" type="text" label="COM_CHECKAVET_FIELD_EMAIL_LABEL"
+		<field name="email" type="text" label="COM_CHECKAVET_FIELD_EMAIL_LABEL"
 			description="COM_CHECKAVET_FIELD_EMAIL_DESC" class="inputbox" size="45" />
+
+		<field name="website" type="text" label="COM_CHECKAVET_FIELD_WEBSITE_LABEL"
+			description="COM_CHECKAVET_FIELD_WEBSITE_DESC" class="inputbox" size="45" />
 
 		<field name="phone" type="text" label="COM_CHECKAVET_FIELD_PHONE_LABEL"
 			description="COM_CHECKAVET_FIELD_PHONE_DESC" class="inputbox" size="45" />
