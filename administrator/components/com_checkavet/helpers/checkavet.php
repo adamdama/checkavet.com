@@ -263,8 +263,8 @@ class CheckavetHelper
 			$html .= '<input type="radio" name="user_rating" value="'.$i.'" />';
 		}
 		
-		$html .= '&#160;<input class="button" type="submit" name="submit_vote" value="'. JText::_( 'PLG_VOTE_RATE' ) .'" />';
-		$html .= '<input type="hidden" name="task" value="'.$table.'.vote" />';
+		$html .= '&#160;<input class="button" type="submit" name="submit_rating" value="'. JText::_( 'COM_CHECKAVET_BUTTON_RATE' ) .'" />';
+		$html .= '<input type="hidden" name="task" value="'.$table.'.rate" />';
 		$html .= '<input type="hidden" name="url" value="'.  $uri->toString() .'" />';
 		$html .= JHtml::_('form.token');
 		$html .= '</div>';
