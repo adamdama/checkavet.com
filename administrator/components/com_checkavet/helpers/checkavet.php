@@ -236,8 +236,8 @@ class CheckavetHelper
 		$img = '';
 
 		// look for images in template if available
-		$starImageOn = JHtml::_('image', 'checkavet/images/rating_star.png', NULL, NULL, true);
-		$starImageOff = JHtml::_('image', 'checkavet/images/rating_star_blank.png', NULL, NULL, true);
+		$starImageOn = JHtml::_('image', 'checkavet/rating_star.png', 'NULL', 'NULL', true);
+		$starImageOff = JHtml::_('image', 'checkavet/rating_star_blank.png', 'NULL', 'NULL', true);
 
 		for ($i=0; $i < $rating; $i++) {
 			$img .= $starImageOn;

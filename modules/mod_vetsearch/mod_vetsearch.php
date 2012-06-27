@@ -18,5 +18,6 @@ $label = htmlspecialchars($params->get('label', JText::_('MOD_VETSEARCH_LABEL_TE
 $para1 = $params->get('paragraph1');
 $para2 = $params->get('paragraph2');
 
+$mitemid = JRequest::getInt('Itemid');
 
 require JModuleHelper::getLayoutPath('mod_vetsearch', $params->get('layout', 'default'));

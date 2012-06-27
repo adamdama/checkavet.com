@@ -30,6 +30,7 @@ defined('_JEXEC') or die;
         </div> 
         <input type="hidden" name="task" value="vets" />
         <input type="hidden" name="option" value="com_checkavet" />
+		<input type="hidden" name="Itemid" value="<?php echo $mitemid; ?>" />
     </form>
     <p class="bold"><?php echo $para1; ?></p>
     <p><?php echo $para2; ?></p>
