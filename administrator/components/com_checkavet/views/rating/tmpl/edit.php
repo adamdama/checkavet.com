@@ -40,6 +40,12 @@ JHtml::_('behavior.keepalive');
                 
 				<li><?php echo $this->form->getLabel('rating'); ?>
 				<?php echo $this->form->getInput('rating'); ?></li>
+                
+				<li><?php echo $this->form->getLabel('name'); ?>
+				<?php echo $this->form->getInput('name'); ?></li>
+                
+				<li><?php echo $this->form->getLabel('email'); ?>
+				<?php echo $this->form->getInput('email'); ?></li>
 
 				<li><?php echo $this->form->getLabel('state'); ?>
 				<?php echo $this->form->getInput('state'); ?></li>
