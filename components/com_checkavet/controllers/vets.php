@@ -40,7 +40,7 @@ class CheckavetControllerVets extends JControllerForm
 	 * @since	1.6.1
 	 */
 	function rate()
-	{		
+	{				
 		// Check for request forgeries.
 		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 
@@ -55,10 +55,12 @@ class CheckavetControllerVets extends JControllerForm
 			$model = $this->getModel($viewName);
 
 			if ($model->storeVote($id, $user_rating)) {
-				//$this->setRedirect($url, JText::_('COM_CONTENT_ARTICLE_VOTE_SUCCESS'));
+				$this->setRedirect('test', JText::_('COM_CONTENT_ARTICLE_VOTE_SUCCESS'));
 			} else {
-				//$this->setRedirect($url, JText::_('COM_CONTENT_ARTICLE_VOTE_FAILURE'));
+				$this->setRedirect('test2', JText::_('COM_CONTENT_ARTICLE_VOTE_FAILURE'));
 			}
 		}
+		
+		echo 'test';
 	}
 }

@@ -36,32 +36,46 @@ class CheckavetController extends JController
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{
-		require_once JPATH_COMPONENT_ADMINISTRATOR.DS.'helpers'.DS.'checkavet.php';	
+
+		$user = JFactory::getUser();
+
+		if ($user->get('id')) {
+			$cachable = false;
+		}
+		
+		$vName	= JRequest::getCmd('view', 'home');
+		JRequest::setVar('view', $vName);
 
 		return parent::display($cachable, $urlparams);
 	}
-	
-	function vets()
+	/*
+	function vets($cachable = false, $urlparams = false)
 	{	
-		$post = JRequest::get();		
-		unset($post['task']);
-		unset($post['submit']);
-		
+		$post = JRequest::get();	
 		$postcode = $post['postcode'];
+
+		$id		= JRequest::getInt('a_id');
+		$vName	= JRequest::getCmd('view', 'vets');
 		
-		JRequest::setVar('view', 'vets');
-   		parent::display();
+		echo $vName;
+		exit();
+		JRequest::setVar('view', $vName);
+				
+   		parent::display($cachable, $urlparams);
 	}
 	
-	function petservices()
+	function petservices($cachable = false, $urlparams = false)
 	{	
-		$post = JRequest::get();		
-		unset($post['task']);
-		unset($post['submit']);
-		
+		$post = JRequest::get();	
 		$postcode = $post['postcode'];
+
+		$id		= JRequest::getInt('a_id');
+		$vName	= JRequest::getCmd('view', 'vets');
 		
-		JRequest::setVar('view', 'petservices');
-   		parent::display();
-	}
+		echo $vName;
+		exit();
+		JRequest::setVar('view', $vName);		
+		
+   		parent::display($cachable, $urlparams);
+	}*/
 }

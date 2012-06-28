@@ -205,7 +205,7 @@ class CheckavetHelper
     }
 
 	public static function createRater($id, $table, $max)
-	{		
+	{				
 		$db = JFactory::getDbo();
 		
 		$query = $db->getQuery(true);

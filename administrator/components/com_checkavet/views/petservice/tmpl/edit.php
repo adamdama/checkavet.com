@@ -65,8 +65,8 @@ JHtml::_('behavior.keepalive');
                 <li><?php echo $this->form->getLabel('region'); ?>
                 <?php echo $this->form->getInput('region'); ?></li>
 
-                <li><?php echo $this->form->getLabel('premises'); ?>
-                <?php echo $this->form->getInput('premises'); ?></li>
+                <li><?php echo $this->form->getLabel('premesis'); ?>
+                <?php echo $this->form->getInput('premesis'); ?></li>
 
                 <li><?php echo $this->form->getLabel('industry'); ?>
                 <?php echo $this->form->getInput('industry'); ?></li>

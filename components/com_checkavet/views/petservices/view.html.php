@@ -54,6 +54,19 @@ class CheckavetViewPetservices extends JView
 		}		
 		$this->petservices = $tmp;	
 		
+		//separate featured vets
+		$this->featured = array();
+		for($i = 0; $i < count($this->petservices); $i++)
+		{
+			$petservice = $this->petservices[$i];
+			if($petservice['featured'] == 1)
+			{
+				$move = array_splice($this->petservices, $i, 1);
+				array_push($this->featured, $move[0]);
+				$i--;
+			}
+		}
+				
 		return parent::display($tpl);
 	}
 	

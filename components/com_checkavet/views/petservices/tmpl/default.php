@@ -10,10 +10,7 @@
 // No direct access.
 defined('_JEXEC') or die;
 
-// Include the component HTML helpers.
-JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
-
-
+require_once(JPATH_COMPONENT.'/helpers/html.php');
 ?>
 <div id="content">
 	<div id="results">

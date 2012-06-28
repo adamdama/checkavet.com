@@ -10,10 +10,6 @@
 // No direct access.
 defined('_JEXEC') or die;
 
-// Include the component HTML helpers.
-JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
-
-
 $petservice = $this->petservice;
 $petservice = CheckavetHelperHtml::clean_blanks($petservice);
 

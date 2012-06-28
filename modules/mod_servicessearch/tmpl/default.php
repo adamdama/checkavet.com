@@ -40,7 +40,7 @@ defined('_JEXEC') or die;
                 </div>   
             </div>   
         </div> 
-        <input type="hidden" name="task" value="petservices" />
+        <input type="hidden" name="view" value="petservices" />
         <input type="hidden" name="option" value="com_checkavet" />
     </form>
 </div>

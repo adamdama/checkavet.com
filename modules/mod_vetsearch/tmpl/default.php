@@ -11,7 +11,7 @@
 defined('_JEXEC') or die;
 ?>
 <div id="vetsearch-module" class="rounded-corners">
-    <form id="vetsearch-module-form" action="<?php echo JRoute::_('index.php');?>" method="post" novalidate="novalidate">
+    <form id="vetsearch-module-form" action="<?php echo JRoute::_('index.php');?>" method="get" novalidate="novalidate">
     	<div>
             <div class="logo">
                 <img src="images/checkavet/findavet.png" />
@@ -28,9 +28,8 @@ defined('_JEXEC') or die;
                 <span class="label"><label for="mod-vetsearch-24hour">24 hour vets only</label></span>   
             </div>   
         </div> 
-        <input type="hidden" name="task" value="vets" />
+        <input type="hidden" name="view" value="vets" />
         <input type="hidden" name="option" value="com_checkavet" />
-		<input type="hidden" name="Itemid" value="<?php echo $mitemid; ?>" />
     </form>
     <p class="bold"><?php echo $para1; ?></p>
     <p><?php echo $para2; ?></p>

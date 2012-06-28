@@ -49,7 +49,7 @@
 		<field name="fax" type="text" label="COM_CHECKAVET_FIELD_FAX_LABEL"
 			description="COM_CHECKAVET_FIELD_FAX_DESC" class="inputbox" size="45" />
 
-		<field name="premises" type="text" label="COM_CHECKAVET_FIELD_PREMISES_LABEL"
+		<field name="premesis" type="text" label="COM_CHECKAVET_FIELD_PREMISES_LABEL"
 			description="COM_CHECKAVET_FIELD_PREMISES_DESC" class="inputbox" size="45" />
 
 		<field name="industry" type="text" label="COM_CHECKAVET_FIELD_INDUSTRY_LABEL"

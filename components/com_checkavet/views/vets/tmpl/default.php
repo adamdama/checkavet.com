@@ -9,6 +9,8 @@
 
 // No direct access.
 defined('_JEXEC') or die;
+
+require_once(JPATH_COMPONENT.'/helpers/html.php');
 ?>
 <div id="content">
 	<div id="results">

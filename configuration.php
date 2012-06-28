@@ -33,8 +33,8 @@ class JConfig {
 	public $fromname = 'Check A Vet';
 	public $sendmail = '/usr/sbin/sendmail';
 	public $smtpauth = '0';
-	public $smtpuser = '';
-	public $smtppass = '';
+	public $smtpuser = 'admin';
+	public $smtppass = 'lmgotaz1!23';
 	public $smtphost = 'localhost';
 	public $smtpsecure = 'none';
 	public $smtpport = '25';
@@ -44,8 +44,8 @@ class JConfig {
 	public $MetaDesc = '';
 	public $MetaKeys = '';
 	public $MetaAuthor = '1';
-	public $sef = '1';
-	public $sef_rewrite = '1';
+	public $sef = '0';
+	public $sef_rewrite = '0';
 	public $sef_suffix = '0';
 	public $unicodeslugs = '0';
 	public $feed_limit = '10';
@@ -59,4 +59,8 @@ class JConfig {
 	public $feed_email = 'author';
 	public $cookie_domain = '';
 	public $cookie_path = '';
+	public $robots = '';
+	public $MetaVersion = '0';
+	public $offline_image = '';
+	public $captcha = '0';
 }

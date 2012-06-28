@@ -36,6 +36,7 @@ class CheckavetModelPetservices extends JModelList
 				'county', 'v.county',
 				'town', 'v.town',
 				'industry', 'v.industry',
+				'premesis', 'v.premesis',
 				'checked_out', 'v.checked_out',
 				'checked_out_time', 'v.checked_out_time',
 				'accredited', 'v.accredited',
@@ -136,7 +137,7 @@ class CheckavetModelPetservices extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'v.id, v.name, v.county, v.town, v.industry, v.phone, v.email, v.website, v.checked_out, v.checked_out_time' .
+				'v.id, v.name, v.county, v.town, v.industry, v.premesis, v.phone, v.email, v.website, v.checked_out, v.checked_out_time' .
 				', v.state, v.access, v.created, v.ordering, v.featured, v.hits' .
 				', v.publish_up, v.publish_down'
 			)

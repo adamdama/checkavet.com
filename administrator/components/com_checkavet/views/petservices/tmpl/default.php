@@ -78,7 +78,7 @@ $saveOrder	= $listOrder == 'v.ordering';
 					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_INDUSTRY_LABEL', 'v.industry', $listDirn, $listOrder); ?>
 				</th>
 				<th width="10%">
-					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_PREMISES_LABEL', 'v.premises', $listDirn, $listOrder); ?>
+					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_PREMISES_LABEL', 'v.premesis', $listDirn, $listOrder); ?>
 				</th>
 				<th width="10%">
 					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_EMAIL_LABEL', 'v.email', $listDirn, $listOrder); ?>
@@ -162,7 +162,7 @@ $saveOrder	= $listOrder == 'v.ordering';
 					<?php echo $this->escape($item->industry); ?>
 				</td>
 				<td class="center">
-					<?php echo $this->escape($item->town); ?>
+					<?php echo $this->escape($item->premesis); ?>
 				</td>
 				<td class="center">
 					<?php echo $this->escape($item->email); ?>
