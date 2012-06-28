@@ -224,7 +224,13 @@ class CheckavetModelPetservices extends JModelList
 			}*/
 			else {
 				$search = $db->Quote('%'.$db->getEscaped($search, true).'%');
-				$query->where('(v.name LIKE '.$search.' OR v.address1 LIKE '.$search.')');
+				$query->where('(v.name LIKE '.$search
+								.' OR v.address1 LIKE '.$search
+								.' OR v.address2 LIKE '.$search
+								.' OR v.address3 LIKE '.$search
+								.' OR v.town LIKE '.$search
+								.' OR v.county LIKE '.$search
+								.' OR v.premesis LIKE '.$search.')');
 			}
 		}
 
