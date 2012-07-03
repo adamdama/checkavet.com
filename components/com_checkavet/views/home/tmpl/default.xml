@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
 	<layout title="COM_CHECKAVET_HOME_VIEW_DEFAULT_TITLE" option="COM_CHECKAVET_HOME_VIEW_DEFAULT_OPTION">
-		<help
-			key = "JHELP_MENUS_MENU_ITEM_CHECKAVET_HOME"
-		/>		<message>
+		<message>
 			<![CDATA[COM_CHECKAVET_HOME_VIEW_DEFAULT_DESC]]>
 		</message>
 	</layout>
