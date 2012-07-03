@@ -29,12 +29,15 @@ require_once(JPATH_COMPONENT.'/helpers/html.php');
         </div>
     	<div class="scroller">  
     		<?php
+				$tryAgain = true;
 				if($this->featured){
 					foreach($this->featured as $vet)
 					{
 					    $this->vet = $vet;
                         echo $this->loadTemplate('vet');
 					}
+					
+					$tryAgain = false;
 				}
 			?>      
         	<?php
@@ -44,6 +47,15 @@ require_once(JPATH_COMPONENT.'/helpers/html.php');
 					    $this->vet = $vet;
                         echo $this->loadTemplate('vet');
 					}
+					
+					$tryAgain = false;
+				}
+				
+				if($tryAgain)
+				{
+					?>
+					<p>Sorry you result has returned no results. Please <a href="<?php echo JURI::base(); ?>">click here</a> and try again.</p>
+					<?php
 				}
 			?>
     	</div>
