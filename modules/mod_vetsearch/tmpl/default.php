@@ -11,7 +11,7 @@
 defined('_JEXEC') or die;
 ?>
 <div id="vetsearch-module" class="rounded-corners">
-    <form id="vetsearch-module-form" action="vets" method="post" novalidate="novalidate">
+    <form id="vetsearch-module-form" action="<?php echo JRoute::_('vets');?>" method="post" novalidate="novalidate">
     	<div>
             <div class="logo">
                 <img src="images/checkavet/findavet.png" />
