@@ -236,15 +236,8 @@ class CheckavetHelper
 		$img = '';
 
 		// look for images in template if available
-		$starImageOn = JHtml::_('image', 'checkavet/rating_star.png', 'NULL', 'NULL', true);
-		$starImageOff = JHtml::_('image', 'checkavet/rating_star_blank.png', 'NULL', 'NULL', true);
-
-		for ($i=0; $i < $rating; $i++) {
-			$img .= $starImageOn;
-		}
-		for ($i=$rating; $i < $max; $i++) {
-			$img .= $starImageOff;
-		}
+		$starImageOn = 'templates/checkavet/stars.gif';
+		$starImageOff ='templates/checkavet/blank_stars.gif';
 		//$html .= '<span class="content_rating">';
 		//$html .= JText::sprintf( 'PLG_VOTE_USER_RATING', $img, $rating_count );
 		//$html .= "</span>\n<br />\n";
@@ -255,15 +248,18 @@ class CheckavetHelper
 		$html .= '<form method="post" action="' . $uri->toString() . '">';
 		$html .= '<div class="checkavet_rating">';
 		$html .= '<div class="checkavet_rating_stars">';
-		$html .= $img;
-		$html .= '</div>';
 		
 		for($i = 1; $i <= $max; $i++)
 		{
-			$html .= '<input type="radio" name="user_rating" value="'.$i.'" />';
+			$html .= '<div class="star">';
+			$html .= '<img src="'.$starImageOff.'" alt="Blank rating star" />';
+			if($i <= $rating)
+				$html .= '<img src="'.$starImageOn.'" alt="Rating star" />';;
+			$html .= '</div>';
 		}
+		$html .= '</div>';
 		
-		$html .= '&#160;<input class="button" type="submit" name="submit_rating" value="'. JText::_( 'COM_CHECKAVET_BUTTON_RATE' ) .'" />';
+		//$html .= '&#160;<input class="button" type="submit" name="submit_rating" value="'. JText::_( 'COM_CHECKAVET_BUTTON_RATE' ) .'" />';
 		$html .= '<input type="hidden" name="task" value="'.$table.'.rate" />';
 		$html .= '<input type="hidden" name="url" value="'.  $uri->toString() .'" />';
 		$html .= JHtml::_('form.token');

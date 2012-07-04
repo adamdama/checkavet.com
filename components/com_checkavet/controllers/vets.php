@@ -15,6 +15,8 @@ jimport('joomla.application.component.controllerform');
  */
 class CheckavetControllerVets extends JControllerForm
 {
+	var $default_view = 'vets';
+	
 	/**
 	 * Method to get a model object, loading it if required.
 	 *
@@ -53,14 +55,12 @@ class CheckavetControllerVets extends JControllerForm
 			$id = JRequest::getInt('id', 0);
 			$viewName = JRequest::getString('view', $this->default_view);
 			$model = $this->getModel($viewName);
-
-			if ($model->storeVote($id, $user_rating)) {
+			
+			if ($model->storeVote($id, $user_rating, $email, $name)) {
 				$this->setRedirect('test', JText::_('COM_CONTENT_ARTICLE_VOTE_SUCCESS'));
 			} else {
 				$this->setRedirect('test2', JText::_('COM_CONTENT_ARTICLE_VOTE_FAILURE'));
 			}
 		}
-		
-		echo 'test';
 	}
 }
