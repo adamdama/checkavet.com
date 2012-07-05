@@ -6,6 +6,7 @@ jQuery(document).ready(function(e) {
 	{		
 		//alert($this.index()+1);
 		form.find('input[name="user_rating"]').val($this.index()+1);
+		form.submit();
 	})
 	.mouseover(function(e)
 	{

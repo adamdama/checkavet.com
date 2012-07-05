@@ -120,7 +120,7 @@ class CheckavetModelVets extends JModel
 
     public function storeVote($pk = 0, $rate = 0, $email = '', $name = '')
     {
-    	$max = $params->get('max_rating');
+    	$max = JComponentHelper::getParams('com_checkavet')->get('max_rating');
 		
         if ( $rate >= 1 && $rate <= $max && $pk > 0 )
         {

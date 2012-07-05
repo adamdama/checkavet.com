@@ -1,4 +1,33 @@
-<?php
+
+
+	/**
+	 * Method to save a rating.
+	 *
+	 * @return	void
+	 * @since	1.6.1
+	 */
+	function rate()
+	{				
+		// Check for request forgeries.
+		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
+
+		$user_rating = JRequest::getInt('user_rating', -1);
+
+		if ( $user_rating > -1 ) {
+			$url = JRequest::getString('url', '');
+			$email = JRequest::getString('email', '');
+			$name = JRequest::getString('name', '');
+			$id = JRequest::getInt('id', 0);
+			$viewName = JRequest::getString('view', $this->default_view);
+			$model = $this->getModel($viewName);
+			
+			if ($model->storeVote($id, $user_rating, $email, $name)) {
+				$this->setRedirect('test', JText::_('COM_CONTENT_ARTICLE_VOTE_SUCCESS'));
+			} else {
+				$this->setRedirect('test2', JText::_('COM_CONTENT_ARTICLE_VOTE_FAILURE'));
+			}
+		}
+	}<?php
 /**
  * @version		$Id: controller.php 22338 2011-11-04 17:24:53Z github_bot $
  * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
@@ -47,6 +76,36 @@ class CheckavetController extends JController
 		JRequest::setVar('view', $vName);
 
 		return parent::display($cachable, $urlparams);
+	}
+
+	/**
+	 * Method to save a rating.
+	 *
+	 * @return	void
+	 * @since	1.6.1
+	 */
+	function rate()
+	{
+		echo 'testing';				
+		// Check for request forgeries.
+		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
+
+		$user_rating = JRequest::getInt('user_rating', -1);
+
+		if ( $user_rating > -1 ) {
+			$url = JRequest::getString('url', '');
+			$email = JRequest::getString('email', '');
+			$name = JRequest::getString('name', '');
+			$id = JRequest::getInt('id', 0);
+			$viewName = JRequest::getString('view', $this->default_view);
+			$model = $this->getModel($viewName);
+			
+			if ($model->storeVote($id, $user_rating, $email, $name)) {
+				$this->setRedirect('test', JText::_('COM_CONTENT_ARTICLE_VOTE_SUCCESS'));
+			} else {
+				$this->setRedirect('test2', JText::_('COM_CONTENT_ARTICLE_VOTE_FAILURE'));
+			}
+		}
 	}
 	/*
 	function vets($cachable = false, $urlparams = false)
