@@ -204,7 +204,7 @@ class CheckavetHelper
         return $geocode;
     }
 
-	public static function createRater($id, $table, $max)
+	public static function createRater($id, $table, $max, $values = array())
 	{				
 		$db = JFactory::getDbo();
 		
@@ -261,8 +261,12 @@ class CheckavetHelper
 		
 		//$html .= '&#160;<input class="button" type="submit" name="submit_rating" value="'. JText::_( 'COM_CHECKAVET_BUTTON_RATE' ) .'" />';
 		$html .= '<input type="hidden" name="user_rating" value="0" />';
-		$html .= '<input type="hidden" name="task" value="'.$table.'.rate" />';
+		$html .= '<input type="hidden" name="task" value="rate" />';
 		$html .= '<input type="hidden" name="url" value="'.  $uri->toString() .'" />';
+		if(!empty($values))
+			foreach ($values as $key => $value)
+				$html .= '<input type="hidden" name="'.$key.'" value="'.$value.'" />';
+		
 		$html .= JHtml::_('form.token');
 		$html .= '</div>';
 		$html .= '</form>';

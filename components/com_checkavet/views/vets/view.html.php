@@ -57,14 +57,15 @@ class CheckavetViewVets extends JView
 		$this->vets = $tmp;	
 		
 		//set vet rating html
-		foreach($this->vets as &$vet)
-			$vet['rating'] = CheckavetHelper::createRater($vet['id'], 'vets', $params->get('max_rating'));
+		//foreach($this->vets as &$vet)
+			
 		
 		//separate featured vets
 		$this->featured = array();
 		for($i = 0; $i < count($this->vets); $i++)
 		{
-			$vet = $this->vets[$i];
+			$vet = &$this->vets[$i];
+			$vet['rating'] = CheckavetHelper::createRater($vet['id'], 'vets', $params->get('max_rating'),array('postcode' => $this->postcode));
 			if($vet['featured'] == 1)
 			{
 				$move = array_splice($this->vets, $i, 1);

@@ -5,14 +5,14 @@
  */
 
 // no direct access
-defined('_JEXEC') or die;
+defined('_JEXEC') or die;/*
 
 jimport('joomla.application.component.controllerform');
 
 /**
  * @package		Joomla.Site
  * @subpackage	com_content
- */
+ *//*
 class CheckavetControllerVets extends JControllerForm
 {
 	var $default_view = 'vets';
@@ -27,11 +27,11 @@ class CheckavetControllerVets extends JControllerForm
 	 * @return	object	The model.
 	 *
 	 * @since	1.5
-	 */
+	 *//*
 	public function getModel($name = 'form', $prefix = '', $config = array('ignore_request' => true))
 	{
 		$model = parent::getModel($name, $prefix, $config);
 
 		return $model;
 	}
-}
+}*/
