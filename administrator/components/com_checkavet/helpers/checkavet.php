@@ -236,8 +236,8 @@ class CheckavetHelper
 		$img = '';
 
 		// look for images in template if available
-		$starImageOn = 'templates/checkavet/stars.gif';
-		$starImageOff ='templates/checkavet/blank_stars.gif';
+		$starImageOn = 'templates/checkavet/images/stars.gif';
+		$starImageOff ='templates/checkavet/images/blank_stars.gif';
 		//$html .= '<span class="content_rating">';
 		//$html .= JText::sprintf( 'PLG_VOTE_USER_RATING', $img, $rating_count );
 		//$html .= "</span>\n<br />\n";

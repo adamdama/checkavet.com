@@ -31,10 +31,14 @@ if($view == "home")
 	$doc->addScript($this->baseurl.'/templates/checkavet/js/jquery-1.7.1.min.js', 'text/javascript', true);
 	$doc->addScript($this->baseurl.'/templates/checkavet/js/jquery.validate.min.js', 'text/javascript', true);
 	$doc->addScript($this->baseurl.'/templates/checkavet/js/additional-methods.min.js', 'text/javascript', true);
+	$doc->addScript($this->baseurl.'/templates/checkavet/js/home.js', 'text/javascript', true);
 	
 }
+else
+{	
+	$doc->addScript($this->baseurl.'/templates/checkavet/js/results.js', 'text/javascript', true);	
+}
 //if(file_exists($this->baseurl.'/templates/checkavet/js/'.$view.'.js')) 
-	$doc->addScript($this->baseurl.'/templates/checkavet/js/'.$view.'.js', 'text/javascript', true);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>">

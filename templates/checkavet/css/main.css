@@ -256,6 +256,22 @@ body
 	display: block;
 }
 
+#results .checkavet_rating_stars
+{
+	margin-top: 10px;
+}
+
+#results .checkavet_rating_stars span
+{
+	font-weight: bold;
+}
+
+#results .star
+{
+	display: inline;
+	float: left;
+	margin-right: 10px;
+}
 
 #footer
 {
