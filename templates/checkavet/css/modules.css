@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* CSS Document */
 
 .rounded-corners
@@ -329,7 +330,7 @@
 
 #leavefeedback-module .email-submit
 {
-	width: 40;
+	width: 40px;
 	height: 34px;
 	float:right;
 	margin-top: -1px;

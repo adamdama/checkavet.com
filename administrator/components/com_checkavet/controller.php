@@ -38,6 +38,9 @@ class CheckavetController extends JController
 	{
 		require_once JPATH_COMPONENT.'/helpers/checkavet.php';
 		
+		$doc = JFactory::getDocument();
+		$doc->addStyleSheet('components/com_checkavet/assets/css/admin.css');
+		
 		// Load the submenu.
 		CheckavetHelper::addSubmenu(JRequest::getCmd('view', 'vets'));
 
