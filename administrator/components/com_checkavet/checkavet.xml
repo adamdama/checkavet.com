@@ -19,15 +19,14 @@
 		<folder>views</folder>
 	</files>
 	<languages folder="site">
-			<language tag="en-GB">language/en-GB.com_checkavet.ini
-			</language>
+			<language tag="en-GB">language/en-GB.com_checkavet.ini</language>
 	</languages>
 	<administration>
-		<menu img="administrator/components/com_checkavet/assets/icons/checkavet.png">com_checkavet</menu>
+		<menu img="administrator/components/com_checkavet/assets/icons/checkavet.png" alt="Check A Vet">com_checkavet</menu>
 		<submenu>
-		<menu view="vets" img="administrator/components/com_checkavet/assets/icons/vets.png">Vets</menu>
-		<menu view="petservices" img="administrator/components/com_checkavet/assets/icons/petservices.png">Pet Services</menu>
-		<menu view="ratings" img="administrator/components/com_checkavet/assets/icons/ratings.png">Ratings</menu>
+		<menu view="vets" img="components/com_checkavet/assets/icons/vets.png" alt="vets">Vets</menu>
+		<menu view="petservices" img="components/com_checkavet/assets/icons/petservices.png" alt="Pet Services">Pet Services</menu>
+		<menu view="ratings" img="components/com_checkavet/assets/icons/ratings.png" alt="Ratings">Ratings</menu>
 		</submenu>
 		<files folder="admin">
 			<filename>config.xml</filename>
