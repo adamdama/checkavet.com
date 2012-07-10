@@ -262,6 +262,7 @@ class CheckavetHelper
 		//$html .= '&#160;<input class="button" type="submit" name="submit_rating" value="'. JText::_( 'COM_CHECKAVET_BUTTON_RATE' ) .'" />';
 		$html .= '<input type="hidden" name="user_rating" value="0" />';
 		$html .= '<input type="hidden" name="task" value="rate" />';
+		$html .= '<input type="hidden" name="id" value="'.$id.'" />';
 		$html .= '<input type="hidden" name="url" value="'.  $uri->toString() .'" />';
 		if(!empty($values))
 			foreach ($values as $key => $value)

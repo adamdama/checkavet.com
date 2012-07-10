@@ -118,54 +118,36 @@ class CheckavetModelVets extends JModel
 		return $this->_vets;
 	}
 
-    public function storeVote($pk = 0, $rate = 0, $email = '', $name = '')
+    public function storeVote($obj_id = 0, $rate = 0, $email = '', $name = '')
     {
     	$max = JComponentHelper::getParams('com_checkavet')->get('max_rating');
-		
-        if ( $rate >= 1 && $rate <= $max && $pk > 0 )
+
+        if ( $rate > 0 && $rate <= $max && $obj_id > 0  && ($email == '' || $name == ''))
         {
-            $userIP = $_SERVER['REMOTE_ADDR'];
+        	$rate /= $max;
+			
             $db = $this->getDbo();
 
-            $db->setQuery(
-                    'SELECT *' .
-                    ' FROM #__content_rating' .
-                    ' WHERE content_id = '.(int) $pk
-            );
+            $db->setQuery('SELECT `id` FROM `#__checkavet_ratings` WHERE `email` = '.$email);
+            $rated = $db->loadObject();
 
-            $rating = $db->loadObject();
-
-            if (!$rating)
+            if (!$rated)
             {
-                // There are no ratings yet, so lets insert our rating
-                $db->setQuery(
-                        'INSERT INTO #__content_rating ( content_id, lastip, rating_sum, rating_count )' .
-                        ' VALUES ( '.(int) $pk.', '.$db->Quote($userIP).', '.(int) $rate.', 1 )'
-                );
+                $db->setQuery('INSERT INTO `#__checkavet_ratings` ( `obj_id`, `obj_table`, `name`, `email`, `rating` )' .
+                        		' VALUES ( '.(int) $obj_id.', '.$db->Quote('vets').', '.$db->Quote($name).', '.$db->Quote($email).', '.$rate.')');
 
-                if (!$db->query()) {
+                if (!$db->query())
+                {
                         $this->setError($db->getErrorMsg());
                         return false;
                 }
-            } else {
-                if ($userIP != ($rating->lastip))
-                {
-                    $db->setQuery(
-                            'UPDATE #__content_rating' .
-                            ' SET rating_count = rating_count + 1, rating_sum = rating_sum + '.(int) $rate.', lastip = '.$db->Quote($userIP) .
-                            ' WHERE content_id = '.(int) $pk
-                    );
-                    if (!$db->query()) {
-                            $this->setError($db->getErrorMsg());
-                            return false;
-                    }
-                } else {
-                    return false;
-                }
-            }
+            } 
+			
             return true;
         }
-        JError::raiseWarning( 'SOME_ERROR_CODE', JText::sprintf('COM_CONTENT_INVALID_RATING', $rate), "JModelArticle::storeVote($rate)");
+		
+        JError::raiseWarning( 'SOME_ERROR_CODE', JText::sprintf('COM_CHECKAVET_INVALID_RATING', $rate), "JModelVets::storeVote($rate)");
+		
         return false;
     }
 }

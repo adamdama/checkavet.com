@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.icon-48-vet,
+.icon-48-vet-add
+{
+	background: url('../icons/icon-48-vets.png');
+}
+
+.icon-48-petservice,
+.icon-48-petservice-add
+{
+	background: url('../icons/icon-48-petservices.png');
+}
+
+.icon-48-rating,
+.icon-48-rating-add
+{
+	background: url('../icons/icon-48-ratings.png');
+}
