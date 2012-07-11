@@ -260,11 +260,20 @@ body
 #results .checkavet_rating_stars
 {
 	margin-top: 10px;
+	clear: both;
 }
 
-#results .checkavet_rating_stars span
+#results .checkavet_rating_info
 {
-	font-weight: bold;
+	padding-top: 10px;
+	clear: both;
+	width: 187px;
+	text-align: center;
+}
+
+#results .checkavet_rating_info span 
+{
+	
 }
 
 #results .star

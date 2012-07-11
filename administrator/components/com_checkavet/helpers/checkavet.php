@@ -256,8 +256,6 @@ class CheckavetHelper
 				$html .= '<img src="'.$starImageOn.'" alt="Rating star" />';;
 			$html .= '</div>';
 		}
-		$html .= '<span>'.$rating_count.' votes</span>';
-		$html .= '</div>';
 		
 		//$html .= '&#160;<input class="button" type="submit" name="submit_rating" value="'. JText::_( 'COM_CHECKAVET_BUTTON_RATE' ) .'" />';
 		$html .= '<input type="hidden" name="user_rating" value="0" />';
@@ -272,6 +270,22 @@ class CheckavetHelper
 		$html .= '</div>';
 		$html .= '</form>';
 		
+		
+		$html .= '<div class="checkavet_rating_info">';
+		
+		if($rating_count)
+		{
+			$html .= '<span>'.$rating_count.' votes</span>';
+		}
+		else
+		{
+			$html .= '<span>Not yet rated. Be the first!</span>';
+		}
+		
+		$html .= '</div>';
+		
+		
+		$html .= '</div>';
 		return $html;
 	}
     
