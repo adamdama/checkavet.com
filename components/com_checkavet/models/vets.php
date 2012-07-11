@@ -133,8 +133,8 @@ class CheckavetModelVets extends JModel
 
             if (!$rated)
             {
-                $db->setQuery('INSERT INTO `#__checkavet_ratings` ( `obj_id`, `obj_table`, `name`, `email`, `rating` )' .
-                        		' VALUES ( '.(int) $obj_id.', '.$db->Quote('vets').', '.$db->Quote($name).', '.$db->Quote($email).', '.$rate.')');
+                $db->setQuery('INSERT INTO `#__checkavet_ratings` ( `obj_id`, `obj_table`, `name`, `email`, `rating`, `state` )' .
+                        		' VALUES ( '.(int) $obj_id.', '.$db->Quote('vets').', '.$db->Quote($name).', '.$db->Quote($email).', '.$rate.', 1)');
 
                 if (!$db->query())
                 {

@@ -210,12 +210,11 @@ class CheckavetHelper
 		
 		$query = $db->getQuery(true);
 		$query->select('obj_id, rating');
-		$query->from('#__checkavet_ratings');
-		$query->where('obj_table = '.$db->quote($table).' AND state = 1');
+		$query->from('#__checkavet_ratings');		
+		$query->where('obj_table = '.$db->quote($table).' AND obj_id = '.$db->quote($id).' AND state = 1');
 		$db->setQuery($query);
 			
 		$results = $db->loadObjectList();
-		
 		$total = 0;	
 		$rating_count = count($results);
 		
@@ -224,8 +223,8 @@ class CheckavetHelper
 			foreach($results as $result)
 				$total += $result->rating;
 			
-			$rating_avg = round($total / $rating_count);
-			$rating = $rating_avg * $max;
+			$rating_avg = $total / $rating_count;
+			$rating = round($rating_avg * $max);
 		}
 		else
 		{
@@ -257,6 +256,7 @@ class CheckavetHelper
 				$html .= '<img src="'.$starImageOn.'" alt="Rating star" />';;
 			$html .= '</div>';
 		}
+		$html .= '<span>'.$rating_count.' votes</span>';
 		$html .= '</div>';
 		
 		//$html .= '&#160;<input class="button" type="submit" name="submit_rating" value="'. JText::_( 'COM_CHECKAVET_BUTTON_RATE' ) .'" />';

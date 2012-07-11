@@ -277,6 +277,11 @@ body
 	cursor: pointer;
 }
 
+#results .star img
+{
+	position: absolute;
+}
+
 #footer
 {
 	width: 100%;
