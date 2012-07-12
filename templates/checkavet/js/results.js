@@ -1,12 +1,24 @@
 jQuery(document).ready(function(e) {
 	
+	Shadowbox.init();
+	
 	var $this, form, img;
 	
 	jQuery('.star').click(function(e)
 	{		
 		//alert($this.index()+1);
-		form.find('input[name="user_rating"]').val($this.index()+1);
-		form.submit();
+		//form.find('input[name="user_rating"]').val($this.index()+1);
+		//form.submit();
+		Shadowbox.open({
+	        content: 'http://www.bing.com',
+	        player: 'iframe',
+	        width: 500,
+	        height: 100,
+	        options:	{
+	        	modal: true
+	        }
+	    });
+		
 	})
 	.mouseover(function(e)
 	{
@@ -26,5 +38,7 @@ jQuery(document).ready(function(e) {
 		str += 'blank_' + src.shift();
 		img.attr('src', str);
 	});
+	
+	
 
 });

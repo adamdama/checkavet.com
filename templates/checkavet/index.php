@@ -24,11 +24,9 @@ $twitterLink = '<div class="icon-link"><a href="'.$templateparams->get('twitterL
 $copyright = '<span class="copyright">'.$templateparams->get('copyright').'</span>';
 $contactLink = '<a class="contact-link" href="mailto: '.$templateparams->get('contactEmail').'">'.$templateparams->get('contactWord').'</a>';
 
-$doc->addScript($this->baseurl.'/templates/checkavet/js/jquery-1.7.1.min.js', 'text/javascript', true);
 
 if($view == "home")
 {
-	$doc->addScript($this->baseurl.'/templates/checkavet/js/jquery-1.7.1.min.js', 'text/javascript', true);
 	$doc->addScript($this->baseurl.'/templates/checkavet/js/jquery.validate.min.js', 'text/javascript', true);
 	$doc->addScript($this->baseurl.'/templates/checkavet/js/additional-methods.min.js', 'text/javascript', true);
 	$doc->addScript($this->baseurl.'/templates/checkavet/js/home.js', 'text/javascript', true);
@@ -43,13 +41,14 @@ else
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>">
     <head>
-            <jdoc:include type="head" />
             <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/system/css/system.css" type="text/css" />
             <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/checkavet/css/main.css" type="text/css" />
             <?php if(JRequest::getString('view') == "home") { ?>
             	<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/checkavet/css/modules.css" type="text/css" />
             <?php } ?>
             
+			<script type="text/javascript" src="<?php echo $this->baseurl ?>/templates/checkavet/js/jquery-1.7.1.min.js"></script>
+            <jdoc:include type="head" />
             <!--[if lte IE 6]>
                 <link href="<?php echo $this->baseurl ?>/templates/checkavet/css/ieonly.css" rel="stylesheet" type="text/css" />
             <![endif]-->

@@ -11,6 +11,10 @@
 defined('_JEXEC') or die;
 
 require_once(JPATH_COMPONENT.'/helpers/html.php');
+
+JFactory::getDocument()->addStyleSheet('templates/checkavet/shadowbox/shadowbox.css')
+						->addScript('templates/checkavet/shadowbox/shadowbox.js');
+
 ?>
 <div id="content">
 	<div id="results">
