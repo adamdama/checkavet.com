@@ -48,6 +48,13 @@ table {
 
 /* Template CSS */
 
+html, body
+{
+	background: #FFFFFF;
+	width: 100%;
+	height: 100%;
+}
+
 body
 {	
 	font: 16px/23px Arial, Helvetica, sans-serif;
