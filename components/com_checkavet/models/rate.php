@@ -34,10 +34,8 @@ class CheckavetModelRate extends CheckavetModelRating
 		$app = JFactory::getApplication();
 
 		// Load state from the request.
-		$pk = JRequest::getInt('a_id');
-		$this->setState('article.id', $pk);
-
-		$this->setState('article.catid', JRequest::getInt('catid'));
+		$pk = JRequest::getInt('id');
+		$this->setState('rating.id', $pk);
 
 		$return = JRequest::getVar('return', null, 'default', 'base64');
 		$this->setState('return_page', base64_decode($return));
@@ -50,16 +48,16 @@ class CheckavetModelRate extends CheckavetModelRating
 	}
 
 	/**
-	 * Method to get article data.
+	 * Method to get rating data.
 	 *
-	 * @param	integer	The id of the article.
+	 * @param	integer	The id of the rating.
 	 *
 	 * @return	mixed	Content item data object on success, false on failure.
 	 */
 	public function getItem($itemId = null)
 	{
 		// Initialise variables.
-		$itemId = (int) (!empty($itemId)) ? $itemId : $this->getState('article.id');
+		$itemId = $this->getState('rating.id');
 
 		// Get a row instance.
 		$table = $this->getTable();
@@ -76,49 +74,10 @@ class CheckavetModelRate extends CheckavetModelRating
 		$properties = $table->getProperties(1);
 		$value = JArrayHelper::toObject($properties, 'JObject');
 
-		// Convert attrib field to Registry.
-		$value->params = new JRegistry;
-		$value->params->loadString($value->attribs);
-
 		// Compute selected asset permissions.
 		$user	= JFactory::getUser();
 		$userId	= $user->get('id');
-		$asset	= 'com_content.article.'.$value->id;
-
-		// Check general edit permission first.
-		if ($user->authorise('core.edit', $asset)) {
-			$value->params->set('access-edit', true);
-		}
-		// Now check if edit.own is available.
-		elseif (!empty($userId) && $user->authorise('core.edit.own', $asset)) {
-			// Check for a valid user and that they are the owner.
-			if ($userId == $value->created_by) {
-				$value->params->set('access-edit', true);
-			}
-		}
-
-		// Check edit state permission.
-		if ($itemId) {
-			// Existing item
-			$value->params->set('access-change', $user->authorise('core.edit.state', $asset));
-		}
-		else {
-			// New item.
-			$catId = (int) $this->getState('article.catid');
-
-			if ($catId) {
-				$value->params->set('access-change', $user->authorise('core.edit.state', 'com_content.category.'.$catId));
-				$value->catid = $catId;
-			}
-			else {
-				$value->params->set('access-change', $user->authorise('core.edit.state', 'com_content'));
-			}
-		}
-
-		$value->articletext = $value->introtext;
-		if (!empty($value->fulltext)) {
-			$value->articletext .= '<hr id="system-readmore" />'.$value->fulltext;
-		}
+		$asset	= 'com_content.rating.'.$value->id;
 
 		return $value;
 	}

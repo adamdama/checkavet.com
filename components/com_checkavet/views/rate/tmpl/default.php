@@ -7,41 +7,22 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// No direct access.
-defined('_JEXEC') or die;
-
-?>
-<head>
-	<link rel="stylesheet" type="text/css" href="templates/checkavet/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="templates/checkavet/shadowbox/shadowbox.css" />
-	<script type="text/javascript" src="templates/checkavet/shadowbox/shadowbox.js"></script>
-</head>
-<?php
-/**
- * @package		Joomla.Site
- * @subpackage	com_content
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- */
-
 // no direct access
 defined('_JEXEC') or die;
-
+/*
 JHtml::_('behavior.keepalive');
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.calendar');
 JHtml::_('behavior.formvalidation');
-
+*/
 // Create shortcut to parameters.
 $params = $this->state->get('params');
 //$images = json_decode($this->item->images);
 //$urls = json_decode($this->item->urls);
 
-// This checks if the editor config options have ever been saved. If they haven't they will fall back to the original settings.
-$editoroptions = isset($params->show_publishing_options);
-if (!$editoroptions):
-	$params->show_urls_images_frontend = '0';
-endif;
+JFactory::getDocument()->addStyleSheet('templates/checkavet/shadowbox/shadowbox.css')
+						->addStyleSheet('templates/checkavet/css/raw.css')
+						->addScript('templates/checkavet/shadowbox/shadowbox.js');
 ?>
 
 <script type="text/javascript">
@@ -171,28 +152,7 @@ endif;
 		<?php echo $this->form->getLabel('created_by_alias'); ?>
 		<?php echo $this->form->getInput('created_by_alias'); ?>
 		</div>
-
-	<?php if ($this->item->params->get('access-change')): ?>
-		<div class="formelm">
-		<?php echo $this->form->getLabel('state'); ?>
-		<?php echo $this->form->getInput('state'); ?>
-		</div>
-
-		<div class="formelm">
-		<?php echo $this->form->getLabel('featured'); ?>
-		<?php echo $this->form->getInput('featured'); ?>
-		</div>
-
-		<div class="formelm">
-		<?php echo $this->form->getLabel('publish_up'); ?>
-		<?php echo $this->form->getInput('publish_up'); ?>
-		</div>
-		<div class="formelm">
-		<?php echo $this->form->getLabel('publish_down'); ?>
-		<?php echo $this->form->getInput('publish_down'); ?>
-		</div>
-
-	<?php endif; ?>
+		
 		<div class="formelm">
 		<?php echo $this->form->getLabel('access'); ?>
 		<?php echo $this->form->getInput('access'); ?>
@@ -232,3 +192,4 @@ endif;
 	</fieldset>
 </form>
 </div>
+<?php ini_set('dispaly_errors', 1);

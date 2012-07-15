@@ -10,7 +10,7 @@ jQuery(document).ready(function(e) {
 		//form.find('input[name="user_rating"]').val($this.index()+1);
 		//form.submit();
 		Shadowbox.open({
-	        content: 'index.php?option=com_checkavet&view=rate&format=raw',
+	        content: 'index.php?option=com_checkavet&view=rate',
 	        player: 'iframe',
 	        width: 500,
 	        height: 100,
