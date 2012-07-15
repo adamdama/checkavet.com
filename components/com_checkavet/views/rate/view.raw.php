@@ -13,7 +13,7 @@ defined('_JEXEC') or die;
  * @subpackage	com_content
  * @since		1.5
  */
-class CheckavetViewRating extends JViewLegacy
+class CheckavetViewRate extends JViewLegacy
 {
 	protected $form;
 	protected $item;
