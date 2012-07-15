@@ -36,18 +36,6 @@ class CheckavetViewRate extends JView
 		$this->form			= $this->get('Form');
 		$this->return_page	= $this->get('ReturnPage');
 
-		if (empty($this->item->id)) {
-			$authorised = $user->authorise('core.create', 'com_content') || (count($user->getAuthorisedCategories('com_content', 'core.create')));
-		}
-		else {
-			$authorised = $this->item->params->get('access-edit');
-		}
-
-		if ($authorised !== true) {
-			JError::raiseError(403, JText::_('JERROR_ALERTNOAUTHOR'));
-			return false;
-		}
-
 		if (!empty($this->item) && isset($this->item->id)) {
 			$this->item->images = json_decode($this->item->images);
 			$this->item->urls = json_decode($this->item->urls);
@@ -67,15 +55,9 @@ class CheckavetViewRate extends JView
 		// Create a shortcut to the parameters.
 		$params	= &$this->state->params;
 
-		//Escape strings for HTML output
-		$this->pageclass_sfx = htmlspecialchars($params->get('pageclass_sfx'));
-
 		$this->params	= $params;
 		$this->user		= $user;
-
-		if ($this->params->get('enable_category') == 1) {
-			$this->form->setFieldAttribute('catid', 'default',  $params->get('catid', 1));
-		}
+		
 		//$this->_prepareDocument();
 		parent::display($tpl);
 	}
