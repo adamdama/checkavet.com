@@ -43,6 +43,8 @@ class CheckavetModelRate extends CheckavetModelRating
 		// Load the parameters.
 		$params	= $app->getParams();
 		$this->setState('params', $params);
+		
+		$this->setState('rating', JRequest::getVar('user_rating', 0));
 
 		$this->setState('layout', JRequest::getCmd('layout'));
 	}

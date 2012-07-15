@@ -40,20 +40,27 @@ JFactory::getDocument()->addStyleSheet('templates/checkavet/shadowbox/shadowbox.
 </script>
 <div class="edit item-page<?php echo $this->pageclass_sfx; ?>">
 	<form action="<?php echo JRoute::_('index.php?option=com_checkavet&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate">
-		<div class="width-60 fltlft">
+		<div class=>
 			<fieldset class="adminform">
-				<ul class="adminformlist">                
-					<li><?php echo $this->form->getLabel('rating'); ?>
-					<?php echo $this->form->getInput('rating'); ?></li>
-	                
-					<li><?php echo $this->form->getLabel('name'); ?>
-					<?php echo $this->form->getInput('name'); ?></li>
-	                
-					<li><?php echo $this->form->getLabel('email'); ?>
-					<?php echo $this->form->getInput('email'); ?></li>
-				</ul>
-				<div class="clr"></div>
-				<?php echo $this->form->getLabel('ratingtext'); ?>
+				<table class="adminformlist"> 
+					<tr>
+						<td>
+							<?php echo $this->form->getLabel('name'); ?>
+						</td>
+						<td>
+							<?php echo $this->form->getInput('name'); ?>
+						</td>
+					</tr> 
+					<tr>
+						<td>
+							<?php echo $this->form->getLabel('email'); ?>
+						</td>
+						<td>
+							<?php echo $this->form->getInput('email'); ?>
+						</td>
+					</tr>  <?php echo $this->form->getLabel('rating'); ?>
+					<?php echo $this->state->get('rating'); ?>
+				</table>
 				<div class="clr"></div>
 				<?php echo $this->form->getInput('ratingtext'); ?>
 			</fieldset>
