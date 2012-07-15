@@ -24,7 +24,7 @@ $params = $this->state->get('params');
 //$urls = json_decode($this->item->urls);
 
 JFactory::getDocument()->addStyleSheet('templates/checkavet/shadowbox/shadowbox.css')
-						->addStyleSheet('templates/checkavet/css/raw.css')
+						->addStyleSheet('templates/checkavet/css/modal.css')
 						->addScript('templates/checkavet/shadowbox/shadowbox.js');
 ?>
 

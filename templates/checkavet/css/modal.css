@@ -4,3 +4,10 @@
 {
 	display:none;
 }
+
+#site-wrapper
+{
+	width: 800px;
+	height: 400px;
+	overflow: hidden;
+}

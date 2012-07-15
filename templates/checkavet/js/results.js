@@ -12,8 +12,8 @@ jQuery(document).ready(function(e) {
 		Shadowbox.open({
 	        content: 'index.php?option=com_checkavet&view=rate',
 	        player: 'iframe',
-	        width: 500,
-	        height: 100,
+	        width: 800,
+	        height: 400,
 	        options:	{
 	        	modal: true
 	        }
