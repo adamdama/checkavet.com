@@ -11,3 +11,73 @@
 	height: 400px;
 	overflow: hidden;
 }
+
+.item-page
+{
+	padding: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -- TOOLTIP STYLES ----------------------------- */
+.tip {
+	float: left;
+	background: #ffc;
+	border: 1px solid #D4D5AA;
+	padding: 5px;
+	max-width: 400px;
+	z-index: 50;
+}
+
+.tip-title {
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: -15px;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	background: url(../images/selector-arrow.png) no-repeat;
+}
+
+.tip-text {
+	font-size: 1em;
+	margin: 0;
+}
+
+/* -- SYSTEM MESSAGE STYLES ----------------------------- */
+
+#system-message dd.message ul {
+	background-image: url(../images/notice-info.png);
+	background-repeat: no-repeat;
+}
+
+#system-message dd.error ul {
+	background-image: url(../images/notice-alert.png);
+	background-repeat: no-repeat;
+}
+
+#system-message dd.warning ul {
+	background-image: url(../images/notice-note.png);
+	background-repeat: no-repeat;
+}
+
+#system-message dd.notice ul {
+	background-image: url(../images/notice-note.png);
+	background-repeat: no-repeat;
+}

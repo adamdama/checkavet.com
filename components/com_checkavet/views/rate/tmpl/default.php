@@ -38,7 +38,7 @@ JFactory::getDocument()->addStyleSheet('templates/checkavet/shadowbox/shadowbox.
 		}
 	}
 </script>
-<div class="edit item-page<?php echo $this->pageclass_sfx; ?>">
+<div class="edit item-page">
 	<form action="<?php echo JRoute::_('index.php?option=com_checkavet&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate">
 		<div>
 			<fieldset class="adminform">

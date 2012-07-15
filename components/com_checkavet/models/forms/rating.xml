@@ -5,15 +5,15 @@
 <form>
 	<fieldset>
 		<field name="name" type="text" label="COM_CHECKAVET_FIELD_NAME_LABEL"
-			description="COM_CHECKAVET_FIELD_NAME_DESC" class="inputbox" size="50"
+			description="COM_CHECKAVET_FIELD_YOUR_NAME_DESC" class="inputbox required" size="50"
 			required="true" />
 			
 		<field name="email" type="text" label="COM_CHECKAVET_FIELD_EMAIL_LABEL" filter="email"
-			description="COM_CHECKAVET_FIELD_EMAIL_DESC" class="inputbox" size="50"
+			description="COM_CHECKAVET_FIELD_YOUR_EMAIL_DESC" class="inputbox required validate-email" size="50"
 			required="true" />
 
 		<field name="ratingtext" type="editor" class="inputbox"
-			label="COM_CHECKAVET_FIELD_RATINGTEXT_LABEL" description="COM_CHECKAVET_FIELD_RATINGTEXT_DESC"
+			label="COM_CHECKAVET_FIELD_YOUR_COMMENT_LABEL" description="COM_CHECKAVET_FIELD_YOUR_COMMENT_DESC"
 			filter="text" buttons="false"
 			readonly="true" />
 			
