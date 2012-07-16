@@ -2,20 +2,25 @@ jQuery(document).ready(function(e) {
 	
 	Shadowbox.init();
 	
-	if(jQuery('.star').length)
+	if(jQuery('.checkavet_rating_stars').length)
 	{
 		var $this, form, img;
 		
 		jQuery('.star').click(function(e)
-		{		
+		{	
+			
+			var rating = $this.index()+1;
+			var table = form.find('input[name="table"]').val();
+			var id = form.find('input[name="item_id"]').val();
+			
 			//alert($this.index()+1);
 			//form.find('input[name="user_rating"]').val($this.index()+1);
 			//form.submit();
 			Shadowbox.open({
-		        content: 'index.php?option=com_checkavet&view=rate',
+		        content: 'index.php?option=com_checkavet&view=rate&user_rating='+rating+'&item_id='+id+'&table='+table,
 		        player: 'iframe',
-		        width: 800,
-		        height: 400,
+		        width: 520,
+		        height: 440,
 		        options:	{
 		        	modal: true
 		        }

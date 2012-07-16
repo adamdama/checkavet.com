@@ -42,33 +42,30 @@ JFactory::getDocument()->addStyleSheet('templates/checkavet/shadowbox/shadowbox.
 	<form action="<?php echo JRoute::_('index.php?option=com_checkavet&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate">
 		<div>
 			<fieldset class="adminform">
-				<table class="adminformlist"> 
-					<tr>
-						<td>
-							<?php echo $this->form->getLabel('name'); ?>
-						</td>
-						<td>
-							<?php echo $this->form->getInput('name'); ?>
-						</td>
-					</tr> 
-					<tr>
-						<td>
-							<?php echo $this->form->getLabel('email'); ?>
-						</td>
-						<td>
-							<?php echo $this->form->getInput('email'); ?>
-						</td>
-					</tr>  <?php echo $this->form->getLabel('rating'); ?>
+				<div class="field-row">					
 					<?php echo $this->state->get('rating'); ?>
-				</table>
+				</div>
+				<div class="field-row">
+					<?php echo $this->form->getLabel('name'); ?>
+					<?php echo $this->form->getInput('name'); ?>
+				</div> 
+				<div class="field-row">
+					<?php echo $this->form->getLabel('email'); ?>
+					<?php echo $this->form->getInput('email'); ?>
+				</div>
 				<div class="clr"></div>
-				<?php echo $this->form->getInput('ratingtext'); ?>
+				<div class="field-row-editor">
+					<?php echo $this->form->getInput('ratingtext'); ?>
+				</div>
+				<div class="field-row">
+					<input type="button" value="<?php echo JText::_('COM_CHECKAVET_BUTTON_SUBMIT_RATING'); ?>" onclick="Joomla.submitbutton('submit')" />
+					<input type="hidden" name="task" value="validate" />
+					<input type="hidden" name="view" value="rate" />
+					<input type="hidden" name="item_id" value="<?php echo JRequest::getVar('item_id', 0); ?>" />
+					<input type="hidden" name="table" value="<?php echo JRequest::getVar('table', ''); ?>" />
+					<?php echo JHtml::_('form.token'); ?>
+				</div>			
 			</fieldset>
 		</div>
-		<div>
-			<input type="button" value="<?php echo JText::_('COM_CHECKAVET_BUTTON_SUBMIT_RATING'); ?>" onclick="Joomla.submitbutton('submit')" />
-			<input type="hidden" name="task" value="" />
-			<input type="hidden" name="return" value="<?php echo JRequest::getCmd('return');?>" />
-			<?php echo JHtml::_('form.token'); ?>
-		</div>
 	</form>
+</div>

@@ -7,9 +7,14 @@
 
 #site-wrapper
 {
-	width: 800px;
-	height: 400px;
+	width: 520px;
+	height: 440px;
 	overflow: hidden;
+}
+
+.wf_editor_toggle
+{
+	display: none !important;
 }
 
 .item-page
@@ -17,11 +22,41 @@
 	padding: 15px;
 }
 
+.item-page label
+{
+	width: 151px;
+	display: inline;
+	float: left;
+}
+
+.item-page .field-row
+{
+	margin-bottom: 4px;
+	color: #80B0DB;
+}
 
 
+.item-page .field-row-editor
+{
+	margin-top: 10px;
+	margin-bottom: 4px;
+}
 
+.item-page input[type="button"]
+{
+	width: 100%;
+	padding: 8px;
+	margin: 0;
+	background: #FFFFFF;
+	color: #80B0DB;
+	border: 4px solid #80B0DB;
+	font-weight: bold;
+}
 
-
+.item-page .star
+{
+	color: red;
+}
 
 
 
