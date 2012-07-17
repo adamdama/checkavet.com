@@ -118,7 +118,7 @@ class CheckavetModelVets extends JModel
 		return $this->_vets;
 	}
 
-    public function storeVote($obj_id = 0, $rate = 0, $email = '', $name = '')
+    public function storeVote($obj_id = 0, $rate = 0, $email = '', $name = '', $rating_text = '')
     {
     	$max = JComponentHelper::getParams('com_checkavet')->get('max_rating');
 
@@ -133,8 +133,8 @@ class CheckavetModelVets extends JModel
 
             if (!$rated)
             {
-                $db->setQuery('INSERT INTO `#__checkavet_ratings` ( `obj_id`, `obj_table`, `name`, `email`, `rating`, `state` )' .
-                        		' VALUES ( '.(int) $obj_id.', '.$db->Quote('vets').', '.$db->Quote($name).', '.$db->Quote($email).', '.$rate.', 1)');
+                $db->setQuery('INSERT INTO `#__checkavet_ratings` ( `obj_id`, `obj_table`, `name`, `email`, `rating`,`ratingtext`, `state` )' .
+                        		' VALUES ( '.(int) $obj_id.', '.$db->Quote('vets').', '.$db->Quote($name).', '.$db->Quote($email).', '.$rate.', '.$db->Quote($rating_text).', 1)');
 
                 if (!$db->query())
                 {

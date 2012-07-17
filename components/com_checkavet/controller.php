@@ -63,6 +63,7 @@ class CheckavetController extends JController
 		$form = JRequest::getVar('jform', '');
 		$email = $form['email'];
 		$name = $form['name'];
+		$rating_text = $form['ratingtext'];
 		
 		if($email != '' && $rating > 0)
 		{			
@@ -75,7 +76,7 @@ class CheckavetController extends JController
 			{
 				$model = $this->getModel($table);
 				
-				if (!$model->storeVote($id, $rating, $email, $name))
+				if (!$model->storeVote($id, $rating, $email, $name, $rating_text))
 				{
 					$this->message = JText::_('COM_COHECKAVET_VOTE_FAILURE');
 				die('1');
