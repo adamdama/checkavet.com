@@ -235,8 +235,9 @@ class CheckavetHelper
 		$img = '';
 
 		// look for images in template if available
-		$starImageOn = 'templates/checkavet/images/stars.gif';
-		$starImageOff ='templates/checkavet/images/blank_stars.gif';
+		// TODO make star images media parameter of component	
+		$starImageOn = 'templates/checkavet/images/stars.png';
+		$starImageOff ='templates/checkavet/images/blank_stars.png';
 		//$html .= '<span class="content_rating">';
 		//$html .= JText::sprintf( 'PLG_VOTE_USER_RATING', $img, $rating_count );
 		//$html .= "</span>\n<br />\n";
