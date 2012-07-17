@@ -35,12 +35,11 @@ class CheckavetModelRatings extends JModelList
 				'rating', 'v.rating',
 				'obj_id', 'v.obj_id',
 				'table', 'v.obj_table',
-				'checked_out', 'v.checked_out',
 				'checked_out_time', 'v.checked_out_time',
 				'state', 'v.state',
 				'access', 'v.access', 'access_level',
 				'created', 'v.created',
-				'created_by', 'v.created_by',
+				'created_by', 'v.created_by'
 			);
 		}
 
@@ -118,8 +117,9 @@ class CheckavetModelRatings extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'v.id, v.checked_out, v.checked_out_time' .
-				', v.state, v.access, v.created'
+				'v.id, v.rating, v.obj_id, v.obj_table, v.checked_out, v.checked_out_time, v.state,'.
+				'v.access, v.created, v.created_by,' .
+				'v.id, v.checked_out, v.checked_out_time'
 			)
 		);
 		$query->from('#__checkavet_ratings AS v');

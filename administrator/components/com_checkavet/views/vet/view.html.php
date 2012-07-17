@@ -73,7 +73,8 @@ class CheckavetViewVet extends JView
 		// Built the actions for new and existing records.
 
 		// For new records, check the create permission.
-		if ($isNew && (count($user->getAuthorisedCategories('com_checkavet', 'core.create')) > 0)) {
+		//if ($isNew && (count($user->getAuthorisedCategories('com_checkavet', 'core.create')) > 0)) {
+		if ($isNew) {
 			JToolBarHelper::apply('vet.apply');
 			JToolBarHelper::save('vet.save');
 			JToolBarHelper::save2new('vet.save2new');

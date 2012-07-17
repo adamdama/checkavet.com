@@ -73,7 +73,8 @@ class CheckavetViewRating extends JView
 		// Built the actions for new and existing records.
 
 		// For new records, check the create permission.
-		if ($isNew && (count($user->getAuthorisedCategories('com_checkavet', 'core.create')) > 0)) {
+		//if ($isNew && (count($user->getAuthorisedCategories('com_checkavet', 'core.create')) > 0)) {
+		if ($isNew) {
 			JToolBarHelper::apply('rating.apply');
 			JToolBarHelper::save('rating.save');
 			JToolBarHelper::save2new('rating.save2new');

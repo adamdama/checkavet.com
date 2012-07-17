@@ -134,19 +134,19 @@ class CheckavetModelVets extends JModel
             if (!$rated)
             {
                 $db->setQuery('INSERT INTO `#__checkavet_ratings` ( `obj_id`, `obj_table`, `name`, `email`, `rating`,`ratingtext`, `state` )' .
-                        		' VALUES ( '.(int) $obj_id.', '.$db->Quote('vets').', '.$db->Quote($name).', '.$db->Quote($email).', '.$rate.', '.$db->Quote($rating_text).', 1)');
+                        		' VALUES ( '.(int) $obj_id.', '.$db->quote('vets').', '.$db->quote($name).', '.$db->quote($email).', '.$rate.', '.$db->quote($rating_text).', 1)');
 
                 if (!$db->query())
                 {
-                        $this->setError($db->getErrorMsg());
-                        return false;
+                    $this->setError($db->getErrorMsg());
+                	return false;
                 }
             } 
 			
             return true;
         }
 		
-        JError::raiseWarning( 'SOME_ERROR_CODE', JText::sprintf('COM_CHECKAVET_INVALID_RATING', $rate), "JModelVets::storeVote($rate)");
+        JError::raiseWarning( 'CHECKAVET_FAILED_VOTE', JText::sprintf('COM_CHECKAVET_INVALID_RATING', $rate), "JModelVets::storeVote($rate)");
 		
         return false;
     }
