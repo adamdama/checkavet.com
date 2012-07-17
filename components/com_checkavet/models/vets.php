@@ -117,37 +117,4 @@ class CheckavetModelVets extends JModel
 
 		return $this->_vets;
 	}
-
-    public function storeVote($obj_id = 0, $rate = 0, $email = '', $name = '', $rating_text = '')
-    {
-    	$max = JComponentHelper::getParams('com_checkavet')->get('max_rating');
-
-        if ( $rate > 0 && $rate <= $max && $obj_id > 0  && $email != '')
-        {
-        	$rate /= $max;
-			
-            $db = $this->getDbo();
-
-            $db->setQuery('SELECT `id` FROM `#__checkavet_ratings` WHERE `email` = '.$email);
-            $rated = $db->loadObject();
-
-            if (!$rated)
-            {
-                $db->setQuery('INSERT INTO `#__checkavet_ratings` ( `obj_id`, `obj_table`, `name`, `email`, `rating`,`ratingtext`, `state` )' .
-                        		' VALUES ( '.(int) $obj_id.', '.$db->quote('vets').', '.$db->quote($name).', '.$db->quote($email).', '.$rate.', '.$db->quote($rating_text).', 1)');
-
-                if (!$db->query())
-                {
-                    $this->setError($db->getErrorMsg());
-                	return false;
-                }
-            } 
-			
-            return true;
-        }
-		
-        JError::raiseWarning( 'CHECKAVET_FAILED_VOTE', JText::sprintf('COM_CHECKAVET_INVALID_RATING', $rate), "JModelVets::storeVote($rate)");
-		
-        return false;
-    }
 }

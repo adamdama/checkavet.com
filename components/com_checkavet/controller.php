@@ -73,9 +73,7 @@ class CheckavetController extends JController
 			$exists = $model->getItem();
 			
 			if($exists->id == '')
-			{
-				$model = $this->getModel($table);
-				
+			{				
 				if (!$model->storeVote($id, $rating, $email, $name, $rating_text))
 				{
 					$this->message = JText::_('COM_COHECKAVET_VOTE_FAILURE');
