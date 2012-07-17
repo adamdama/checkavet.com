@@ -263,26 +263,13 @@ body
 	display: block;
 }
 
-#results .checkavet_rating_stars
+.checkavet_rating_stars
 {
 	margin-top: 10px;
 	clear: both;
 }
 
-#results .checkavet_rating_info
-{
-	padding-top: 10px;
-	clear: both;
-	width: 187px;
-	text-align: center;
-}
-
-#results .checkavet_rating_info span 
-{
-	
-}
-
-#results .star
+.checkavet_rating_stars .star
 {
 	width: 30px;
 	height: 30px;
@@ -292,9 +279,17 @@ body
 	cursor: pointer;
 }
 
-#results .star img
+.checkavet_rating_stars .star img
 {
 	position: absolute;
+}
+
+.checkavet_rating_stars .checkavet_rating_info
+{
+	padding-top: 10px;
+	clear: both;
+	width: 187px;
+	text-align: center;
 }
 
 #footer
@@ -338,4 +333,10 @@ body
 #footer .contact-link
 {	
 	margin-left: 10px;
+}
+
+#sb-info
+{
+	position: absolute !important;
+	top: 0px;
 }

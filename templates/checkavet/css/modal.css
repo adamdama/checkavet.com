@@ -1,5 +1,10 @@
 @charset "utf-8";
 
+.clr
+{
+	clear: both;
+}
+
 .left-bg, .right-bg, #header, #footer, .menu
 {
 	display:none;
@@ -53,20 +58,17 @@
 	font-weight: bold;
 }
 
-.item-page .star
+.item-page span.star
 {
 	color: red;
 }
 
 
-
-
-
-
-
-
-
-
+.checkavet_rating_stars
+{
+	margin: 0 0 10px 0;
+	height: 30px;
+}
 
 
 /* -- TOOLTIP STYLES ----------------------------- */
@@ -77,6 +79,7 @@
 	padding: 5px;
 	max-width: 400px;
 	z-index: 50;
+	text-align: left;
 }
 
 .tip-title {
