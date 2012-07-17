@@ -25,14 +25,14 @@ $copyright = '<span class="copyright">'.$templateparams->get('copyright').'</spa
 $contactLink = '<a class="contact-link" href="mailto: '.$templateparams->get('contactEmail').'">'.$templateparams->get('contactWord').'</a>';
 
 
-if($view == "home")
+if($view == 'home')
 {
 	$doc->addScript($this->baseurl.'/templates/checkavet/js/jquery.validate.min.js', 'text/javascript', true);
 	$doc->addScript($this->baseurl.'/templates/checkavet/js/additional-methods.min.js', 'text/javascript', true);
 	$doc->addScript($this->baseurl.'/templates/checkavet/js/home.js', 'text/javascript', true);
 	
 }
-else
+elseif($view != 'rate')
 {	
 	$doc->addScript($this->baseurl.'/templates/checkavet/js/results.js', 'text/javascript', true);	
 }
