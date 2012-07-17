@@ -25,7 +25,7 @@ class CheckavetViewRate extends JView
 	protected $state;
 
 	public function display($tpl = null)
-	{
+	{		
 		// Initialise variables.
 		$app		= JFactory::getApplication();
 		$user		= JFactory::getUser();
@@ -57,56 +57,11 @@ class CheckavetViewRate extends JView
 
 		$this->params	= $params;
 		$this->user		= $user;
+		$this->max_rating = $params->get('max_rating');
+		
+		$this->rating = JRequest::getVar('user_rating', 0);
 		
 		//$this->_prepareDocument();
 		parent::display($tpl);
-	}
-
-	/**
-	 * Prepares the document
-	 */
-	protected function _prepareDocument()
-	{
-		$app		= JFactory::getApplication();
-		$menus		= $app->getMenu();
-		$pathway	= $app->getPathway();
-		$title 		= null;
-
-		// Because the application sets a default page title,
-		// we need to get it from the menu item itself
-		$menu = $menus->getActive();
-		if ($menu)
-		{
-			$this->params->def('page_heading', $this->params->get('page_title', $menu->title));
-		} else {
-			$this->params->def('page_heading', JText::_('COM_CONTENT_FORM_EDIT_ARTICLE'));
-		}
-
-		$title = $this->params->def('page_title', JText::_('COM_CONTENT_FORM_EDIT_ARTICLE'));
-		if ($app->getCfg('sitename_pagetitles', 0) == 1) {
-			$title = JText::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
-		}
-		elseif ($app->getCfg('sitename_pagetitles', 0) == 2) {
-			$title = JText::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
-		}
-		$this->document->setTitle($title);
-
-		$pathway = $app->getPathWay();
-		$pathway->addItem($title, '');
-
-		if ($this->params->get('menu-meta_description'))
-		{
-			$this->document->setDescription($this->params->get('menu-meta_description'));
-		}
-
-		if ($this->params->get('menu-meta_keywords'))
-		{
-			$this->document->setMetadata('keywords', $this->params->get('menu-meta_keywords'));
-		}
-
-		if ($this->params->get('robots'))
-		{
-			$this->document->setMetadata('robots', $this->params->get('robots'));
-		}
 	}
 }

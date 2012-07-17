@@ -43,8 +43,26 @@ JFactory::getDocument()->addStyleSheet('templates/checkavet/shadowbox/shadowbox.
 		<div>
 			<fieldset class="adminform">
 				<div class="field-row">					
-					<?php echo $this->state->get('rating'); ?>
+					<?php	
+					// TODO make star images media parameter of component	
+					$starImageOn = 'templates/checkavet/images/stars.png';
+					$starImageOff ='templates/checkavet/images/blank_stars.png';			
+					$html = '<div class="checkavet_rating_stars">';
+					
+					for($i = 1; $i <= $this->max_rating; $i++)
+					{
+						$html .= '<div class="star">';
+						$html .= '<img src="'.$starImageOff.'" alt="Blank rating star" />';
+						if($i <= $this->rating)
+							$html .= '<img src="'.$starImageOn.'" alt="Rating star" />';;
+						$html .= '</div>';
+					}
+					
+					$html .= '</div>';
+					echo $html;
+					?>
 				</div>
+				<div class="clr"></div>
 				<div class="field-row">
 					<?php echo $this->form->getLabel('name'); ?>
 					<?php echo $this->form->getInput('name'); ?>
@@ -58,9 +76,10 @@ JFactory::getDocument()->addStyleSheet('templates/checkavet/shadowbox/shadowbox.
 					<?php echo $this->form->getInput('ratingtext'); ?>
 				</div>
 				<div class="field-row">
-					<input type="button" value="<?php echo JText::_('COM_CHECKAVET_BUTTON_SUBMIT_RATING'); ?>" onclick="Joomla.submitbutton('submit')" />
-					<input type="hidden" name="task" value="validate" />
+					<input type="button" value="<?php echo JText::_('COM_CHECKAVET_BUTTON_SUBMIT_RATING'); ?>" onclick="Joomla.submitbutton('rate')" />
 					<input type="hidden" name="view" value="rate" />
+					<input type="hidden" name="task" value="" />
+					<input type="hidden" name="user_rating" value="<?php echo $this->rating; ?>" />
 					<input type="hidden" name="item_id" value="<?php echo JRequest::getVar('item_id', 0); ?>" />
 					<input type="hidden" name="table" value="<?php echo JRequest::getVar('table', ''); ?>" />
 					<?php echo JHtml::_('form.token'); ?>

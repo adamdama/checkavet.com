@@ -122,7 +122,7 @@ class CheckavetModelVets extends JModel
     {
     	$max = JComponentHelper::getParams('com_checkavet')->get('max_rating');
 
-        if ( $rate > 0 && $rate <= $max && $obj_id > 0  && ($email == '' || $name == ''))
+        if ( $rate > 0 && $rate <= $max && $obj_id > 0  && $email != '')
         {
         	$rate /= $max;
 			

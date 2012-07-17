@@ -56,58 +56,45 @@ class CheckavetController extends JController
 	 * @since	1.6.1
 	 */
 	function rate($cachable = false, $urlparams = false)
-	{			
-		// Check for request forgeries.
-		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
-
-		$user_rating = JRequest::getInt('user_rating', -1);
-
-		if ( $user_rating > 0) {
-			$url = JRequest::getString('url', '');
-			$email = JRequest::getString('email', '');
-			$name = JRequest::getString('name', '');
-			$id = JRequest::getInt('id', 0);
-			$viewName = JRequest::getString('view', $this->default_view);
-			$model = $this->getModel($viewName);
+	{
+		$rating = JRequest::getVar('user_rating' , 0);
+		$id = JRequest::getVar('item_id' , 0);
+		$table = JRequest::getVar('table' , '');
+		$form = JRequest::getVar('jform', '');
+		$email = $form['email'];
+		$name = $form['name'];
+		
+		if($email != '' && $rating > 0)
+		{			
+			$model = $this->getModel('Rate');
+			$model->setState('email', $email);
 			
-			if (!$model->storeVote($id, $user_rating, $email, $name)) {
-				$this->message = JText::_('COM_CONTENT_ARTICLE_VOTE_FAILURE');
-				//$this->setRedirect($viewName, JText::_('COM_CONTENT_ARTICLE_VOTE_FAILURE'));
-				//$this->setRedirect($viewName, JText::_('COM_CONTENT_ARTICLE_VOTE_SUCCESS'));
+			$exists = $model->getItem();
+			
+			if($exists->id == '')
+			{
+				$model = $this->getModel($table);
+				
+				if (!$model->storeVote($id, $rating, $email, $name))
+				{
+					$this->message = JText::_('COM_COHECKAVET_VOTE_FAILURE');
+				die('1');
+					//$this->setRedirect($viewName, JText::_('COM_CONTENT_ARTICLE_VOTE_FAILURE'));
+					//$this->setRedirect($viewName, JText::_('COM_CONTENT_ARTICLE_VOTE_SUCCESS'));
+				}
+			}
+			else
+			{
+				$this->message = JText::_('COM_COHECKAVET_VOTE_MULTIPLE_FAILURE');
+				die('2');
 			}
 		}
+		else
+		{
+			$this->message = JText::_('COM_COHECKAVET_VOTE_FAILURE');
+				die('3');
+		}
 		
-		$this->postcode = JRequest::getString('postcode', '');
 		$this->display($cachable, $urlparams);
 	}
-	/*
-	function vets($cachable = false, $urlparams = false)
-	{	
-		$post = JRequest::get();	
-		$postcode = $post['postcode'];
-
-		$id		= JRequest::getInt('a_id');
-		$vName	= JRequest::getCmd('view', 'vets');
-		
-		echo $vName;
-		exit();
-		JRequest::setVar('view', $vName);
-				
-   		parent::display($cachable, $urlparams);
-	}
-	
-	function petservices($cachable = false, $urlparams = false)
-	{	
-		$post = JRequest::get();	
-		$postcode = $post['postcode'];
-
-		$id		= JRequest::getInt('a_id');
-		$vName	= JRequest::getCmd('view', 'vets');
-		
-		echo $vName;
-		exit();
-		JRequest::setVar('view', $vName);		
-		
-   		parent::display($cachable, $urlparams);
-	}*/
 }
