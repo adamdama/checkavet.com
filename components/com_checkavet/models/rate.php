@@ -100,6 +100,22 @@ class CheckavetModelRate extends CheckavetModelRating
 
         if ( $rate > 0 && $rate <= $max && $obj_id > 0  && $email != '')
         {
+    		$user =& JFactory::getUser($email);
+			
+			if($user->id == 0)
+			{
+				$user = $this->createUser($email, $name);
+				
+				if(!$user)
+				{
+					//$this->setError(JText::_('COM_CHECKAVET_ERROR_USER_CREATE'));
+					JError::raiseWarning( 'CHECKAVET_FAILED_VOTE', JText::sprintf('COM_CHECKAVET_ERROR_USER_CREATE', $rate), "JModelVets::storeVote($rate)");
+                	return false;
+				}
+				
+				$user =& JFactory::getUser($email);
+			}
+			
         	$rate /= $max;
 			
             $db = $this->getDbo();
@@ -109,8 +125,9 @@ class CheckavetModelRate extends CheckavetModelRating
 
             if (!$rated)
             {
-                $db->setQuery('INSERT INTO `#__checkavet_ratings` ( `obj_id`, `obj_table`, `name`, `email`, `rating`,`ratingtext`, `state` )' .
-                        		' VALUES ( '.(int) $obj_id.', '.$db->quote('vets').', '.$db->quote($name).', '.$db->quote($email).', '.$rate.', '.$db->quote($rating_text).', 1)');
+            	$date =& JFactory::getDate();
+                $db->setQuery('INSERT INTO `#__checkavet_ratings` ( `obj_id`, `obj_table`, `name`, `email`, `rating`,`ratingtext`, `state`, `date` )' .
+                        		' VALUES ( '.(int) $obj_id.', '.$db->quote('vets').', '.$db->quote($name).', '.$db->quote($email).', '.$rate.', '.$db->quote($rating_text).', 1, '.$db->quote($date->toMySQL()).')');
 
                 if (!$db->query())
                 {
@@ -125,5 +142,45 @@ class CheckavetModelRate extends CheckavetModelRating
         JError::raiseWarning( 'CHECKAVET_FAILED_VOTE', JText::sprintf('COM_CHECKAVET_INVALID_RATING', $rate), "JModelVets::storeVote($rate)");
 		
         return false;
+	}
+
+	function createUser($email, $name = '')
+	{
+		if(!$email)
+			return false;
+		
+		$user = clone(JFactory::getUser());
+		$authorize = & JFactory::getACL();
+		$userGroup = 'Registered';
+
+		$data = array();
+		$user->set('name', $name ? $name : $email);
+		$user->set('username', $email); 
+		$user->set('email', $email);
+		$user->set('usertype', $userGroup);		
+		$user->set('id', 0);
+		
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		$query->select('g.id AS gid')
+				->from('#__usergroups AS g')
+				->where('g.title = '.$db->quote($userGroup));
+		$db->setQuery($query);
+		$grp = $db->loadObject();
+		
+		$gid = $grp->gid ? $grp->gid : 0;
+		
+		if(!$gid)
+			return false;
+		
+		$user->set('gid', $gid);
+		
+		$date =& JFactory::getDate();
+		$user->set('registerDate', $date->toMySQL());
+		
+		if($user->save())
+			return $user;
+		
+		return false;
 	}
 }

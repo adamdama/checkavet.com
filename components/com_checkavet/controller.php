@@ -77,7 +77,8 @@ class CheckavetController extends JController
 				if (!$model->storeVote($id, $rating, $email, $name, $rating_text))
 				{
 					$this->message = JText::_('COM_COHECKAVET_VOTE_FAILURE');
-				die('1');
+					//JError::raiseError(10255, 'COM_COHECKAVET_VOTE_FAILURE');
+				//die('1');
 					//$this->setRedirect($viewName, JText::_('COM_CONTENT_ARTICLE_VOTE_FAILURE'));
 					//$this->setRedirect($viewName, JText::_('COM_CONTENT_ARTICLE_VOTE_SUCCESS'));
 				}
