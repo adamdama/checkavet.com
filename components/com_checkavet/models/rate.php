@@ -100,20 +100,16 @@ class CheckavetModelRate extends CheckavetModelRating
 
         if ( $rate > 0 && $rate <= $max && $obj_id > 0  && $email != '')
         {
-    		$user =& JFactory::getUser($email);
-			
+    		$user =& JFactory::getUser(JUserHelper::getUserId($email));
+
 			if($user->id == 0)
-			{
-				$user = $this->createUser($email, $name);
-				
-				if(!$user)
-				{
-					//$this->setError(JText::_('COM_CHECKAVET_ERROR_USER_CREATE'));
-					JError::raiseWarning( 'CHECKAVET_FAILED_VOTE', JText::sprintf('COM_CHECKAVET_ERROR_USER_CREATE', $rate), "JModelVets::storeVote($rate)");
+			{				
+				if(!$user = $this->createUser($email, $name))
+				{	
+					$this->setError(JText::_('COM_CHECKAVET_ERROR_USER_CREATE'));
+					
                 	return false;
 				}
-				
-				$user =& JFactory::getUser($email);
 			}
 			
         	$rate /= $max;
@@ -126,8 +122,8 @@ class CheckavetModelRate extends CheckavetModelRating
             if (!$rated)
             {
             	$date =& JFactory::getDate();
-                $db->setQuery('INSERT INTO `#__checkavet_ratings` ( `obj_id`, `obj_table`, `name`, `email`, `rating`,`ratingtext`, `state`, `date` )' .
-                        		' VALUES ( '.(int) $obj_id.', '.$db->quote('vets').', '.$db->quote($name).', '.$db->quote($email).', '.$rate.', '.$db->quote($rating_text).', 1, '.$db->quote($date->toMySQL()).')');
+                $db->setQuery('INSERT INTO `#__checkavet_ratings` ( `obj_id`, `obj_table`, `name`, `email`, `rating`,`ratingtext`, `state`, `created`, `created_by` )' .
+                        		' VALUES ( '.(int) $obj_id.', '.$db->quote('vets').', '.$db->quote($name).', '.$db->quote($email).', '.$rate.', '.$db->quote($rating_text).', 1, '.$db->quote($date->toMySQL()).', '.$user->id.')');
 
                 if (!$db->query())
                 {
@@ -168,18 +164,22 @@ class CheckavetModelRate extends CheckavetModelRating
 		$db->setQuery($query);
 		$grp = $db->loadObject();
 		
-		$gid = $grp->gid ? $grp->gid : 0;
-		
-		if(!$gid)
-			return false;
-		
+		$gid = $grp->gid ? $grp->gid : 2;		
 		$user->set('gid', $gid);
 		
 		$date =& JFactory::getDate();
 		$user->set('registerDate', $date->toMySQL());
 		
 		if($user->save())
+		{
+			$query = $db->getQuery(true);
+			$query->insert('#__user_usergroup_map');
+			$query->set('user_id = '.$user->id.', group_id = '.$user->gid);
+			$db->setQuery($query)->query();
 			return $user;
+		}
+		
+		$this->setError($user->getError());
 		
 		return false;
 	}

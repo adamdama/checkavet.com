@@ -25,7 +25,7 @@ class CheckavetViewRate extends JView
 	protected $state;
 
 	public function display($tpl = null)
-	{		
+	{				
 		// Initialise variables.
 		$app		= JFactory::getApplication();
 		$user		= JFactory::getUser();
@@ -43,9 +43,8 @@ class CheckavetViewRate extends JView
 			$this->form->bind($this->item);
 			$this->form->bind($this->item->urls);
 			$this->form->bind($this->item->images);
-
 		}
-
+		
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {
 			JError::raiseWarning(500, implode("\n", $errors));

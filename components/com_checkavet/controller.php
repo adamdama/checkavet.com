@@ -75,7 +75,9 @@ class CheckavetController extends JController
 			if($exists->id == '')
 			{				
 				if (!$model->storeVote($id, $rating, $email, $name, $rating_text))
-				{
+				{					
+					JError::raiseWarning( 'CHECKAVET_FAILED_VOTE', JText::sprintf(implode("\r\n",$model->getErrors())));
+				
 					$this->message = JText::_('COM_COHECKAVET_VOTE_FAILURE');
 					//JError::raiseError(10255, 'COM_COHECKAVET_VOTE_FAILURE');
 				//die('1');
