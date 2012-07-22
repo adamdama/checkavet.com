@@ -20,7 +20,7 @@ jQuery(document).ready(function(e) {
 		        content: 'index.php?option=com_checkavet&view=rate&user_rating='+rating+'&item_id='+id+'&table='+table,
 		        player: 'iframe',
 		        width: 520,
-		        height: 440,
+		        height: 500,
 		        options:	{
 		        	modal: true
 		        }

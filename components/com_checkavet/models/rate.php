@@ -94,7 +94,7 @@ class CheckavetModelRate extends CheckavetModelRating
 	}
 	
 
-    public function storeVote($obj_id = 0, $rate = 0, $email = '', $name = '', $rating_text = '')
+    public function storeVote($obj_id = 0, $obj_table = '', $rate = 0, $email = '', $name = '', $rating_text = '')
     {
     	$max = JComponentHelper::getParams('com_checkavet')->get('max_rating');
 
@@ -116,14 +116,14 @@ class CheckavetModelRate extends CheckavetModelRating
 			
             $db = $this->getDbo();
 
-            $db->setQuery('SELECT `id` FROM `#__checkavet_ratings` WHERE `email` = '.$email);
+            $db->setQuery('SELECT `obj_id`, `obj_table` FROM `#__checkavet_ratings` WHERE `email` = '.$db->quote($email));
             $rated = $db->loadObject();
 
-            if (!$rated)
+            if (!$rated || ($rated->obj_id != $obj_id || $rated->obj_table != $obj_table))
             {
             	$date =& JFactory::getDate();
                 $db->setQuery('INSERT INTO `#__checkavet_ratings` ( `obj_id`, `obj_table`, `name`, `email`, `rating`,`ratingtext`, `state`, `created`, `created_by` )' .
-                        		' VALUES ( '.(int) $obj_id.', '.$db->quote('vets').', '.$db->quote($name).', '.$db->quote($email).', '.$rate.', '.$db->quote($rating_text).', 1, '.$db->quote($date->toMySQL()).', '.$user->id.')');
+                        		' VALUES ( '.(int) $obj_id.', '.$db->quote($obj_table).', '.$db->quote($name).', '.$db->quote($email).', '.$rate.', '.$db->quote($rating_text).', 1, '.$db->quote($date->toMySQL()).', '.$user->id.')');
 
                 if (!$db->query())
                 {
@@ -131,6 +131,11 @@ class CheckavetModelRate extends CheckavetModelRating
                 	return false;
                 }
             } 
+			elseif($rated && $rated->obj_id == $obj_id && $rated->obj_table == $obj_table)
+			{
+				 $this->setError(JText::_('COM_COHECKAVET_VOTE_MULTIPLE_FAILURE'));
+                return false;
+			}
 			
             return true;
         }
@@ -140,7 +145,7 @@ class CheckavetModelRate extends CheckavetModelRating
         return false;
 	}
 
-	function createUser($email, $name = '')
+	private function createUser($email, $name = '')
 	{
 		if(!$email)
 			return false;

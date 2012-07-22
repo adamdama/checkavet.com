@@ -23,8 +23,7 @@ $params = $this->state->get('params');
 //$images = json_decode($this->item->images);
 //$urls = json_decode($this->item->urls);
 
-JFactory::getDocument()->addStyleSheet('templates/checkavet/shadowbox/shadowbox.css')
-						->addStyleSheet('templates/checkavet/css/modal.css')
+JFactory::getDocument()->addStyleSheet('templates/checkavet/css/modal.css')
 						->addScript('templates/checkavet/shadowbox/shadowbox.js');
 ?>
 
@@ -37,6 +36,12 @@ JFactory::getDocument()->addStyleSheet('templates/checkavet/shadowbox/shadowbox.
 			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
 		}
 	}
+</script>
+<script type="text/javascript">
+	jQuery(document).ready(function()
+	{
+		window.parent.Shadowbox.skin.dynamicResize(jQuery('#site-wrapper').width(), jQuery('#site-wrapper').height());
+	});
 </script>
 <div class="edit item-page">
 	<form action="<?php echo JRoute::_('index.php?option=com_checkavet&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate">

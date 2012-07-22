@@ -64,6 +64,7 @@ class CheckavetController extends JController
 		$email = $form['email'];
 		$name = $form['name'];
 		$rating_text = $form['ratingtext'];
+		$failed = false;
 		
 		if($email != '' && $rating > 0)
 		{			
@@ -74,15 +75,15 @@ class CheckavetController extends JController
 			
 			if($exists->id == '')
 			{				
-				if (!$model->storeVote($id, $rating, $email, $name, $rating_text))
+				if (!$model->storeVote($id, $table, $rating, $email, $name, $rating_text))
 				{					
 					JError::raiseWarning( 'CHECKAVET_FAILED_VOTE', JText::sprintf(implode("\r\n",$model->getErrors())));
 				
 					$this->message = JText::_('COM_COHECKAVET_VOTE_FAILURE');
+					$failed = true;
 					//JError::raiseError(10255, 'COM_COHECKAVET_VOTE_FAILURE');
 				//die('1');
 					//$this->setRedirect($viewName, JText::_('COM_CONTENT_ARTICLE_VOTE_FAILURE'));
-					//$this->setRedirect($viewName, JText::_('COM_CONTENT_ARTICLE_VOTE_SUCCESS'));
 				}
 			}
 			else
@@ -94,7 +95,13 @@ class CheckavetController extends JController
 		else
 		{
 			$this->message = JText::_('COM_COHECKAVET_VOTE_FAILURE');
-				die('3');
+		}
+		
+		if(!$failed)
+		{
+			$this->message = JText::_('COM_CONTENT_ARTICLE_VOTE_SUCCESS');
+			JRequest::setVar('layout', 'success');
+			JRequest::setVar('view', 'rate');	
 		}
 		
 		$this->display($cachable, $urlparams);
