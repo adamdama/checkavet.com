@@ -227,7 +227,7 @@ class JTableRatings extends JTable
 			}
 		}
 		// Verify that the alias is unique
-		$table = JTable::getInstance('Rating', 'JTable');
+		$table = JTable::getInstance('Ratings', 'JTable');
 		if ($table->load(array('alias'=>$this->alias, 'id'=>$this->id)) && ($table->id != $this->id || $this->id==0)) {
 			$this->setError(JText::_('JLIB_DATABASE_ERROR_RATING_UNIQUE_ALIAS'));
 			return false;
