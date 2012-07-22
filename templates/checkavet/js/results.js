@@ -1,6 +1,13 @@
 jQuery(document).ready(function(e) {
 	
-	Shadowbox.init();
+	Shadowbox.init({
+		onClose: function()
+		{
+			if(Shadowbox.successful)
+				document.forms.request.submit();
+		}
+	}
+	);
 	
 	if(jQuery('.checkavet_rating_stars').length)
 	{
@@ -20,7 +27,7 @@ jQuery(document).ready(function(e) {
 		        content: 'index.php?option=com_checkavet&view=rate&user_rating='+rating+'&item_id='+id+'&table='+table,
 		        player: 'iframe',
 		        width: 520,
-		        height: 500,
+		        height: 440,
 		        options:	{
 		        	modal: true
 		        }

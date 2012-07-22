@@ -20,15 +20,17 @@ $lang = JFactory::getLanguage();
 $lang->load('com_checkavet', JPATH_ADMINISTRATOR);
 
 $params = $this->state->get('params');
-//$images = json_decode($this->item->images);
-//$urls = json_decode($this->item->urls);
+
+JFactory::getDocument()->addStyleSheet('templates/checkavet/css/modal.css');
 ?>
-<div>
+<div class="success">
 	<script type="text/javascript">
 		jQuery(document).ready(function()
 		{
-			window.parent.Shadowbox.dynamicResize(jQuery(document.body).width(), jQuery(document.body).height());
+			window.parent.Shadowbox.skin.dynamicResize(jQuery('#site-wrapper').width(), jQuery('#site-wrapper').height());
+			window.parent.Shadowbox.successful = true;
 		});
 	</script>
-	<a onclick="window.parent.Shadowbox.close();">Click here to close this window</a>
+	<?php echo JText::_('COM_CHECKAVET_VOTE_SUCCESS'); ?>
+	<a onclick="window.parent.Shadowbox.close();"><?php echo JText::_('COM_CHECKAVET_CLICK_TO_CLOSE_WINDOW'); ?></a>
 </div>

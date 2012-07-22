@@ -133,7 +133,7 @@ class CheckavetModelRate extends CheckavetModelRating
             } 
 			elseif($rated && $rated->obj_id == $obj_id && $rated->obj_table == $obj_table)
 			{
-				 $this->setError(JText::_('COM_COHECKAVET_VOTE_MULTIPLE_FAILURE'));
+				 $this->setError(JText::_('COM_CHECKAVET_VOTE_MULTIPLE_FAILURE'));
                 return false;
 			}
 			

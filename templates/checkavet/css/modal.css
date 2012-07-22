@@ -21,6 +21,30 @@ a
 	overflow: hidden;
 }
 
+.success
+{
+	font-size: 15px;
+	line-height: 20px;
+	padding: 10px;
+	text-align: center;
+	color: #80B0DB;
+}
+
+.success a
+{
+	display: block;
+}
+
+.invalid
+{
+	color: red;
+}
+
+input.invalid
+{
+	border: 1px solid red;
+}
+
 .wf_editor_toggle
 {
 	display: none !important;

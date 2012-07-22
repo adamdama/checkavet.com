@@ -20,8 +20,6 @@ $lang = JFactory::getLanguage();
 $lang->load('com_checkavet', JPATH_ADMINISTRATOR);
 
 $params = $this->state->get('params');
-//$images = json_decode($this->item->images);
-//$urls = json_decode($this->item->urls);
 
 JFactory::getDocument()->addStyleSheet('templates/checkavet/css/modal.css')
 						->addScript('templates/checkavet/shadowbox/shadowbox.js');
@@ -36,8 +34,7 @@ JFactory::getDocument()->addStyleSheet('templates/checkavet/css/modal.css')
 			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
 		}
 	}
-</script>
-<script type="text/javascript">
+
 	jQuery(document).ready(function()
 	{
 		window.parent.Shadowbox.skin.dynamicResize(jQuery('#site-wrapper').width(), jQuery('#site-wrapper').height());

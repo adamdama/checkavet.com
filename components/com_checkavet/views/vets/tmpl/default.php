@@ -65,3 +65,9 @@ JFactory::getDocument()->addStyleSheet('templates/checkavet/shadowbox/shadowbox.
     	</div>
     </div>
 </div>
+<form name="request" action="<?php echo JRoute::_('vets'); ?>">
+	<input type="hidden" name="postcode" value="<?php echo JRequest::getVar('postcode', ''); ?>" />
+    <input type="hidden" name="emergency" value="<?php echo JRequest::getVar('emergency', ''); ?>" />
+    <input type="hidden" name="view" value="vets" />
+    <input type="hidden" name="option" value="com_checkavet" />
+</form>
