@@ -25,6 +25,8 @@ $imagesrc = file_exists(JPATH_BASE.DS.'images'.DS.'checkavet'.DS.'logos'.DS.$pet
             if($website != "&nbsp;") 
                 echo '<a href="'.$website.'" target="_blank">'.$website.'</a>';
         endif;
+		
+		echo $petservice['rating'];
         ?>
 	</div>
 	<div class="column2">

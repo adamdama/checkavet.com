@@ -21,16 +21,19 @@ class CheckavetViewPetservices extends JView
 {
 	var $_limit = 10;
 	
+	var $petservices;
+	
+	var $featured;
+	
 	/**
 	 * Display the view
 	 */
 	public function display($tpl = null)
 	{		
+		require_once JPATH_COMPONENT_ADMINISTRATOR.DS.'helpers'.DS.'checkavet.php';	
+		
 		// Initialise some variables
-		$app	= JFactory::getApplication();
-		$pathway = $app->getPathway();
-		$uri	= JFactory::getURI();	
-		$params = $app->getParams();
+		$params = &JComponentHelper::getParams('com_checkavet');
 		
 		$this->petservices = null;		
 		$this->postcode = $this->get('Postcode');	
@@ -58,7 +61,8 @@ class CheckavetViewPetservices extends JView
 		$this->featured = array();
 		for($i = 0; $i < count($this->petservices); $i++)
 		{
-			$petservice = $this->petservices[$i];
+			$petservice = &$this->petservices[$i];
+			$petservice['rating'] = CheckavetHelper::createRater($petservice['id'], 'petservices', $params->get('max_rating'));
 			if($petservice['featured'] == 1)
 			{
 				$move = array_splice($this->petservices, $i, 1);
