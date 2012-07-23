@@ -3,7 +3,7 @@
  * The modular PHP5 site backup software solution
  * This file contains the jQuery-based client-side user interface logic
  * @package akeebaui
- * @copyright Copyright (c)2009-2011 Nicholas K. Dionysopoulos
+ * @copyright Copyright (c)2009-2012 Nicholas K. Dionysopoulos
  * @license GNU GPL version 3 or, at your option, any later version
  * @version $Id$
  **/
@@ -610,13 +610,18 @@ function parse_config_gui_data(data, rootnode)
 						
 					// A text box with a button
 					case 'buttonedit':
+						var editortype = defdata['editortype'] == 'hidden' ? 'hidden' : 'text';
+						
 						var editor = $(document.createElement('input')).attr({
-							type:		'text',
+							type:		editortype,
 							id:			current_id,
 							name:		current_id,
 							size:		'30',
 							value:		defdata['default']
 						});
+						if(defdata['editordisabled'] == '1') {
+							editor.attr('disabled', 'disabled');
+						}
 						
 						//var button = $(document.createElement('button')).addClass('ui-state-default').html(akeeba_translations[defdata['buttontitle']]);
 						var button = $(document.createElement('button')).html(akeeba_translations[defdata['buttontitle']]);
@@ -794,6 +799,12 @@ function parse_config_gui_data(data, rootnode)
 						});
 						editor.appendTo( row_div );
 						break;
+					
+					// An extension is being used
+					default:
+						var method = 'akeeba_render_'+defdata['type'];
+						var fn = window[method];
+						fn(config_key, defdata, label, row_div);
 				}
 			});
 			
