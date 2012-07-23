@@ -117,7 +117,7 @@ class CheckavetModelRatings extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'v.id, v.rating, v.obj_id, v.obj_table, v.checked_out, v.checked_out_time, v.state,'.
+				'v.id, v.rating, v.obj_id as service_id, v.obj_table as service_type, v.checked_out, v.checked_out_time, v.state,'.
 				'v.access, v.created, v.created_by,' .
 				'v.id, v.checked_out, v.checked_out_time'
 			)
@@ -130,7 +130,11 @@ class CheckavetModelRatings extends JModelList
 
 		// Join over the asset groups.
 		//$query->select('ag.title AS access_level');
-		//$query->join('LEFT', '#__viewlevels AS vg ON ag.id = v.access');
+		//$query->join('LEFT', '#__viewlevels AS vg ON ag.id = v.access');		
+		
+		// Join over the users for the author.
+		$query->select('ua.name AS creator_name');
+		$query->join('LEFT', '#__users AS ua ON ua.id = v.created_by');
 
 		// Filter by access level.
 		if ($access = $this->getState('filter.access')) {

@@ -51,7 +51,13 @@ $saveOrder	= $listOrder == 'v.ordering';
 					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_HEADING_SERVICE', 'v.obj_id', $listDirn, $listOrder); ?>
 				</th>
 				<th>
+					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_HEADING_SERVICE_TYPE', 'v.service_type', $listDirn, $listOrder); ?>
+				</th>
+				<th>
 					<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
+				</th>
+				<th width="5%">
+					<?php echo JHtml::_('grid.sort', 'COM_CHECKAVET_FIELD_STATUS_LABEL', 'v.state', $listDirn, $listOrder); ?>
 				</th>
 				<th width="10%">
 					<?php echo JHtml::_('grid.sort', 'JDATE', 'v.created', $listDirn, $listOrder); ?>
@@ -95,14 +101,20 @@ $saveOrder	= $listOrder == 'v.ordering';
 				</td>
 				<td>
 					<?php if ($canEdit || $canEditOwn) : ?>
-						<a href="<?php echo JRoute::_('index.php?option=com_checkavet&task='.$item->service_type.'.edit&id='.$item->obj_id);?>">
+						<a href="<?php echo JRoute::_('index.php?option=com_checkavet&task='.substr($item->service_type, 0, strlen($item->service_type) - 1).'.edit&id='.$item->service_id);?>">
 							<?php echo $this->escape($item->service_name); ?></a>
 					<?php else : ?>
 						<?php echo $this->escape($item->service_name); ?>
 					<?php endif; ?>					
 				</td>
 				<td class="center">
+					<?php echo $this->escape($item->service_type); ?>
+				</td>
+				<td class="center">
 					<?php echo $this->escape($item->creator_name); ?>
+				</td>
+				<td class="center">
+					<?php echo JHtml::_('jgrid.published', $item->state, $i, 'ratings.', $canChange, 'cb'); ?>
 				</td>
 				<td class="center nowrap">
 					<?php echo JHtml::_('date',$item->created, JText::_('DATE_FORMAT_LC4')); ?>

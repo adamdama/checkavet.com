@@ -11,6 +11,7 @@
 defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
+ini_set('display_errors', 1);
 
 /**
  * View class for a list of ratings.
@@ -40,8 +41,10 @@ class CheckavetViewRatings extends JView
 		if (count($errors = $this->get('Errors'))) {
 			JError::raiseError(500, implode("\n", $errors));
 			return false;
-		}
-
+		}					
+		
+		$this->setServiceNames();
+		
 		// We don't need toolbar in the modal window.
 		if ($this->getLayout() !== 'modal') {
 			$this->addToolbar();
@@ -49,7 +52,7 @@ class CheckavetViewRatings extends JView
 
 		parent::display($tpl);
 	}
-
+	
 	/**
 	 * Add the page title and toolbar.
 	 *
@@ -93,5 +96,70 @@ class CheckavetViewRatings extends JView
 		//}
 
 		//JToolBarHelper::help('JHELP_CONTENT_ARTICLE_MANAGER');
+	}
+		
+	protected function setServiceNames()
+	{
+		$db = JFactory::getDbo();		
+		
+		$tables = array('vets','petservices');
+		$results = array();
+		$errors = array();
+		$error = false;
+		
+		foreach($tables as $table)
+		{
+			$letter = substr($table, 0, 1);
+			
+			$query = $db->getQuery(true);
+			$query->select($letter.'.name, '.$letter.'.id AS '.$letter.'id');
+			$query->from('#__checkavet_'.$table.' AS '.$letter);
+			
+			$where = '';
+			
+			foreach($this->items as &$item)
+			{
+				if(substr($item->service_type, 0, 1) == $letter)		
+					$where .= $letter.'.id = '.$item->service_id.' OR ';
+			}
+			
+			if($where == '')
+				continue;
+			
+			$where = substr($where, 0, strlen($where) - 4);
+			$query->where($where);
+			
+			$db->setQuery($query);
+			$results[$letter] = $db->loadObjectList();
+			
+			if($error = $db->getErrorMsg())
+				$errors[] = $error;
+		}	
+		
+		// Check for errors.
+		if (count($errors)) {
+			JError::raiseError(500, implode("\n", $errors));
+			return false;
+		}
+		
+		foreach ($this->items as &$item)
+		{
+			$letter = substr($item->service_type, 0, 1);
+			
+			if(!isset($results[$letter]))
+				continue;
+			
+			foreach($results[$letter] as $service)
+			{
+				$id = $letter.'id';
+				
+				
+				if(isset($service->$id) && $service->$id == $item->service_id)
+				{
+					$item->service_name = $service->name;
+					break;
+				}
+			}				
+		}
 	}
 }
